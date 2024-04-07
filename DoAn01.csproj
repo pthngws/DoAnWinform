@@ -1,0 +1,630 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EmguCV.3.1.0.1\build\EmguCV.props" Condition="Exists('packages\EmguCV.3.1.0.1\build\EmguCV.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{539E9768-207E-4236-865B-EB584364ADBD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DoAn01</RootNamespace>
+    <AssemblyName>DoAn01</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Emgu.CV.UI, Version=3.1.0.2282, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI.GL, Version=3.1.0.2282, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.UI.GL.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.World, Version=3.1.0.2282, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <HintPath>packages\EmguCV.3.1.0.1\lib\net30\Emgu.CV.World.dll</HintPath>
+    </Reference>
+    <Reference Include="FaceRecognition, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FaceRecognition.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=6.3.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>packages\FontAwesome.Sharp.6.3.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>packages\OpenTK.1.1.2225.0\lib\net20\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>packages\OpenTK.GLControl.1.1.2225.0\lib\net20\OpenTK.GLControl.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="ZedGraph, Version=5.1.5.28844, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
+      <HintPath>packages\ZedGraph.5.1.5\lib\ZedGraph.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DentalSmileDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DentalSmileDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DentalSmileDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DentalSmileDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DentalSmileDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DentalSmileDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DentalSmileDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DentalSmileDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DentalSmileDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DentalSmileDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DentalSmileDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DentalSmileDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FaceID\FaceRec.cs" />
+    <Compile Include="Home\Manage\Dentist\AddDentist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\Manage\Dentist\AddDentist.Designer.cs">
+      <DependentUpon>AddDentist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Manage\Dentist\Dentist.cs" />
+    <Compile Include="Home\Manage\Dentist\InfoDentist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\Manage\Dentist\InfoDentist.Designer.cs">
+      <DependentUpon>InfoDentist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Manage\Dentist\UC_Dentist.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home\Manage\Dentist\UC_Dentist.Designer.cs">
+      <DependentUpon>UC_Dentist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Manage\Medicine\AddMedicine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\Manage\Medicine\AddMedicine.Designer.cs">
+      <DependentUpon>AddMedicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Manage\Medicine\InfoMedicine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\Manage\Medicine\InfoMedicine.Designer.cs">
+      <DependentUpon>InfoMedicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Manage\Medicine\Medicine.cs" />
+    <Compile Include="Home\Manage\Medicine\UC_Medicine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home\Manage\Medicine\UC_Medicine.Designer.cs">
+      <DependentUpon>UC_Medicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Manage\Patient\AddPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\Manage\Patient\AddPatient.Designer.cs">
+      <DependentUpon>AddPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Manage\Patient\InfoPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\Manage\Patient\InfoPatient.Designer.cs">
+      <DependentUpon>InfoPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Manage\Service\AddService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\Manage\Service\AddService.Designer.cs">
+      <DependentUpon>AddService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Manage\Service\InfoService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\Manage\Service\InfoService.Designer.cs">
+      <DependentUpon>InfoService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Manage\Service\Service.cs" />
+    <Compile Include="Home\Manage\Service\UC_Service.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home\Manage\Service\UC_Service.Designer.cs">
+      <DependentUpon>UC_Service.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Manage\UC_Manage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home\Manage\UC_Manage.Designer.cs">
+      <DependentUpon>UC_Manage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Manage\Patient\UC_Patient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home\Manage\Patient\UC_Patient.Designer.cs">
+      <DependentUpon>UC_Patient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Schedule\Schedule.cs" />
+    <Compile Include="Home\Schedule\ScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\Schedule\ScheduleForm.Designer.cs">
+      <DependentUpon>ScheduleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Schedule\Test.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home\Schedule\Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Schedule\UC_Schedule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home\Schedule\UC_Schedule.Designer.cs">
+      <DependentUpon>UC_Schedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\ChangePassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Login\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FaceID\FaceID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FaceID\FaceID.Designer.cs">
+      <DependentUpon>FaceID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\Login.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Login\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FaceID\LoginFaceID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FaceID\LoginFaceID.Designer.cs">
+      <DependentUpon>LoginFaceID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MY_DB.cs" />
+    <Compile Include="Home\Manage\Patient\Patient.cs" />
+    <Compile Include="PhieuDieuTri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PhieuDieuTri.Designer.cs">
+      <DependentUpon>PhieuDieuTri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Login\ResetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\ResetPassword.Designer.cs">
+      <DependentUpon>ResetPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\SignUp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Login\SignUp.Designer.cs">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Home\UC_Home.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home\Home\UC_Home.Designer.cs">
+      <DependentUpon>UC_Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\UC_Setting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home\UC_Setting.Designer.cs">
+      <DependentUpon>UC_Setting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\User.cs" />
+    <Compile Include="Login\Verify.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Login\Verify.Designer.cs">
+      <DependentUpon>Verify.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Home\Manage\Dentist\AddDentist.resx">
+      <DependentUpon>AddDentist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Manage\Dentist\InfoDentist.resx">
+      <DependentUpon>InfoDentist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Manage\Dentist\UC_Dentist.resx">
+      <DependentUpon>UC_Dentist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Manage\Medicine\AddMedicine.resx">
+      <DependentUpon>AddMedicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Manage\Medicine\InfoMedicine.resx">
+      <DependentUpon>InfoMedicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Manage\Medicine\UC_Medicine.resx">
+      <DependentUpon>UC_Medicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Manage\Patient\AddPatient.resx">
+      <DependentUpon>AddPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Manage\Patient\InfoPatient.resx">
+      <DependentUpon>InfoPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Manage\Service\AddService.resx">
+      <DependentUpon>AddService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Manage\Service\InfoService.resx">
+      <DependentUpon>InfoService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Manage\Service\UC_Service.resx">
+      <DependentUpon>UC_Service.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Manage\UC_Manage.resx">
+      <DependentUpon>UC_Manage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Manage\Patient\UC_Patient.resx">
+      <DependentUpon>UC_Patient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Schedule\ScheduleForm.resx">
+      <DependentUpon>ScheduleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Schedule\Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Schedule\UC_Schedule.resx">
+      <DependentUpon>UC_Schedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FaceID\FaceID.resx">
+      <DependentUpon>FaceID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FaceID\LoginFaceID.resx">
+      <DependentUpon>LoginFaceID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PhieuDieuTri.resx">
+      <DependentUpon>PhieuDieuTri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Login\ResetPassword.resx">
+      <DependentUpon>ResetPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\SignUp.resx">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Home\UC_Home.resx">
+      <DependentUpon>UC_Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\UC_Setting.resx">
+      <DependentUpon>UC_Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\Verify.resx">
+      <DependentUpon>Verify.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DentalSmileDataSet.xsc">
+      <DependentUpon>DentalSmileDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DentalSmileDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DentalSmileDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DentalSmileDataSet.xss">
+      <DependentUpon>DentalSmileDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DentalSmileDataSet1.xsc">
+      <DependentUpon>DentalSmileDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DentalSmileDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DentalSmileDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DentalSmileDataSet1.xss">
+      <DependentUpon>DentalSmileDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DentalSmileDataSet2.xsc">
+      <DependentUpon>DentalSmileDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DentalSmileDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DentalSmileDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DentalSmileDataSet2.xss">
+      <DependentUpon>DentalSmileDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DentalSmileDataSet3.xsc">
+      <DependentUpon>DentalSmileDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="DentalSmileDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DentalSmileDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DentalSmileDataSet3.xss">
+      <DependentUpon>DentalSmileDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="DentalSmileDataSet4.xsc">
+      <DependentUpon>DentalSmileDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="DentalSmileDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DentalSmileDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DentalSmileDataSet4.xss">
+      <DependentUpon>DentalSmileDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="DentalSmileDataSet5.xsc">
+      <DependentUpon>DentalSmileDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="DentalSmileDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DentalSmileDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DentalSmileDataSet5.xss">
+      <DependentUpon>DentalSmileDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="OpenTK.dll.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tải xuống %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pass.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pass1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tải xuống %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\avt.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-home-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-home-241.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-admin-settings-male-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-setting-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-manage-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-schedule-90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-setting-90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-manage-90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-dentistry-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-dental-90 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-dental-90 %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-dental-90 %281%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2024-03-16 135455.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-241.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-961.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-password-104.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-password-90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-face-id-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-face-id-961.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-face-id-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-mail-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-arrow-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-arrow-100 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-arrow-1001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-arrow-100 %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-arrow-100 %281%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-arrow-1002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-down-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-log-out-90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Home\NewFolder1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-150.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-50 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-report-90.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\EmguCV.3.1.0.1\build\EmguCV.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EmguCV.3.1.0.1\build\EmguCV.props'))" />
+    <Error Condition="!Exists('packages\EmguCV.3.1.0.1\build\EmguCV.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EmguCV.3.1.0.1\build\EmguCV.targets'))" />
+  </Target>
+  <Import Project="packages\EmguCV.3.1.0.1\build\EmguCV.targets" Condition="Exists('packages\EmguCV.3.1.0.1\build\EmguCV.targets')" />
+</Project>
