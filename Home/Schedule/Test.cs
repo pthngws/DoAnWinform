@@ -36,11 +36,16 @@ namespace DoAn01.Home.Schedule
         private void Test_Load(object sender, EventArgs e)
         {
             if(status == "Busy")
-                BackColor = Color.LightCoral;
+                BackColor = Color.DarkRed;
+           
+            label1.Text =  name;
+            // Tính toán vị trí của Label
+            int labelX = (this.ClientSize.Width - label1.Width) / 2;
 
-            label1.Text = "Dentist: " + name;
+            // Đặt vị trí cho Label
+            label1.Location = new Point(labelX, 35);
+
             label2.Text = "Status: " + status;
-            label3.Text = "Rating: ";
             guna2RatingStar1.Value =Convert.ToInt32(rating);
         }
 

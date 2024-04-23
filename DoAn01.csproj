@@ -87,6 +87,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChonDichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChonDichVu.Designer.cs">
+      <DependentUpon>ChonDichVu.cs</DependentUpon>
+    </Compile>
     <Compile Include="DentalSmileDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -116,6 +122,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DentalSmileDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DentalSmileDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DentalSmileDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DentalSmileDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DentalSmileDataSet7.xsd</DependentUpon>
     </Compile>
     <Compile Include="FaceID\FaceRec.cs" />
     <Compile Include="Home\Manage\Dentist\AddDentist.cs">
@@ -256,6 +272,7 @@
     </Compile>
     <Compile Include="MY_DB.cs" />
     <Compile Include="Home\Manage\Patient\Patient.cs" />
+    <Compile Include="PDT.cs" />
     <Compile Include="PhieuDieuTri.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -295,6 +312,9 @@
     <Compile Include="Login\Verify.Designer.cs">
       <DependentUpon>Verify.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ChonDichVu.resx">
+      <DependentUpon>ChonDichVu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home\Manage\Dentist\AddDentist.resx">
       <DependentUpon>AddDentist.cs</DependentUpon>
     </EmbeddedResource>
@@ -455,6 +475,28 @@
     </None>
     <None Include="DentalSmileDataSet5.xss">
       <DependentUpon>DentalSmileDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="DentalSmileDataSet6.xsc">
+      <DependentUpon>DentalSmileDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="DentalSmileDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DentalSmileDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DentalSmileDataSet6.xss">
+      <DependentUpon>DentalSmileDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="DentalSmileDataSet7.xsc">
+      <DependentUpon>DentalSmileDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="DentalSmileDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DentalSmileDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DentalSmileDataSet7.xss">
+      <DependentUpon>DentalSmileDataSet7.xsd</DependentUpon>
     </None>
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
@@ -617,6 +659,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-report-90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-service-90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-service-90 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-home-90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-home-901.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-manage-90 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-schedule-90 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-logout-90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-analytics-90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-doctor-90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-customer-90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-client-90.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

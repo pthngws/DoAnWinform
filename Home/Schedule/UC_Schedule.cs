@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace DoAn01.Home.Schedule
 
         private void UC_Schedule_Load(object sender, EventArgs e)
         {
-
+            guna2ImageButton1_Click(sender, e);
         }
         private void addUserControl(UserControl userControl, Panel panel)
         {
@@ -125,10 +126,23 @@ namespace DoAn01.Home.Schedule
                     {
 
                         Panel panel = new Panel();
-                        panel.BorderStyle = BorderStyle.FixedSingle;
+                        
+
                         panel.Width = panelWidth;
                         panel.Height = panelHeight;
                         panel.Location = new System.Drawing.Point(currentX, currentY);
+
+                        // Độ cong của góc (tùy chỉnh để điều chỉnh vẻ ngoài mềm mại)
+                        int borderRadius = 10;
+
+                        GraphicsPath boGocPath = new GraphicsPath();
+                        boGocPath.AddArc(new Rectangle(0, 0, 2 * borderRadius, 2 * borderRadius), 180, 90); // Góc trên bên trái
+                        boGocPath.AddArc(new Rectangle(panel.Width - 2 * borderRadius, 0, 2 * borderRadius, 2 * borderRadius), -90, 90); // Góc trên bên phải
+                        boGocPath.AddArc(new Rectangle(panel.Width - 2 * borderRadius, panel.Height - 2 * borderRadius, 2 * borderRadius, 2 * borderRadius), 0, 90); // Góc dưới bên phải
+                        boGocPath.AddArc(new Rectangle(0, panel.Height - 2 * borderRadius, 2 * borderRadius, 2 * borderRadius), 90, 90); // Góc dưới bên trái
+                        panel.Region = new Region(boGocPath);
+
+
                         string status = "Free";
                         if (checkStatus(x.id))
                         {
