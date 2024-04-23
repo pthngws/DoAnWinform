@@ -58,7 +58,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(286, 280);
+            this.label6.Location = new System.Drawing.Point(286, 262);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 16);
             this.label6.TabIndex = 41;
@@ -67,7 +67,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(138, 280);
+            this.label5.Location = new System.Drawing.Point(138, 262);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 16);
             this.label5.TabIndex = 40;
@@ -79,13 +79,14 @@
             this.btnRemove.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnRemove.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnRemove.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRemove.FillColor = System.Drawing.Color.DarkRed;
             this.btnRemove.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnRemove.ForeColor = System.Drawing.Color.White;
-            this.btnRemove.Location = new System.Drawing.Point(259, 406);
+            this.btnRemove.Location = new System.Drawing.Point(234, 406);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(180, 45);
+            this.btnRemove.Size = new System.Drawing.Size(126, 45);
             this.btnRemove.TabIndex = 39;
-            this.btnRemove.Text = "guna2Button1";
+            this.btnRemove.Text = "Remove";
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // guna2DateTimePicker1
@@ -99,7 +100,7 @@
             this.guna2DateTimePicker1.MinDate = new System.DateTime(1924, 1, 1, 0, 0, 0, 0);
             this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
             this.guna2DateTimePicker1.ShowUpDown = true;
-            this.guna2DateTimePicker1.Size = new System.Drawing.Size(330, 36);
+            this.guna2DateTimePicker1.Size = new System.Drawing.Size(251, 36);
             this.guna2DateTimePicker1.TabIndex = 38;
             this.guna2DateTimePicker1.Value = new System.DateTime(2014, 12, 31, 0, 0, 0, 0);
             // 
@@ -109,7 +110,7 @@
             this.RadioButtonFemale.CheckedState.BorderThickness = 0;
             this.RadioButtonFemale.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.RadioButtonFemale.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.RadioButtonFemale.Location = new System.Drawing.Point(259, 280);
+            this.RadioButtonFemale.Location = new System.Drawing.Point(259, 262);
             this.RadioButtonFemale.Name = "RadioButtonFemale";
             this.RadioButtonFemale.Size = new System.Drawing.Size(20, 20);
             this.RadioButtonFemale.TabIndex = 37;
@@ -126,7 +127,7 @@
             this.RadioButtonMale.CheckedState.BorderThickness = 0;
             this.RadioButtonMale.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.RadioButtonMale.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.RadioButtonMale.Location = new System.Drawing.Point(111, 280);
+            this.RadioButtonMale.Location = new System.Drawing.Point(111, 262);
             this.RadioButtonMale.Name = "RadioButtonMale";
             this.RadioButtonMale.Size = new System.Drawing.Size(20, 20);
             this.RadioButtonMale.TabIndex = 36;
@@ -162,7 +163,7 @@
             this.txtPhone.PasswordChar = '\0';
             this.txtPhone.PlaceholderText = "";
             this.txtPhone.SelectedText = "";
-            this.txtPhone.Size = new System.Drawing.Size(330, 44);
+            this.txtPhone.Size = new System.Drawing.Size(251, 44);
             this.txtPhone.TabIndex = 34;
             // 
             // label3
@@ -191,7 +192,7 @@
             this.txtAddress.PasswordChar = '\0';
             this.txtAddress.PlaceholderText = "";
             this.txtAddress.SelectedText = "";
-            this.txtAddress.Size = new System.Drawing.Size(330, 44);
+            this.txtAddress.Size = new System.Drawing.Size(251, 44);
             this.txtAddress.TabIndex = 32;
             // 
             // label2
@@ -220,7 +221,7 @@
             this.txtName.PasswordChar = '\0';
             this.txtName.PlaceholderText = "";
             this.txtName.SelectedText = "";
-            this.txtName.Size = new System.Drawing.Size(330, 44);
+            this.txtName.Size = new System.Drawing.Size(251, 44);
             this.txtName.TabIndex = 30;
             // 
             // label1
@@ -249,12 +250,12 @@
             this.txtID.PasswordChar = '\0';
             this.txtID.PlaceholderText = "";
             this.txtID.SelectedText = "";
-            this.txtID.Size = new System.Drawing.Size(330, 44);
+            this.txtID.Size = new System.Drawing.Size(251, 44);
             this.txtID.TabIndex = 28;
             // 
             // guna2RatingStar1
             // 
-            this.guna2RatingStar1.Location = new System.Drawing.Point(141, 363);
+            this.guna2RatingStar1.Location = new System.Drawing.Point(111, 363);
             this.guna2RatingStar1.Name = "guna2RatingStar1";
             this.guna2RatingStar1.RatingColor = System.Drawing.Color.Gold;
             this.guna2RatingStar1.Size = new System.Drawing.Size(241, 28);
@@ -267,13 +268,14 @@
             this.btnEdit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnEdit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnEdit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEdit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(26)))), ((int)(((byte)(150)))));
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnEdit.ForeColor = System.Drawing.Color.White;
             this.btnEdit.Location = new System.Drawing.Point(109, 406);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(144, 45);
+            this.btnEdit.Size = new System.Drawing.Size(119, 45);
             this.btnEdit.TabIndex = 43;
-            this.btnEdit.Text = "guna2Button1";
+            this.btnEdit.Text = "Edit";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // errorProvider1
@@ -296,7 +298,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(477, 486);
+            this.BackColor = System.Drawing.Color.AliceBlue;
+            this.ClientSize = new System.Drawing.Size(384, 463);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.guna2RatingStar1);
             this.Controls.Add(this.label6);

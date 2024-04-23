@@ -27,22 +27,20 @@ namespace DoAn01.Home.Schedule
             this.ca = ca;
             this.dentistid = dentistid;
             this.date = date;
+            if (schedule.Tinhtrang == "false")
+            {
+                RadioButtonFalse.Checked = true;
+            }
+            else
+                RadioButtonTrue.Checked = true;
         }
 
         private void ScheduleForm_Load(object sender, EventArgs e)
         {
 
             txtID.Text = schedule.Id;
-            txtDentistID.Text = dentistid;
             txtPatientID.Text = schedule.PatientID;
-            guna2DateTimePicker1.Value = Convert.ToDateTime(date);
-            txtCa.Text = ca;
-            if(schedule.Tinhtrang=="false")
-            {
-                RadioButtonFalse.Checked = true;
-            }    
-            else 
-                RadioButtonTrue.Checked = true;
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -54,15 +52,30 @@ namespace DoAn01.Home.Schedule
                 tinhtrang = "false";
             }
             else tinhtrang = "true";
-            if(schedule.insertSchedule(txtID.Text,dentistid,patientid, guna2DateTimePicker1.Value,tinhtrang,ca))
+            if(schedule.insertSchedule(txtID.Text,dentistid,patientid, Convert.ToDateTime(date), tinhtrang,ca))
             {
                 MessageBox.Show("ADD thanh cong");
+                
             }    
         }
 
         private void btnPhieuDieuTri_Click(object sender, EventArgs e)
         {
+            if (RadioButtonTrue.Checked)
+            {
+                PhieuDieuTri phieuDieuTri = new PhieuDieuTri(txtPatientID.Text, dentistid, txtID.Text);
+                phieuDieuTri.Show();
+            }
+            else
+            {
+                MessageBox.Show("Không có thông tin phiếu điều trị");
+            }
+        }
 
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            ChonDichVu chonDichVu = new ChonDichVu(txtID.Text);
+            chonDichVu.Show();
         }
     }
 }

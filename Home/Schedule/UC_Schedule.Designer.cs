@@ -83,7 +83,7 @@
             // panel1
             // 
             this.panel1.AutoScroll = true;
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.BackColor = System.Drawing.Color.AliceBlue;
             this.panel1.Location = new System.Drawing.Point(18, 60);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1229, 490);
