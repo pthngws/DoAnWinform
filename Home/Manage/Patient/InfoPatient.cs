@@ -127,5 +127,11 @@ namespace DoAn01.Home
                 MessageBox.Show("Delete thanh cong");
             }
         }
+
+        private void linkLabelHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LichSuDieuTri lichSuDieuTri = new LichSuDieuTri(patient.id);
+            lichSuDieuTri.Show();
+        }
     }
 }

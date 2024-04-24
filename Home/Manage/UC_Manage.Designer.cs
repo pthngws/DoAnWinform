@@ -68,7 +68,7 @@
             this.btnService.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnService.ImageOffset = new System.Drawing.Point(-5, -3);
             this.btnService.ImageSize = new System.Drawing.Size(45, 45);
-            this.btnService.Location = new System.Drawing.Point(0, 79);
+            this.btnService.Location = new System.Drawing.Point(0, 100);
             this.btnService.Name = "btnService";
             this.btnService.Size = new System.Drawing.Size(222, 44);
             this.btnService.TabIndex = 4;
@@ -95,7 +95,7 @@
             this.btnDentist.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDentist.ImageOffset = new System.Drawing.Point(-5, -3);
             this.btnDentist.ImageSize = new System.Drawing.Size(45, 45);
-            this.btnDentist.Location = new System.Drawing.Point(0, 38);
+            this.btnDentist.Location = new System.Drawing.Point(0, 50);
             this.btnDentist.Name = "btnDentist";
             this.btnDentist.Size = new System.Drawing.Size(222, 44);
             this.btnDentist.TabIndex = 3;
@@ -124,6 +124,7 @@
             this.btnPatient.ImageOffset = new System.Drawing.Point(-5, -3);
             this.btnPatient.ImageSize = new System.Drawing.Size(45, 45);
             this.btnPatient.Location = new System.Drawing.Point(0, 0);
+            this.btnPatient.Margin = new System.Windows.Forms.Padding(0);
             this.btnPatient.Name = "btnPatient";
             this.btnPatient.Size = new System.Drawing.Size(222, 44);
             this.btnPatient.TabIndex = 1;
