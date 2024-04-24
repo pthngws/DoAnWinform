@@ -73,8 +73,8 @@ namespace DoAn01
             else
                 guna2RadioButton1.Checked = false;
             label7.Text += " " + idSchedule;
-            txtName.Text = patientName;
-            txtAdd.Text = patientAddress;
+            labelName.Text = patientName;
+            labelAdd.Text = patientAddress;
             MessageBox.Show(idSchedule);
             SqlCommand cmd = new SqlCommand("select S.Name as 'Tên dịch vụ', count(L.idService) as 'Số lượng',sum(S.price) as 'Thành tiền' from Service as S, LichSuDichVu as L where S.Id = L.idService and L.idSchedule =@idSchedule group by S.name", mydb.getConnection);
             cmd.Parameters.AddWithValue("idSchedule", idSchedule);
@@ -183,6 +183,11 @@ else
                 MessageBox.Show("Thành công");
 
 
+
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
 
         }
     }

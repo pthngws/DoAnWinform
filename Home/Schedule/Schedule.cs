@@ -30,7 +30,31 @@ namespace DoAn01.Home.Schedule
         public DateTime Date { get; set; }
         public string Tinhtrang { get; set; }
         public string Ca { get; set; }
+        public DataTable getSchedule(SqlCommand command)
+        {
+            command.Connection = mydb.getConnection;
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable TABLE = new DataTable();
+            adapter.Fill(TABLE);
+            return TABLE;
+        }
+        public bool deleteSchedule(string id)
+        {
+            SqlCommand command = new SqlCommand("delete from schedule where id = @id", mydb.getConnection);
+            command.Parameters.Add("@id", id);
+            mydb.openConnection();
 
+            if (command.ExecuteNonQuery() == 1)
+            {
+                mydb.closeConnection();
+                return true;
+            }
+            else
+            {
+                mydb.closeConnection();
+                return false;
+            }
+        }
         public bool insertSchedule(string id, string dentistID,string patientid,DateTime date,string tinhtrang,string ca)
         {
 

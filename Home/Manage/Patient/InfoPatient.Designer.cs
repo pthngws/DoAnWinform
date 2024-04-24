@@ -297,6 +297,7 @@
             this.linkLabelHistory.TabIndex = 28;
             this.linkLabelHistory.TabStop = true;
             this.linkLabelHistory.Text = "History";
+            this.linkLabelHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelHistory_LinkClicked);
             // 
             // errorProvider1
             // 

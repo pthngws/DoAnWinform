@@ -215,6 +215,12 @@
     <Compile Include="Home\Manage\Patient\UC_Patient.Designer.cs">
       <DependentUpon>UC_Patient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Home\Report\UC_Report.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home\Report\UC_Report.Designer.cs">
+      <DependentUpon>UC_Report.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home\Schedule\Schedule.cs" />
     <Compile Include="Home\Schedule\ScheduleForm.cs">
       <SubType>Form</SubType>
@@ -233,6 +239,12 @@
     </Compile>
     <Compile Include="Home\Schedule\UC_Schedule.Designer.cs">
       <DependentUpon>UC_Schedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LichSuDieuTri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LichSuDieuTri.Designer.cs">
+      <DependentUpon>LichSuDieuTri.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\ChangePassword.cs">
       <SubType>UserControl</SubType>
@@ -354,6 +366,9 @@
     <EmbeddedResource Include="Home\Manage\Patient\UC_Patient.resx">
       <DependentUpon>UC_Patient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Home\Report\UC_Report.resx">
+      <DependentUpon>UC_Report.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home\Schedule\ScheduleForm.resx">
       <DependentUpon>ScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -362,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Home\Schedule\UC_Schedule.resx">
       <DependentUpon>UC_Schedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LichSuDieuTri.resx">
+      <DependentUpon>LichSuDieuTri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>

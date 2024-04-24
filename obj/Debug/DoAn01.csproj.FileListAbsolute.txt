@@ -114,3 +114,5 @@ C:\Users\thang\source\repos\DoAn01\obj\Debug\DoAn01.Home.Schedule.Test.resources
 C:\Users\thang\source\repos\DoAn01\obj\Debug\DoAn01.Home.Schedule.ScheduleForm.resources
 C:\Users\thang\source\repos\DoAn01\obj\Debug\DoAn01.PhieuDieuTri.resources
 C:\Users\thang\source\repos\DoAn01\obj\Debug\DoAn01.ChonDichVu.resources
+C:\Users\thang\source\repos\DoAn01\obj\Debug\DoAn01.Home.Report.UC_Report.resources
+C:\Users\thang\source\repos\DoAn01\obj\Debug\DoAn01.LichSuDieuTri.resources

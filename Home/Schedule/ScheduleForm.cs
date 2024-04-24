@@ -77,5 +77,13 @@ namespace DoAn01.Home.Schedule
             ChonDichVu chonDichVu = new ChonDichVu(txtID.Text);
             chonDichVu.Show();
         }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            if(schedule.deleteSchedule(txtID.Text))
+            {
+                MessageBox.Show("Xoa thanh cong");
+            }
+        }
     }
 }
