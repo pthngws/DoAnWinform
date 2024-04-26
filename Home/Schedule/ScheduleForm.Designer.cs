@@ -127,7 +127,6 @@
             // 
             // RadioButtonFalse
             // 
-            this.RadioButtonFalse.Checked = true;
             this.RadioButtonFalse.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.RadioButtonFalse.CheckedState.BorderThickness = 0;
             this.RadioButtonFalse.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));

@@ -26,13 +26,11 @@ namespace DoAn01.Home.Manage.Dentist
         Dentist dentist = new Dentist();
         private void fillGrid(SqlCommand cmd)
         {
-            this.dentistTableAdapter.Fill(this.dentalSmileDataSet3.Dentist);
             dataGridView1.ReadOnly = true;
             DataGridViewImageColumn picCol = new DataGridViewImageColumn();
             dataGridView1.RowTemplate.Height = 80;
             dataGridView1.DataSource = dentist.getDentists(cmd);
             dataGridView1.AllowUserToAddRows = false;
-            this.dentistTableAdapter.Fill(this.dentalSmileDataSet3.Dentist);
             dataGridView1.Columns[3].DefaultCellStyle.Format = "dd/MM/yyyy";
         }
 
@@ -56,7 +54,7 @@ namespace DoAn01.Home.Manage.Dentist
             dentist.Dob = (DateTime)dataGridView1.CurrentRow.Cells[3].Value;
             dentist.Gender = dataGridView1.CurrentRow.Cells[4].Value.ToString();
             dentist.phone = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-            dentist.rating = Convert.ToDouble(dataGridView1.CurrentRow.Cells[6].Value.ToString());
+
             InfoDentist infodentist = new InfoDentist(dentist) { StartPosition = FormStartPosition.CenterScreen };
             infodentist.Show();
         }

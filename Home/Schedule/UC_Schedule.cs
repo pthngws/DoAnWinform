@@ -1,4 +1,5 @@
 ﻿using DoAn01.Home.Manage.Dentist;
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -93,6 +94,7 @@ namespace DoAn01.Home.Schedule
                     SqlCommand command1 = new SqlCommand("select * from dentist", mydb.getConnection);
                     try
                     {
+                       
                         mydb.openConnection();
                         SqlDataReader reader = command1.ExecuteReader();
                         Dentist dentist;
@@ -100,8 +102,8 @@ namespace DoAn01.Home.Schedule
                         {
                             string dentistId = reader["ID"].ToString();
                             string dentistName = reader["Name"].ToString();
-                            double rating = Convert.ToDouble(reader["rating"].ToString());
-                            dentist = new Dentist(dentistId, dentistName, rating);
+                           
+                            dentist = new Dentist(dentistId, dentistName);
                             listBacSi.Add(dentist); // Thêm giá trị vào ListBox
                         }
                         reader.Close();
@@ -148,7 +150,7 @@ namespace DoAn01.Home.Schedule
                         {
                             status = "Busy";
                         }
-                        Test test = new Test(x.id, x.name, status, ca, formattedDate, x.rating);
+                        Test test = new Test(x.id, x.name, status, ca, formattedDate);
 
                         panel1.Controls.Add(panel);
                         addUserControl(test, panel);

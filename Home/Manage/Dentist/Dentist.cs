@@ -13,11 +13,10 @@ namespace DoAn01.Home.Manage.Dentist
     {
         MY_DB mydb = new MY_DB();
         private DataTable table = new DataTable();
-        public Dentist(string id,string name,double rating)
+        public Dentist(string id,string name)
         {
             this.id = id;
             this.name = name;
-            this.rating = rating;
             
         }
         public Dentist() { }
@@ -27,19 +26,17 @@ namespace DoAn01.Home.Manage.Dentist
         public string phone;
         public DateTime Dob;
         public string Gender;
-        public double rating;
 
         public bool insertDentist(string id, string name, string address, string phone, DateTime dob, string gender)
         {
-            SqlCommand command = new SqlCommand("INSERT INTO dentist (id,name, address, phone, dob, gender,rating) " +
-                                                "VALUES (@id,@name, @address, @phone, @dob, @gender,@rating)", mydb.getConnection);
+            SqlCommand command = new SqlCommand("INSERT INTO dentist (id,name, address, phone, dob, gender) " +
+                                                "VALUES (@id,@name, @address, @phone, @dob, @gender)", mydb.getConnection);
             command.Parameters.AddWithValue("@id", id);
             command.Parameters.AddWithValue("@name", name);
             command.Parameters.AddWithValue("@address", address);
             command.Parameters.AddWithValue("@phone", phone);
             command.Parameters.AddWithValue("@dob", dob);
             command.Parameters.AddWithValue("@gender", gender);
-            command.Parameters.AddWithValue("@rating", 0);
 
             mydb.openConnection();
 

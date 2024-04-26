@@ -4,7 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing.Printing;
+using System.Drawing;
 using System.Windows.Forms;
+using DoAn01.Home.Schedule;
 
 namespace DoAn01
 {
@@ -21,6 +24,8 @@ namespace DoAn01
         string patientPhone;
         string dentistID;
         string idSchedule;
+        double rating;
+        double price;
         MY_DB connection = new MY_DB();
         public PhieuDieuTri(string patientID, string dentistID,string idSchedule)
         {
@@ -68,14 +73,10 @@ namespace DoAn01
 
         private void PhieuDieuTri_Load(object sender, EventArgs e)
         {
-            if (patientGender == "Male")
-                guna2RadioButton1.Checked = true;
-            else
-                guna2RadioButton1.Checked = false;
+            label16.Text = patientGender.ToString();
             label7.Text += " " + idSchedule;
             labelName.Text = patientName;
             labelAdd.Text = patientAddress;
-            MessageBox.Show(idSchedule);
             SqlCommand cmd = new SqlCommand("select S.Name as 'Tên dịch vụ', count(L.idService) as 'Số lượng',sum(S.price) as 'Thành tiền' from Service as S, LichSuDichVu as L where S.Id = L.idService and L.idSchedule =@idSchedule group by S.name", mydb.getConnection);
             cmd.Parameters.AddWithValue("idSchedule", idSchedule);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -157,7 +158,55 @@ else
                  // Đảm bảo kết nối được đóng sau khi sử dụng
                  mydb.closeConnection();
              }*/
+            decimal totalAmount = 0;
+            foreach (DataRow row in dataTable.Rows)
+            {
+                totalAmount += Convert.ToDecimal(row["Thành tiền"]);
+            }
+            price = Convert.ToDouble(totalAmount);
+            // Định dạng số tiền với dấu chấm phân tách hàng nghìn
+            string formattedAmount = totalAmount.ToString("#,##0");
+
+            // Hiển thị số tiền đã định dạng trong Label
+            label17.Text += " " + formattedAmount;
+            using (SqlCommand cmd1 = new SqlCommand("SELECT rating FROM PhieuDIeuTri WHERE scheduleid = @id ", mydb.getConnection))
+            {
+                cmd1.Parameters.AddWithValue("@id", idSchedule); // Sử dụng cmd1 thay vì cmd
+                using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd1))
+                {
+                    DataTable dataTable2 = new DataTable();
+                    sqlDataAdapter.Fill(dataTable2);
+
+                    if (dataTable2.Rows.Count > 0 && dataTable2.Rows[0]["rating"] != DBNull.Value)
+                    {
+                        double averageRating;
+                        if (double.TryParse(dataTable2.Rows[0]["rating"].ToString(), out averageRating))
+                        {
+                            // Chỉ đặt giá trị cho ratingStar nếu giá trị trung bình rating hợp lệ (trong khoảng từ 0 đến 5)
+                            if (averageRating >= 0 && averageRating <= 5)
+                            {
+                                uint ratingValue = (uint)Math.Round(averageRating, MidpointRounding.AwayFromZero);
+                                ratingStar.Value = ratingValue;
+                            }
+                            else
+                            {
+                                ratingStar.Value = 0; // hoặc giá trị mặc định khác tùy thuộc vào yêu cầu của bạn
+                            }
+                        }
+                        else
+                        {
+                            ratingStar.Value = 0;
+                        }
+                    }
+                    else
+                    {
+                        ratingStar.Value = 0;
+                    }
+                }
+            }
+
         }
+
 
         private void CheckBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -174,21 +223,110 @@ else
             // Ví dụ: bạn có thể hiển thị thông báo hoặc thực hiện tính toán khác tùy thuộc vào nhu cầu của bạn
         }
         PDT pDT = new PDT();
-
+        Schedule schedule = new Schedule();
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             string adv = txtAdvise.Text;
             string lotrinh = txtLLoTrinh.Text;
-            if (pDT.InsertData(adv, lotrinh, idSchedule))
-                MessageBox.Show("Thành công");
+            rating = ratingStar.Value;
+            // Kiểm tra xem scheduleid đã tồn tại trong cơ sở dữ liệu hay chưa
+            bool isExisting = IsScheduleIdExisting(idSchedule);
 
-
-
+            if (isExisting)
+            {
+                // Nếu scheduleid đã tồn tại, thực hiện cập nhật
+                if (pDT.UpdateData(adv, lotrinh, idSchedule,rating,price))
+                    MessageBox.Show("Cập nhật thành công");
+                else
+                    MessageBox.Show("Cập nhật thất bại");
+            }
+            else
+            {
+                // Nếu scheduleid chưa tồn tại, thực hiện chèn mới
+                if (pDT.InsertData(adv, lotrinh, idSchedule,rating, price))
+                {
+                    schedule.updateStatusSchedule(idSchedule);
+                    MessageBox.Show("Thêm mới thành công");
+                }
+                else
+                    MessageBox.Show("Thêm mới thất bại");
+            }
         }
+
+        private bool IsScheduleIdExisting(string scheduleId)
+        {
+            // Tạo câu lệnh SQL để kiểm tra xem scheduleid có tồn tại trong cơ sở dữ liệu hay không
+            string query = "SELECT COUNT(*) FROM PhieuDieuTri WHERE scheduleid = @id";
+
+            using (SqlCommand command = new SqlCommand(query, mydb.getConnection))
+            {
+                mydb.openConnection();
+                command.Parameters.AddWithValue("@id", scheduleId);
+
+                // Thực thi câu lệnh SQL và kiểm tra số lượng bản ghi trả về
+                int count = (int)command.ExecuteScalar();
+                mydb.closeConnection();
+
+                // Nếu số lượng bản ghi là 0, tức là scheduleid không tồn tại
+                // Ngược lại, tồn tại ít nhất một bản ghi với scheduleid này
+                return count > 0;
+            }
+        }
+
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            // Sao chép nội dung từ TextBox vào Label
+            label12.Text = txtAdvise.Text;
 
+            // Ẩn TextBox và hiển thị Label
+            txtAdvise.Visible = false;
+            label12.Visible = true;
+            label13.Text = txtLLoTrinh.Text;
+
+            label15.Text = guna2DateTimePicker1.Value.ToString("dd/mm/yyyy");
+            guna2DateTimePicker1.Visible = false;
+            label15.Visible = true;
+            // Ẩn TextBox và hiển thị Label
+            txtLLoTrinh.Visible = false;
+            label13.Visible = true;
+
+            Print(this.panel1);
+        }
+        private void Print(Panel panel)
+        {
+            PrinterSettings ps = new PrinterSettings();
+            panel1 = panel;
+            getPrintArea(panel);
+            printPreviewDialog1.Document = printDocument1;
+            printDocument1.PrintPage += new PrintPageEventHandler(printDocument2_PrintPage);
+            printPreviewDialog1.ShowDialog();
+        }
+
+        private Bitmap memorying;
+
+        private void printDocument2_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            System.Drawing.Rectangle pagearea = e.PageBounds;
+            e.Graphics.DrawImage(memorying, (pagearea.Width / 2) - (this.panel1.Width / 2), this.panel1.Location.Y);
+        }
+        private void getPrintArea(Panel panel)
+        {
+            memorying = new Bitmap(panel.Width, panel.Height);
+            panel.DrawToBitmap(memorying, new System.Drawing.Rectangle(0, 0, panel.Width, panel.Height));
+        }
+
+
+        private void pictureBoxPrint_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(btnPrint, "Print");
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            Bill bill = new Bill(patientID,dentistID,idSchedule);
+            bill.Show();
         }
     }
 }
+

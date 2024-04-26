@@ -39,17 +39,22 @@
             this.dentalSmileDataSet3 = new DoAn01.DentalSmileDataSet3();
             this.dentistTableAdapter = new DoAn01.DentalSmileDataSet3TableAdapters.DentistTableAdapter();
             this.dataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.guna2DataGridViewStyler3 = new Guna.UI2.WinForms.Guna2DataGridViewStyler(this.components);
+            this.dentalSmileDataSet9 = new DoAn01.DentalSmileDataSet9();
+            this.dentistBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dentistTableAdapter1 = new DoAn01.DentalSmileDataSet9TableAdapters.DentistTableAdapter();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dOBDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genderDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ratingDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.guna2DataGridViewStyler3 = new Guna.UI2.WinForms.Guna2DataGridViewStyler(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dentistBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dentalSmileDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dentalSmileDataSet9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dentistBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -113,10 +118,9 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(2)))), ((int)(((byte)(164)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 7.8F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(2)))), ((int)(((byte)(164)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -125,13 +129,13 @@
             this.dataGridView1.ColumnHeadersHeight = 40;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
             this.nameDataGridViewTextBoxColumn1,
             this.addressDataGridViewTextBoxColumn1,
             this.dOBDataGridViewTextBoxColumn1,
             this.genderDataGridViewTextBoxColumn1,
-            this.phoneDataGridViewTextBoxColumn1,
-            this.ratingDataGridViewTextBoxColumn1});
-            this.dataGridView1.DataSource = this.dentistBindingSource;
+            this.phoneDataGridViewTextBoxColumn1});
+            this.dataGridView1.DataSource = this.dentistBindingSource1;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 7.8F);
@@ -180,6 +184,37 @@
             this.dataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 37);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "Search:";
+            // 
+            // dentalSmileDataSet9
+            // 
+            this.dentalSmileDataSet9.DataSetName = "DentalSmileDataSet9";
+            this.dentalSmileDataSet9.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dentistBindingSource1
+            // 
+            this.dentistBindingSource1.DataMember = "Dentist";
+            this.dentistBindingSource1.DataSource = this.dentalSmileDataSet9;
+            // 
+            // dentistTableAdapter1
+            // 
+            this.dentistTableAdapter1.ClearBeforeFill = true;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Id";
+            this.Column1.HeaderText = "ID";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            // 
             // nameDataGridViewTextBoxColumn1
             // 
             this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
@@ -215,23 +250,6 @@
             this.phoneDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.phoneDataGridViewTextBoxColumn1.Name = "phoneDataGridViewTextBoxColumn1";
             // 
-            // ratingDataGridViewTextBoxColumn1
-            // 
-            this.ratingDataGridViewTextBoxColumn1.DataPropertyName = "Rating";
-            this.ratingDataGridViewTextBoxColumn1.HeaderText = "Rating";
-            this.ratingDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.ratingDataGridViewTextBoxColumn1.Name = "ratingDataGridViewTextBoxColumn1";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 37);
-            this.label1.TabIndex = 38;
-            this.label1.Text = "Search:";
-            // 
             // UC_Dentist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -247,6 +265,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dentistBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dentalSmileDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dentalSmileDataSet9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dentistBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,14 +282,17 @@
         private Guna.UI2.WinForms.Guna2DataGridView dataGridView1;
         private Guna.UI2.WinForms.Guna2DataGridViewStyler guna2DataGridViewStyler1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2DataGridViewStyler guna2DataGridViewStyler3;
+        private Guna.UI2.WinForms.Guna2DataGridViewStyler guna2DataGridViewStyler4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dOBDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ratingDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2DataGridViewStyler guna2DataGridViewStyler3;
-        private Guna.UI2.WinForms.Guna2DataGridViewStyler guna2DataGridViewStyler4;
+        private System.Windows.Forms.BindingSource dentistBindingSource1;
+        private DentalSmileDataSet9 dentalSmileDataSet9;
+        private DentalSmileDataSet9TableAdapters.DentistTableAdapter dentistTableAdapter1;
     }
 }

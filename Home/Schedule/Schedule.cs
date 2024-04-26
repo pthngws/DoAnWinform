@@ -38,6 +38,29 @@ namespace DoAn01.Home.Schedule
             adapter.Fill(TABLE);
             return TABLE;
         }
+        public string GetStatusFromSchedule(string id)
+        {
+            string status = "";
+
+            // Tạo câu lệnh SQL để lấy trạng thái từ bảng schedule dựa trên id
+            string query = "SELECT tinhtrang FROM schedule WHERE id = @id";
+
+            using (SqlCommand command = new SqlCommand(query, mydb.getConnection))
+            {
+                mydb.openConnection();
+                command.Parameters.AddWithValue("@id", id);
+
+                // Thực thi câu lệnh SQL và đọc giá trị trạng thái từ kết quả truy vấn
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    status = reader["tinhtrang"].ToString();
+                }
+                mydb.closeConnection();
+            }
+
+            return status;
+        }
         public bool deleteSchedule(string id)
         {
             SqlCommand command = new SqlCommand("delete from schedule where id = @id", mydb.getConnection);
@@ -80,9 +103,29 @@ namespace DoAn01.Home.Schedule
                 return false;
             }
         }
-        
 
-      
+        public bool updateStatusSchedule(string id)
+        {
+
+            SqlCommand command = new SqlCommand("UPDATE schedule SET tinhtrang = @tinhtrang WHERE id = @id", mydb.getConnection);
+
+            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@tinhtrang", "true");
+
+            mydb.openConnection();
+
+            if (command.ExecuteNonQuery() == 1)
+            {
+                mydb.closeConnection();
+                return true;
+            }
+            else
+            {
+                mydb.closeConnection();
+                return false;
+            }
+        }
+
         public Schedule getSchedule(string id,string ca,string date)
         {
             Schedule schedule = new Schedule();

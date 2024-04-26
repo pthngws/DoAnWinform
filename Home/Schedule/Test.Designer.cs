@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.guna2RatingStar1 = new Guna.UI2.WinForms.Guna2RatingStar();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2RatingStar1 = new Guna.UI2.WinForms.Guna2RatingStar();
             this.SuspendLayout();
             // 
             // label1
@@ -60,19 +60,18 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Status:";
             // 
-            // guna2RatingStar1
-            // 
-            this.guna2RatingStar1.BorderColor = System.Drawing.Color.Gold;
-            this.guna2RatingStar1.FillColor = System.Drawing.Color.Gold;
-            this.guna2RatingStar1.Location = new System.Drawing.Point(116, 66);
-            this.guna2RatingStar1.Name = "guna2RatingStar1";
-            this.guna2RatingStar1.RatingColor = System.Drawing.Color.Gold;
-            this.guna2RatingStar1.Size = new System.Drawing.Size(154, 33);
-            this.guna2RatingStar1.TabIndex = 2;
-            // 
             // guna2Elipse1
             // 
             this.guna2Elipse1.BorderRadius = 30;
+            // 
+            // guna2RatingStar1
+            // 
+            this.guna2RatingStar1.BorderColor = System.Drawing.Color.Gold;
+            this.guna2RatingStar1.Location = new System.Drawing.Point(38, 64);
+            this.guna2RatingStar1.Name = "guna2RatingStar1";
+            this.guna2RatingStar1.RatingColor = System.Drawing.Color.Gold;
+            this.guna2RatingStar1.Size = new System.Drawing.Size(317, 45);
+            this.guna2RatingStar1.TabIndex = 2;
             // 
             // Test
             // 
@@ -97,7 +96,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2RatingStar guna2RatingStar1;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2RatingStar guna2RatingStar1;
     }
 }

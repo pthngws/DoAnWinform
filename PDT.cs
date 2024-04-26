@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,12 +12,12 @@ namespace DoAn01
     internal class PDT
     {
         MY_DB mydb = new MY_DB();
-        public bool InsertData(string adv, string lotrinh,string scheduleid)
+        public bool InsertData(string adv, string lotrinh,string scheduleid,double rating,double price)
         {
 
                     
                     // Tạo câu lệnh SQL chèn dữ liệu vào bảng PhieuDieuTri
-                    string query = "INSERT INTO PhieuDieuTri (Advice, LoTrinh,scheduleid) VALUES (@Advise, @LoTrinh,@id)";
+                    string query = "INSERT INTO PhieuDieuTri (Advice, LoTrinh,scheduleid,rating,price) VALUES (@Advise, @LoTrinh,@id,@rating,@price)";
 
                     using (SqlCommand command = new SqlCommand(query, mydb.getConnection))
                     {
@@ -25,9 +26,11 @@ namespace DoAn01
                         command.Parameters.AddWithValue("@Advise", adv);
                         command.Parameters.AddWithValue("@LoTrinh", lotrinh);
                     command.Parameters.AddWithValue("@id", scheduleid);
+                command.Parameters.AddWithValue("@rating", rating);
+                command.Parameters.AddWithValue("@price", price);
 
-                    // Thực thi câu lệnh SQL
-                    command.ExecuteNonQuery();
+                // Thực thi câu lệnh SQL
+                command.ExecuteNonQuery();
                     mydb.closeConnection();
                     }
 
@@ -36,6 +39,29 @@ namespace DoAn01
    
 
         }
+        public bool UpdateData(string adv, string lotrinh, string scheduleid,double rating,double price)
+        {
+            // Tạo câu lệnh SQL cập nhật dữ liệu trong bảng PhieuDieuTri
+            string query = "UPDATE PhieuDieuTri SET Advice = @Advise, LoTrinh = @LoTrinh, rating = @rating,price = @price WHERE scheduleid = @id";
+
+            using (SqlCommand command = new SqlCommand(query, mydb.getConnection))
+            {
+                mydb.openConnection();
+                // Thêm tham số cho câu lệnh SQL để tránh tình trạng SQL injection
+                command.Parameters.AddWithValue("@Advise", adv);
+                command.Parameters.AddWithValue("@LoTrinh", lotrinh);
+                command.Parameters.AddWithValue("@id", scheduleid);
+                command.Parameters.AddWithValue("@rating", rating);
+                command.Parameters.AddWithValue("@price", price);
+                // Thực thi câu lệnh SQL
+                int rowsAffected = command.ExecuteNonQuery();
+                mydb.closeConnection();
+
+                // Trả về true nếu có ít nhất một bản ghi được cập nhật
+                return rowsAffected > 0;
+            }
+        }
+
         public DataTable getPDT(SqlCommand command)
         {
             command.Connection = mydb.getConnection;

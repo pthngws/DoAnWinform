@@ -1,4 +1,5 @@
 ﻿using DoAn01.Home;
+using DoAn01.Home.Report;
 using DoAn01.Home.Schedule;
 using System;
 using System.Collections.Generic;
@@ -48,8 +49,8 @@ namespace DoAn01
 
         private void btnSetting_Click(object sender, EventArgs e)
         {
-            UC_Setting uC_Setting = new UC_Setting();
-            addUserControl(uC_Setting);
+            UC_Report uC_Report = new UC_Report();
+            addUserControl(uC_Report);
         }
 
         private void btnExit_Click(object sender, EventArgs e)

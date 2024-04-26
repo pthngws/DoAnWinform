@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,20 +21,33 @@ namespace DoAn01.Home.Schedule
         string ca;
         string dentistid;
         string date;
-        internal ScheduleForm(Schedule schedule,string ca, string dentistid,string date)
+        string status;
+        internal ScheduleForm(Schedule schedule, string ca, string dentistid, string date)
         {
             InitializeComponent();
             this.schedule = schedule;
             this.ca = ca;
             this.dentistid = dentistid;
             this.date = date;
-            if (schedule.Tinhtrang == "false")
+          
+            // Lấy trạng thái từ bảng schedule dựa trên id
+            if (!string.IsNullOrEmpty(schedule.Id))
+            {
+                 status = schedule.GetStatusFromSchedule(schedule.Id);
+            };
+            // Đặt RadioButton tương ứng dựa trên giá trị của status
+            if (status == "true")
+            {
+                RadioButtonTrue.Checked = true;
+            }
+            else
             {
                 RadioButtonFalse.Checked = true;
             }
-            else
-                RadioButtonTrue.Checked = true;
         }
+
+        
+
 
         private void ScheduleForm_Load(object sender, EventArgs e)
         {
@@ -61,15 +75,9 @@ namespace DoAn01.Home.Schedule
 
         private void btnPhieuDieuTri_Click(object sender, EventArgs e)
         {
-            if (RadioButtonTrue.Checked)
-            {
                 PhieuDieuTri phieuDieuTri = new PhieuDieuTri(txtPatientID.Text, dentistid, txtID.Text);
                 phieuDieuTri.Show();
-            }
-            else
-            {
-                MessageBox.Show("Không có thông tin phiếu điều trị");
-            }
+
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)

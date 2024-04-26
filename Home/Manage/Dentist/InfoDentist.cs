@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -100,7 +101,7 @@ namespace DoAn01.Home.Manage.Dentist
                 MessageBox.Show("Delete thanh cong");
             }
         }
-
+        MY_DB mydb = new MY_DB();
         private void InfoDentist_Load(object sender, EventArgs e)
         {
             txtID.Text = dentist.id;
@@ -112,7 +113,31 @@ namespace DoAn01.Home.Manage.Dentist
             else
                 RadioButtonMale.Checked = false;
             guna2DateTimePicker1.Value = dentist.Dob;
-            guna2RatingStar1.Value = Convert.ToInt32(dentist.rating);
+            SqlCommand cmd = new SqlCommand("select avg(rating) as rating \r\nfrom Schedule,PhieuDIeuTri\r\nwhere Schedule.Id = PhieuDIeuTri.scheduleid and Schedule.DentistId = @did", mydb.getConnection);
+            cmd.Parameters.AddWithValue("@did",dentist.id);
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            // Assuming you have already executed the SQL query and filled the DataTable
+            if (dataTable.Rows.Count > 0)
+            {
+                // Access the first row (assuming there's only one row)
+                DataRow row = dataTable.Rows[0];
+                if (row["rating"] != DBNull.Value)
+                {
+                    // Retrieve the average rating value
+                    double averageRating = Convert.ToDouble(row["rating"]);
+                    guna2RatingStar1.Value = Convert.ToUInt32(averageRating);
+                }
+                else
+                {
+                    guna2RatingStar1.Value = 0;
+                }
+
+                // Assign the value to guna2RatingStar1
+                
+            }
+
         }
     }
 }
