@@ -31,6 +31,7 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -103,7 +104,8 @@
             // 
             // panel7
             // 
-            this.panel7.BackColor = System.Drawing.Color.Olive;
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel7.Controls.Add(this.totalpatient);
             this.panel7.Controls.Add(this.label4);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -137,7 +139,8 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.Maroon;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.totalrev);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
@@ -171,7 +174,8 @@
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.Green;
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.totalcase);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
@@ -205,6 +209,7 @@
             // 
             // panel4
             // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.chart1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 130);
@@ -214,19 +219,30 @@
             // 
             // chart1
             // 
+            this.chart1.BorderlineColor = System.Drawing.Color.Black;
             chartArea2.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea2);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.chart1.IsSoftShadows = false;
             legend2.Name = "Legend1";
             this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(0, 0);
+            this.chart1.Location = new System.Drawing.Point(0, 1);
             this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
+            series2.BorderWidth = 10;
             series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(26)))), ((int)(((byte)(150)))));
             series2.Legend = "Legend1";
-            series2.Name = "Series1";
+            series2.Name = "Revenue";
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(781, 442);
+            this.chart1.Size = new System.Drawing.Size(779, 439);
             this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
+            this.chart1.Text = "Revenue";
+            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title2.Name = "Title1";
+            title2.Text = "Revenue Dental Smile";
+            this.chart1.Titles.Add(title2);
             // 
             // label3
             // 
@@ -240,13 +256,14 @@
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.guna2ComboBox1);
             this.panel1.Controls.Add(this.guna2ComboBox2);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(479, 129);
+            this.panel1.Size = new System.Drawing.Size(479, 132);
             this.panel1.TabIndex = 6;
             // 
             // guna2ComboBox1
@@ -298,6 +315,7 @@
             // 
             // panelDentist
             // 
+            this.panelDentist.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelDentist.Controls.Add(this.QD3);
             this.panelDentist.Controls.Add(this.QD2);
             this.panelDentist.Controls.Add(this.QD1);
@@ -316,60 +334,60 @@
             // QD3
             // 
             this.QD3.AutoSize = true;
-            this.QD3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.QD3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QD3.Location = new System.Drawing.Point(358, 140);
             this.QD3.Name = "QD3";
-            this.QD3.Size = new System.Drawing.Size(16, 23);
+            this.QD3.Size = new System.Drawing.Size(15, 22);
             this.QD3.TabIndex = 17;
             this.QD3.Text = " ";
             // 
             // QD2
             // 
             this.QD2.AutoSize = true;
-            this.QD2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.QD2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QD2.Location = new System.Drawing.Point(358, 113);
             this.QD2.Name = "QD2";
-            this.QD2.Size = new System.Drawing.Size(16, 23);
+            this.QD2.Size = new System.Drawing.Size(15, 22);
             this.QD2.TabIndex = 16;
             this.QD2.Text = " ";
             // 
             // QD1
             // 
             this.QD1.AutoSize = true;
-            this.QD1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.QD1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QD1.Location = new System.Drawing.Point(358, 85);
             this.QD1.Name = "QD1";
-            this.QD1.Size = new System.Drawing.Size(16, 23);
+            this.QD1.Size = new System.Drawing.Size(15, 22);
             this.QD1.TabIndex = 15;
             this.QD1.Text = " ";
             // 
             // D3
             // 
             this.D3.AutoSize = true;
-            this.D3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.D3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.D3.Location = new System.Drawing.Point(16, 140);
             this.D3.Name = "D3";
-            this.D3.Size = new System.Drawing.Size(16, 23);
+            this.D3.Size = new System.Drawing.Size(15, 22);
             this.D3.TabIndex = 14;
             this.D3.Text = " ";
             // 
             // D2
             // 
             this.D2.AutoSize = true;
-            this.D2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.D2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.D2.Location = new System.Drawing.Point(16, 113);
             this.D2.Name = "D2";
-            this.D2.Size = new System.Drawing.Size(16, 23);
+            this.D2.Size = new System.Drawing.Size(15, 22);
             this.D2.TabIndex = 13;
             this.D2.Text = " ";
             // 
             // D1
             // 
             this.D1.AutoSize = true;
-            this.D1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.D1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.D1.Location = new System.Drawing.Point(16, 85);
             this.D1.Name = "D1";
-            this.D1.Size = new System.Drawing.Size(16, 23);
+            this.D1.Size = new System.Drawing.Size(15, 22);
             this.D1.TabIndex = 12;
             this.D1.Text = " ";
             // 
@@ -395,6 +413,7 @@
             // 
             // panelService
             // 
+            this.panelService.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelService.Controls.Add(this.Q3);
             this.panelService.Controls.Add(this.Q2);
             this.panelService.Controls.Add(this.Q1);
@@ -405,68 +424,68 @@
             this.panelService.Controls.Add(this.label6);
             this.panelService.Controls.Add(this.label9);
             this.panelService.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelService.Location = new System.Drawing.Point(0, 129);
+            this.panelService.Location = new System.Drawing.Point(0, 132);
             this.panelService.Name = "panelService";
-            this.panelService.Size = new System.Drawing.Size(479, 208);
+            this.panelService.Size = new System.Drawing.Size(479, 205);
             this.panelService.TabIndex = 8;
             // 
             // Q3
             // 
             this.Q3.AutoSize = true;
-            this.Q3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Q3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Q3.Location = new System.Drawing.Point(358, 129);
             this.Q3.Name = "Q3";
-            this.Q3.Size = new System.Drawing.Size(16, 23);
+            this.Q3.Size = new System.Drawing.Size(15, 22);
             this.Q3.TabIndex = 9;
             this.Q3.Text = " ";
             // 
             // Q2
             // 
             this.Q2.AutoSize = true;
-            this.Q2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Q2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Q2.Location = new System.Drawing.Point(358, 102);
             this.Q2.Name = "Q2";
-            this.Q2.Size = new System.Drawing.Size(16, 23);
+            this.Q2.Size = new System.Drawing.Size(15, 22);
             this.Q2.TabIndex = 8;
             this.Q2.Text = " ";
             // 
             // Q1
             // 
             this.Q1.AutoSize = true;
-            this.Q1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Q1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Q1.Location = new System.Drawing.Point(358, 74);
             this.Q1.Name = "Q1";
-            this.Q1.Size = new System.Drawing.Size(16, 23);
+            this.Q1.Size = new System.Drawing.Size(15, 22);
             this.Q1.TabIndex = 7;
             this.Q1.Text = " ";
             // 
             // NS3
             // 
             this.NS3.AutoSize = true;
-            this.NS3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NS3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NS3.Location = new System.Drawing.Point(16, 129);
             this.NS3.Name = "NS3";
-            this.NS3.Size = new System.Drawing.Size(16, 23);
+            this.NS3.Size = new System.Drawing.Size(15, 22);
             this.NS3.TabIndex = 6;
             this.NS3.Text = " ";
             // 
             // NS2
             // 
             this.NS2.AutoSize = true;
-            this.NS2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NS2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NS2.Location = new System.Drawing.Point(16, 102);
             this.NS2.Name = "NS2";
-            this.NS2.Size = new System.Drawing.Size(16, 23);
+            this.NS2.Size = new System.Drawing.Size(15, 22);
             this.NS2.TabIndex = 5;
             this.NS2.Text = " ";
             // 
             // NS1
             // 
             this.NS1.AutoSize = true;
-            this.NS1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NS1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NS1.Location = new System.Drawing.Point(16, 74);
             this.NS1.Name = "NS1";
-            this.NS1.Size = new System.Drawing.Size(16, 23);
+            this.NS1.Size = new System.Drawing.Size(15, 22);
             this.NS1.TabIndex = 4;
             this.NS1.Text = " ";
             // 

@@ -19,10 +19,11 @@ namespace DoAn01
         {
             InitializeComponent();
         }
-       
+        string email;
         public ChangePassword(string email)
         {
             InitializeComponent();
+            this.email = email;
         }
         public bool checkPassword(string a, string b)
         {
@@ -54,14 +55,19 @@ namespace DoAn01
         MY_DB mydb = new MY_DB();
         private void btnChange_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnChange_Click_1(object sender, EventArgs e)
+        {
             string password = txtPassword.Text;
             string repass = txtRepass.Text;
             if (checkPassword(password, repass))
             {
-                SqlCommand cmd = new SqlCommand("UPDATE log_in SET password = @password WHERE email = @email", mydb.getConnection);
+                SqlCommand cmd = new SqlCommand("UPDATE [User] SET password = @password WHERE email = @email", mydb.getConnection);
                 mydb.openConnection();
                 cmd.Parameters.AddWithValue("@password", password);
-                cmd.Parameters.AddWithValue("@email", Email); // Sử dụng giá trị email thay thế cho @email
+                cmd.Parameters.AddWithValue("@email", email); // Sử dụng giá trị email thay thế cho @email
 
                 int rowsAffected = cmd.ExecuteNonQuery();
                 if (rowsAffected > 0)
@@ -78,6 +84,5 @@ namespace DoAn01
                 MessageBox.Show("Nhập lại mật khẩu!");
             }
         }
-
     }
 }

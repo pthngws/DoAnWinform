@@ -41,6 +41,7 @@
             this.btnChange.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnChange.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnChange.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnChange.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(26)))), ((int)(((byte)(150)))));
             this.btnChange.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChange.ForeColor = System.Drawing.Color.White;
             this.btnChange.Location = new System.Drawing.Point(194, 253);
@@ -48,6 +49,7 @@
             this.btnChange.Size = new System.Drawing.Size(154, 45);
             this.btnChange.TabIndex = 42;
             this.btnChange.Text = "Change";
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click_1);
             // 
             // txtRepass
             // 
@@ -116,7 +118,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.Controls.Add(this.guna2CheckBox1);
             this.Controls.Add(this.txtRepass);
             this.Controls.Add(this.txtPassword);

@@ -88,16 +88,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bill.cs">
+    <Compile Include="Home\Schedule\Bill.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bill.Designer.cs">
+    <Compile Include="Home\Schedule\Bill.Designer.cs">
       <DependentUpon>Bill.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChonDichVu.cs">
+    <Compile Include="Home\Schedule\ChonDichVu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChonDichVu.Designer.cs">
+    <Compile Include="Home\Schedule\ChonDichVu.Designer.cs">
       <DependentUpon>ChonDichVu.cs</DependentUpon>
     </Compile>
     <Compile Include="DentalSmileDataSet.Designer.cs">
@@ -257,10 +257,10 @@
     <Compile Include="Home\Schedule\UC_Schedule.Designer.cs">
       <DependentUpon>UC_Schedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="LichSuDieuTri.cs">
+    <Compile Include="Home\Manage\Patient\LichSuDieuTri.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LichSuDieuTri.Designer.cs">
+    <Compile Include="Home\Manage\Patient\LichSuDieuTri.Designer.cs">
       <DependentUpon>LichSuDieuTri.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\ChangePassword.cs">
@@ -293,19 +293,19 @@
     <Compile Include="FaceID\LoginFaceID.Designer.cs">
       <DependentUpon>LoginFaceID.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\Main.cs">
+    <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home\Main.Designer.cs">
+    <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="MY_DB.cs" />
     <Compile Include="Home\Manage\Patient\Patient.cs" />
-    <Compile Include="PDT.cs" />
-    <Compile Include="PhieuDieuTri.cs">
+    <Compile Include="Home\Schedule\PDT.cs" />
+    <Compile Include="Home\Schedule\PhieuDieuTri.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PhieuDieuTri.Designer.cs">
+    <Compile Include="Home\Schedule\PhieuDieuTri.Designer.cs">
       <DependentUpon>PhieuDieuTri.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -328,12 +328,6 @@
     <Compile Include="Home\Home\UC_Home.Designer.cs">
       <DependentUpon>UC_Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\UC_Setting.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Home\UC_Setting.Designer.cs">
-      <DependentUpon>UC_Setting.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login\User.cs" />
     <Compile Include="Login\Verify.cs">
       <SubType>UserControl</SubType>
@@ -341,10 +335,10 @@
     <Compile Include="Login\Verify.Designer.cs">
       <DependentUpon>Verify.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Bill.resx">
+    <EmbeddedResource Include="Home\Schedule\Bill.resx">
       <DependentUpon>Bill.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChonDichVu.resx">
+    <EmbeddedResource Include="Home\Schedule\ChonDichVu.resx">
       <DependentUpon>ChonDichVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home\Manage\Dentist\AddDentist.resx">
@@ -398,7 +392,7 @@
     <EmbeddedResource Include="Home\Schedule\UC_Schedule.resx">
       <DependentUpon>UC_Schedule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LichSuDieuTri.resx">
+    <EmbeddedResource Include="Home\Manage\Patient\LichSuDieuTri.resx">
       <DependentUpon>LichSuDieuTri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\ChangePassword.resx">
@@ -416,10 +410,10 @@
     <EmbeddedResource Include="FaceID\LoginFaceID.resx">
       <DependentUpon>LoginFaceID.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home\Main.resx">
+    <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PhieuDieuTri.resx">
+    <EmbeddedResource Include="Home\Schedule\PhieuDieuTri.resx">
       <DependentUpon>PhieuDieuTri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -441,9 +435,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Home\Home\UC_Home.resx">
       <DependentUpon>UC_Home.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Home\UC_Setting.resx">
-      <DependentUpon>UC_Setting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\Verify.resx">
       <DependentUpon>Verify.cs</DependentUpon>
@@ -702,9 +693,7 @@
   <ItemGroup>
     <None Include="Resources\icons8-log-out-90.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Home\NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\icons8-search-150.png" />
   </ItemGroup>

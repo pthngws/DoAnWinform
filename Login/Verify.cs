@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.WebRequestMethods;
+using System.Web.UI.Design.WebControls;
 
 namespace DoAn01
 {
@@ -27,6 +28,9 @@ namespace DoAn01
         }
         Random random = new Random();
         int otp;
+
+        public Action<object, FormClosedEventArgs> FormClosed { get; internal set; }
+
         private void btnSendOTP_Click(object sender, EventArgs e)
         {
             
@@ -40,7 +44,7 @@ namespace DoAn01
             }
             else
             {
-                otp = random.Next(100000, 1000000);
+                otp = /*random.Next(100000, 1000000)*/1;
 
                 String SendMailFrom = "pthocwinform@gmail.com";
                 String SendMailTo = txtEmail.Text;
@@ -77,14 +81,20 @@ namespace DoAn01
                 }
             }
         }
-
+        public bool checks = false;
+        public event EventHandler VerifySuccess;
         private void btnVerify_Click_1(object sender, EventArgs e)
         {
             if (otp.ToString() == txtOTP.Text)
             {
                 email = txtEmail.Text;
-                this.Hide();
+                VerifySuccess?.Invoke(this, EventArgs.Empty);
+
             }
+
+
+
+
         }
 
     }

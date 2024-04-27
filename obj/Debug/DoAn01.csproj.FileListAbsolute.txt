@@ -177,7 +177,6 @@ C:\Users\thang\Source\Repos\DoAnWinform\obj\Debug\DoAn01.Properties.Resources.re
 C:\Users\thang\Source\Repos\DoAnWinform\obj\Debug\DoAn01.ResetPassword.resources
 C:\Users\thang\Source\Repos\DoAnWinform\obj\Debug\DoAn01.SignUp.resources
 C:\Users\thang\Source\Repos\DoAnWinform\obj\Debug\DoAn01.UC_Home.resources
-C:\Users\thang\Source\Repos\DoAnWinform\obj\Debug\DoAn01.UC_Setting.resources
 C:\Users\thang\Source\Repos\DoAnWinform\obj\Debug\DoAn01.Verify.resources
 C:\Users\thang\Source\Repos\DoAnWinform\obj\Debug\DoAn01.csproj.GenerateResource.cache
 C:\Users\thang\Source\Repos\DoAnWinform\obj\Debug\DoAn01.exe.licenses

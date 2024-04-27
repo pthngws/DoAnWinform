@@ -12,35 +12,30 @@ namespace DoAn01
 {
     public partial class ResetPassword : Form
     {
-        public ResetPassword()
-        {
-            InitializeComponent();
 
 
-            addUserControl(verify);
-
-
-        }
-        ChangePassword changePassword = new ChangePassword();
         Verify verify = new Verify();
-        private void verify_VisibleChanged(object sender, EventArgs e)
-        {
-            if (!verify.Visible)
-            {
-                changePassword.Email = verify.email;
-                addUserControl(changePassword);
-            }
-        }
-        private void addUserControl(UserControl userControl)
+        public void addUserControl(UserControl userControl)
         {
             userControl.Dock = DockStyle.Fill;
             panelContainer.Controls.Clear();
             panelContainer.Controls.Add(userControl);
             userControl.BringToFront();
         }
-        private void ResetPassword_Load(object sender, EventArgs e)
+        public ResetPassword()
         {
-
+            InitializeComponent();
+            verify.VerifySuccess += Verify_VerifySuccess; // Gắn sự kiện cho VerifySuccess
+            addUserControl(verify);
         }
+
+        // Xử lý sự kiện khi xác thực thành công
+        private void Verify_VerifySuccess(object sender, EventArgs e)
+        {
+            ChangePassword changePassword = new ChangePassword(verify.email);
+            MessageBox.Show(verify.email);
+            addUserControl(changePassword); // Mở form ChangePassword
+        }
+
     }
 }

@@ -94,10 +94,18 @@ namespace DoAn01.Home.Report
             // Tạo mới một Series và ChartArea cho biểu đồ
             Series series = new Series("Total Revenue");
             ChartArea chartArea = new ChartArea("MainArea");
+            chartArea.AxisX.LabelStyle.Enabled = true; // Bật hiển thị nhãn trục X
+            chartArea.AxisX.LabelStyle.Interval = 1; // Đặt khoảng cách giữa các nhãn
+            chartArea.AxisX.LabelStyle.IsEndLabelVisible = true; // Cho phép hiển thị nhãn cuối cùng
+            // Đặt kiểu đồ thị của Series thành Line
+            series.ChartType = SeriesChartType.Column;
 
             // Thêm series và chartArea vào biểu đồ
             chart1.Series.Add(series);
             chart1.ChartAreas.Add(chartArea);
+            // Đặt độ dày của đường line
+            series.BorderWidth = 10; // 3 là một giá trị ví dụ, bạn có thể thay đổi nó tùy ý
+            series.Color = System.Drawing.Color.FromArgb(53, 26, 150);
 
             // Tạo SqlDataAdapter và DataTable để lưu trữ kết quả truy vấn
             SqlDataAdapter adapter;
@@ -111,7 +119,10 @@ namespace DoAn01.Home.Report
 
                 // Tính toán tháng bắt đầu và kết thúc dựa trên tháng cuối của quý
                 int startMonth = endMonth - 2;
-                MessageBox.Show(startMonth.ToString() + " " + endMonth.ToString());
+                if(startMonth<1)
+                {
+                    startMonth += 10;
+                }    
                 for (int month = startMonth; month <= startMonth + 2; month++)
                 {
                     adapter = new SqlDataAdapter("SELECT SUM(price) AS totalrev FROM PhieuDIeuTri PDT JOIN Schedule ON PDT.scheduleid = Schedule.Id WHERE MONTH(Schedule.NgayKham) = " + month, mydb.getConnection);
@@ -138,15 +149,15 @@ namespace DoAn01.Home.Report
                     mydb.closeConnection();
                 }
             }
-
-
-
+            // Trường hợp MONTH
+            // Trường hợp MONTH
             // Trường hợp MONTH
             else if (query.StartsWith("WHERE MONTH(Schedule.NgayKham)"))
             {
                 adapter = new SqlDataAdapter("SELECT Day(Schedule.NgayKham) AS Day, SUM(price) AS totalrev FROM PhieuDIeuTri PDT JOIN Schedule ON PDT.scheduleid = Schedule.Id " + query + " GROUP BY Day(Schedule.NgayKham)", mydb.getConnection);
                 mydb.openConnection();
                 adapter.Fill(dataTable);
+                mydb.closeConnection();
 
                 // Thêm dữ liệu vào series
                 foreach (DataRow row in dataTable.Rows)
@@ -165,8 +176,11 @@ namespace DoAn01.Home.Report
                         // Ví dụ: bỏ qua giá trị này, gán giá trị mặc định, hoặc thực hiện hành động khác
                     }
                 }
-                mydb.closeConnection();
+
+                // Đặt dạng hiển thị cho nhãn của trục X là ngày
+              
             }
+
 
             // Trường hợp YEAR
             else if (query.StartsWith("WHERE YEAR(Schedule.NgayKham)"))
@@ -174,6 +188,7 @@ namespace DoAn01.Home.Report
                 adapter = new SqlDataAdapter("SELECT MONTH(Schedule.NgayKham) AS Month, SUM(price) AS totalrev FROM PhieuDIeuTri PDT JOIN Schedule ON PDT.scheduleid = Schedule.Id " + query + " GROUP BY MONTH(Schedule.NgayKham)", mydb.getConnection);
                 mydb.openConnection();
                 adapter.Fill(dataTable);
+                mydb.closeConnection();
 
                 // Thêm dữ liệu vào series
                 foreach (DataRow row in dataTable.Rows)
@@ -192,9 +207,9 @@ namespace DoAn01.Home.Report
                         // Ví dụ: bỏ qua giá trị này, gán giá trị mặc định, hoặc thực hiện hành động khác
                     }
                 }
-                mydb.closeConnection();
             }
         }
+
 
 
         private void PanelDentist_Load(object sender, EventArgs e, string time)
@@ -257,7 +272,8 @@ namespace DoAn01.Home.Report
             if (reader.Read())
             {
                 // Lấy giá trị từ các cột và gán vào các biến
-                totalrev.Text = reader["totalrev"].ToString();
+                totalrev.Text = Convert.ToDouble(reader["totalrev"]).ToString("#,##0");
+
                 totalcase.Text = reader["totalcase"].ToString();
                 totalpatient.Text = reader["totalpatient"].ToString();
             }
@@ -301,7 +317,8 @@ namespace DoAn01.Home.Report
                 return "WHERE MONTH(Schedule.NgayKham) = 12";
             else if (time == "2024")
                 return "WHERE YEAR(Schedule.NgayKham) = 2024";
-
+            else if (time == "2025")
+                return "WHERE YEAR(Schedule.NgayKham) = 2025";
             return ""; // hoặc xử lý trường hợp không hợp lệ khác tùy theo yêu cầu
         }
 
@@ -339,6 +356,5 @@ namespace DoAn01.Home.Report
             UC_Report_Load(sender, e, query);
             LoadChart(query);
         }
-
     }
 }

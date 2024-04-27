@@ -16,7 +16,7 @@ namespace DoAn01
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main() { StartPosition = FormStartPosition.CenterScreen });
+            Application.Run(new Form1() { StartPosition = FormStartPosition.CenterScreen });
         }
     }
 }

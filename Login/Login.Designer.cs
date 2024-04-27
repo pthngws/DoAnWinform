@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.linkForgotPass = new System.Windows.Forms.LinkLabel();
@@ -37,7 +36,6 @@
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnFaceID = new Guna.UI2.WinForms.Guna2ImageButton();
             this.txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2CustomRadioButton1 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
@@ -59,7 +57,7 @@
             // 
             this.linkForgotPass.AutoSize = true;
             this.linkForgotPass.Font = new System.Drawing.Font("Century Gothic", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.linkForgotPass.Location = new System.Drawing.Point(226, 265);
+            this.linkForgotPass.Location = new System.Drawing.Point(232, 302);
             this.linkForgotPass.Name = "linkForgotPass";
             this.linkForgotPass.Size = new System.Drawing.Size(151, 21);
             this.linkForgotPass.TabIndex = 17;
@@ -74,6 +72,7 @@
             this.btnLogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLogin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(26)))), ((int)(((byte)(150)))));
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(42, 377);
@@ -90,7 +89,7 @@
             this.btnCancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnCancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnCancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCancel.FillColor = System.Drawing.Color.Red;
+            this.btnCancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(223, 377);
@@ -103,7 +102,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(238, 71);
+            this.label1.Location = new System.Drawing.Point(244, 108);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 21);
             this.label1.TabIndex = 22;
@@ -113,27 +112,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(116, 71);
+            this.label2.Location = new System.Drawing.Point(122, 108);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 21);
             this.label2.TabIndex = 23;
             this.label2.Text = "Staff";
-            // 
-            // btnFaceID
-            // 
-            this.btnFaceID.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnFaceID.HoverState.Image = global::DoAn01.Properties.Resources.icons8_face_id_96;
-            this.btnFaceID.HoverState.ImageSize = new System.Drawing.Size(50, 50);
-            this.btnFaceID.Image = ((System.Drawing.Image)(resources.GetObject("btnFaceID.Image")));
-            this.btnFaceID.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnFaceID.ImageRotate = 0F;
-            this.btnFaceID.ImageSize = new System.Drawing.Size(50, 50);
-            this.btnFaceID.Location = new System.Drawing.Point(185, 290);
-            this.btnFaceID.Name = "btnFaceID";
-            this.btnFaceID.PressedState.Image = global::DoAn01.Properties.Resources.icons8_face_id_100;
-            this.btnFaceID.PressedState.ImageSize = new System.Drawing.Size(50, 50);
-            this.btnFaceID.Size = new System.Drawing.Size(56, 66);
-            this.btnFaceID.TabIndex = 29;
             // 
             // txtPassword
             // 
@@ -149,7 +132,7 @@
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPassword.IconLeft = global::DoAn01.Properties.Resources.icons8_password_90;
             this.txtPassword.IconLeftSize = new System.Drawing.Size(40, 40);
-            this.txtPassword.Location = new System.Drawing.Point(42, 189);
+            this.txtPassword.Location = new System.Drawing.Point(48, 226);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '\0';
@@ -172,7 +155,7 @@
             this.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUsername.IconLeft = global::DoAn01.Properties.Resources.icons8_user_961;
             this.txtUsername.IconLeftSize = new System.Drawing.Size(40, 40);
-            this.txtUsername.Location = new System.Drawing.Point(42, 109);
+            this.txtUsername.Location = new System.Drawing.Point(48, 146);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PasswordChar = '\0';
@@ -187,7 +170,7 @@
             this.guna2CustomRadioButton1.CheckedState.BorderThickness = 0;
             this.guna2CustomRadioButton1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2CustomRadioButton1.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.guna2CustomRadioButton1.Location = new System.Drawing.Point(90, 72);
+            this.guna2CustomRadioButton1.Location = new System.Drawing.Point(96, 109);
             this.guna2CustomRadioButton1.Name = "guna2CustomRadioButton1";
             this.guna2CustomRadioButton1.Size = new System.Drawing.Size(20, 20);
             this.guna2CustomRadioButton1.TabIndex = 30;
@@ -203,7 +186,7 @@
             this.guna2CustomRadioButton2.CheckedState.BorderThickness = 0;
             this.guna2CustomRadioButton2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2CustomRadioButton2.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.guna2CustomRadioButton2.Location = new System.Drawing.Point(221, 71);
+            this.guna2CustomRadioButton2.Location = new System.Drawing.Point(227, 108);
             this.guna2CustomRadioButton2.Name = "guna2CustomRadioButton2";
             this.guna2CustomRadioButton2.Size = new System.Drawing.Size(20, 20);
             this.guna2CustomRadioButton2.TabIndex = 31;
@@ -220,7 +203,7 @@
             this.guna2CheckBox1.CheckedState.BorderRadius = 0;
             this.guna2CheckBox1.CheckedState.BorderThickness = 0;
             this.guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2CheckBox1.Location = new System.Drawing.Point(42, 266);
+            this.guna2CheckBox1.Location = new System.Drawing.Point(48, 303);
             this.guna2CheckBox1.Name = "guna2CheckBox1";
             this.guna2CheckBox1.Size = new System.Drawing.Size(125, 20);
             this.guna2CheckBox1.TabIndex = 32;
@@ -235,11 +218,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.Controls.Add(this.guna2CheckBox1);
             this.Controls.Add(this.guna2CustomRadioButton2);
             this.Controls.Add(this.guna2CustomRadioButton1);
-            this.Controls.Add(this.btnFaceID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancel);
@@ -266,7 +248,6 @@
         private Guna.UI2.WinForms.Guna2Button btnLogin;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2ImageButton btnFaceID;
         private Guna.UI2.WinForms.Guna2CustomRadioButton guna2CustomRadioButton2;
         private Guna.UI2.WinForms.Guna2CustomRadioButton guna2CustomRadioButton1;
         private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox1;
