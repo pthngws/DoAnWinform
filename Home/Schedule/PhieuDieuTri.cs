@@ -87,7 +87,7 @@ namespace DoAn01
 
             // Thiết lập DataSource cho DataGridView
             guna2DataGridView1.DataSource = dataTable;
-            SqlCommand cmd2 = new SqlCommand("select advice,lotrinh from PhieuDieuTri where scheduleid=@idSchedule", mydb.getConnection);
+            SqlCommand cmd2 = new SqlCommand("select advice,lotrinh, ngaytaikham from PhieuDieuTri where scheduleid=@idSchedule", mydb.getConnection);
             cmd2.Parameters.AddWithValue("idSchedule", idSchedule);
             SqlDataAdapter  adapter1 = new SqlDataAdapter(cmd2);
             DataTable dataTable1 = new DataTable();
@@ -97,16 +97,12 @@ namespace DoAn01
                 // Lấy dữ liệu từ hàng đầu tiên của DataTable
                 string advice = dataTable1.Rows[0]["advice"].ToString();
                 string lotrinh = dataTable1.Rows[0]["lotrinh"].ToString();
+                string ngayTaiKham = dataTable1.Rows[0]["ngaytaikham"].ToString();
 
                 // Gán dữ liệu vào các TextBox
                 txtAdvise.Text = advice;
                 txtLLoTrinh.Text = lotrinh;
-            }
-else
-            {
-                // Xử lý trường hợp không tìm thấy bản ghi
-                // Ví dụ: Hiển thị một thông báo lỗi
-                MessageBox.Show("Không tìm thấy thông tin cho scheduleid này.");
+                guna2DateTimePicker1.Text = ngayTaiKham;
             }
 
             /* try
@@ -227,6 +223,8 @@ else
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             string adv = txtAdvise.Text;
+            DateTime ngay = DateTime.Now; // Ví dụ: Ngày hiện tại
+            string ngaytaikham = ngay.ToString("yyyy-MM-dd");
             string lotrinh = txtLLoTrinh.Text;
             rating = ratingStar.Value;
             // Kiểm tra xem scheduleid đã tồn tại trong cơ sở dữ liệu hay chưa
@@ -234,16 +232,17 @@ else
 
             if (isExisting)
             {
-                // Nếu scheduleid đã tồn tại, thực hiện cập nhật
+                MessageBox.Show("Đã tồn tại");
+                /*// Nếu scheduleid đã tồn tại, thực hiện cập nhật
                 if (pDT.UpdateData(adv, lotrinh, idSchedule,rating,price))
                     MessageBox.Show("Cập nhật thành công");
                 else
-                    MessageBox.Show("Cập nhật thất bại");
+                    MessageBox.Show("Cập nhật thất bại");*/
             }
             else
             {
                 // Nếu scheduleid chưa tồn tại, thực hiện chèn mới
-                if (pDT.InsertData(adv, lotrinh, idSchedule,rating, price))
+                if (pDT.InsertData(adv, lotrinh, idSchedule,rating, price,ngaytaikham))
                 {
                     schedule.updateStatusSchedule(idSchedule);
                     MessageBox.Show("Thêm mới thành công");
@@ -326,6 +325,22 @@ else
         {
             Bill bill = new Bill(patientID,dentistID,idSchedule);
             bill.Show();
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            ChonDichVu chonDichVu = new ChonDichVu(idSchedule);
+            chonDichVu.ShowDialog();
+            SqlCommand cmd = new SqlCommand("select S.Name as 'Tên dịch vụ', count(L.idService) as 'Số lượng',sum(S.price) as 'Thành tiền' from Service as S, LichSuDichVu as L where S.Id = L.idService and L.idSchedule =@idSchedule group by S.name", mydb.getConnection);
+            cmd.Parameters.AddWithValue("idSchedule", idSchedule);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+            // Tạo một DataTable để lưu trữ kết quả
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+
+            // Thiết lập DataSource cho DataGridView
+            guna2DataGridView1.DataSource = dataTable;
         }
     }
 }

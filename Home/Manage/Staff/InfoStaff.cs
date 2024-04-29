@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DoAn01.Home.Manage.Dentist;
+using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,19 +11,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DoAn01.Home.Manage.Dentist
+namespace DoAn01
 {
-    public partial class InfoDentist : Form
+    public partial class InfoStaff : Form
     {
-        public InfoDentist()
+        public InfoStaff()
         {
             InitializeComponent();
         }
-        Dentist dentist = new Dentist();
-        internal InfoDentist(Dentist dentist)
+
+        Staff staff = new Staff();
+        internal InfoStaff(Staff staff)
         {
-            InitializeComponent( );
-            this.dentist = dentist;
+            InitializeComponent();
+            this.staff = staff;
         }
         bool verify(string id, string name, string address, string phone)
         {
@@ -88,7 +91,7 @@ namespace DoAn01.Home.Manage.Dentist
             DateTime dob = guna2DateTimePicker1.Value;
             if (verify(txtID.Text, name, address, phone))
             {
-                if (dentist.UpdateDentist(dentist.id, name, address, phone, dob, gender))
+                if (staff.UpdateStaff(staff.id, name, address, phone, dob, gender))
                     MessageBox.Show("Update thanh cong");
             }
         }
@@ -96,55 +99,37 @@ namespace DoAn01.Home.Manage.Dentist
         private void btnRemove_Click(object sender, EventArgs e)
         {
             DialogResult result;
-            if (dentist.DeleteDentist(dentist.id))
+            if (staff.DeleteStaff(staff.id))
             {
                 MessageBox.Show("Delete thanh cong");
             }
         }
         MY_DB mydb = new MY_DB();
-        private void InfoDentist_Load(object sender, EventArgs e)
+        private void InfoStaff_Load(object sender, EventArgs e)
         {
-            txtID.Text = dentist.id;
-            txtName.Text = dentist.name;
-            txtPhone.Text = dentist.phone;
-            txtAddress.Text = dentist.address;
-            if (dentist.Gender == "Male")
+            txtID.Text = staff.id;
+            txtName.Text = staff.name;
+            txtPhone.Text = staff.phone;
+            txtAddress.Text = staff.address;
+            if (staff.Gender == "Male")
                 RadioButtonMale.Checked = true;
             else
                 RadioButtonMale.Checked = false;
-            if (dentist.Dob != DateTime.MinValue)
+            if (staff.Dob != DateTime.MinValue)
             {
-                guna2DateTimePicker1.Value = dentist.Dob;
+                guna2DateTimePicker1.Value = staff.Dob;
             }
             else
             {
                 guna2DateTimePicker1.Value = new DateTime(2000, 1, 1);
             }
 
-            SqlCommand cmd = new SqlCommand("select avg(rating) as rating \r\nfrom Schedule,PhieuDIeuTri\r\nwhere Schedule.Id = PhieuDIeuTri.scheduleid and Schedule.DentistId = @did", mydb.getConnection);
-            cmd.Parameters.AddWithValue("@did",dentist.id);
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
-            DataTable dataTable = new DataTable();
-            sqlDataAdapter.Fill(dataTable);
-            // Assuming you have already executed the SQL query and filled the DataTable
-            if (dataTable.Rows.Count > 0)
-            {
-                // Access the first row (assuming there's only one row)
-                DataRow row = dataTable.Rows[0];
-                if (row["rating"] != DBNull.Value)
-                {
-                    // Retrieve the average rating value
-                    double averageRating = Convert.ToDouble(row["rating"]);
-                    guna2RatingStar1.Value = Convert.ToUInt32(averageRating);
-                }
-                else
-                {
-                    guna2RatingStar1.Value = 0;
-                }
+                       // Assuming you have already executed the SQL query and filled the DataTable
+
 
                 // Assign the value to guna2RatingStar1
-                
-            }
+
+
 
         }
     }

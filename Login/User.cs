@@ -17,7 +17,6 @@ namespace DoAn01
         private string username;
         private string password;
         private string email;
-        private string role;
         MY_DB db = new MY_DB();
         public User() { }
         //Khởi tạo
@@ -25,29 +24,22 @@ namespace DoAn01
         {
            this.username = username;
         }
+
         public User(string username, string password)
         {
             this.Username = username;
             this.Password = password;
         }
-        public User(string username, string email, string password)
+        public User(string username, string password, string email)
         {
             this.Username = username;
             this.Email = email;
             this.Password = password;
-        }
-        public User(string username, string password, string email, string role)
-        {
-            this.Username = username;
-            this.Password = password;
-            this.Email = email;
-            this.Role = role;
         }
 
         public string Username { get => username; set => username = value; }
         public string Password { get => password; set => password = value; }
         public string Email { get => email; set => email = value; }
-        public string Role { get => role; set => role = value; }
         //Thêm người dùng
         public void CreateUser()
         {
@@ -103,7 +95,7 @@ namespace DoAn01
                         return;
                     }
                 }
-                string insertQuery = "INSERT INTO [user] (username, password, email,role) VALUES (@username, @password, @email,@role)";
+                string insertQuery = "INSERT INTO [user] (username, password, email) VALUES (@username, @password, @email)";
 
                 using (SqlCommand command = new SqlCommand(insertQuery, connection))
                 {
@@ -111,7 +103,6 @@ namespace DoAn01
                     command.Parameters.AddWithValue("@username", username);
                     command.Parameters.AddWithValue("@password", password);
                     command.Parameters.AddWithValue("@email", email);
-                    command.Parameters.AddWithValue("@role", role);
 
                     try
                     {
@@ -148,7 +139,6 @@ namespace DoAn01
                     user.Username = dataReader["username"].ToString();
                     user.Password = dataReader["password"].ToString();
                     user.Email = dataReader["email"].ToString();
-                    user.role = dataReader["role"].ToString();
                     db.closeConnection();
                     return user; // Người dùng tồn tại và mật khẩu khớp
                 }
@@ -169,13 +159,12 @@ namespace DoAn01
                 User user = new User();
                 db.openConnection();
 
-                string query = "SELECT * FROM [user] WHERE Username = @Username AND Password = @Password And Role = @Role";
+                string query = "SELECT * FROM [user] WHERE Username = @Username AND Password = @Password";
                 SqlCommand cmd = new SqlCommand(query, db.getConnection);
 
                 // Thêm tham số và giá trị cho tham số
                 cmd.Parameters.AddWithValue("@Username", username);
                 cmd.Parameters.AddWithValue("@Password", password);
-                cmd.Parameters.AddWithValue("@Role", Role);
 
                 SqlDataReader dataReader = cmd.ExecuteReader();
 
@@ -186,7 +175,6 @@ namespace DoAn01
                     user.Username = dataReader["username"].ToString();
                     user.Password = dataReader["password"].ToString();
                     user.Email = dataReader["email"].ToString();
-                    user.role = dataReader["role"].ToString();
                     db.closeConnection();
                     return user; // Người dùng tồn tại và mật khẩu khớp
                 }

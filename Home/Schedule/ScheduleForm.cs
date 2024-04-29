@@ -51,8 +51,38 @@ namespace DoAn01.Home.Schedule
 
         private void ScheduleForm_Load(object sender, EventArgs e)
         {
-
             txtID.Text = schedule.Id;
+            if (string.IsNullOrEmpty(txtID.Text))
+            {
+                // Thực hiện truy vấn SQL để lấy ID lớn nhất từ cột "id" trong bảng "schedule"
+                string query = "SELECT MAX(CAST(SUBSTRING(id, 2, LEN(id)) AS INT)) FROM schedule";
+
+                SqlCommand command = new SqlCommand(query, mydb.getConnection);
+
+                mydb.openConnection();
+
+                object result = command.ExecuteScalar();
+                int nextID = 1;
+
+                if (result != DBNull.Value)
+                {
+                    // Nếu có kết quả, tăng giá trị lên một
+                    nextID = Convert.ToInt32(result) + 1;
+                }
+
+                mydb.closeConnection();
+
+                // Tạo ID mới với định dạng "S" + số, ví dụ: S01, S02, vv
+                string newID = "S" + nextID.ToString("00");
+
+                txtID.Text = newID;
+            }
+            else
+            {
+                // Nếu txtID.Text không rỗng, hiển thị giá trị của txtID.Text
+                txtID.Text = schedule.Id;
+            }
+
             txtPatientID.Text = schedule.PatientID;
 
         }
@@ -72,19 +102,38 @@ namespace DoAn01.Home.Schedule
                 
             }    
         }
-
+        MY_DB mydb = new MY_DB();
         private void btnPhieuDieuTri_Click(object sender, EventArgs e)
         {
+            string id = txtID.Text;
+
+            // Tạo một truy vấn SQL để kiểm tra xem giá trị txtID.Text có tồn tại trong bảng "schedule" hay không
+            string query = "SELECT COUNT(*) FROM schedule WHERE id = @id";
+
+            SqlCommand command = new SqlCommand(query, mydb.getConnection);
+            command.Parameters.AddWithValue("@id", id);
+
+            mydb.openConnection();
+
+            int count = (int)command.ExecuteScalar(); // Lấy số lượng bản ghi trả về từ truy vấn
+
+            mydb.closeConnection();
+
+            if (count > 0)
+            {
+                // Nếu tồn tại, mở form PhieuDieuTri
                 PhieuDieuTri phieuDieuTri = new PhieuDieuTri(txtPatientID.Text, dentistid, txtID.Text);
                 phieuDieuTri.Show();
-
+            }
+            else
+            {
+                // Nếu không tồn tại, hiển thị thông báo
+                MessageBox.Show("Chưa có thông tin cho ID này trong bảng Schedule.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            ChonDichVu chonDichVu = new ChonDichVu(txtID.Text);
-            chonDichVu.Show();
-        }
+
+
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {

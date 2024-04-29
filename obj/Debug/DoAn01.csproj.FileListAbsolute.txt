@@ -185,3 +185,6 @@ C:\Users\thang\Source\Repos\DoAnWinform\obj\Debug\DoAn01.csproj.CopyComplete
 C:\Users\thang\Source\Repos\DoAnWinform\obj\Debug\DoAn01.exe
 C:\Users\thang\Source\Repos\DoAnWinform\obj\Debug\DoAn01.pdb
 C:\Users\thang\source\repos\DoAnWinform\obj\Debug\DoAn01.Bill.resources
+C:\Users\thang\source\repos\DoAnWinform\obj\Debug\DoAn01.ChiaCa.resources
+C:\Users\thang\source\repos\DoAnWinform\obj\Debug\DoAn01.InfoStaff.resources
+C:\Users\thang\source\repos\DoAnWinform\obj\Debug\DoAn01.UC_Staff.resources

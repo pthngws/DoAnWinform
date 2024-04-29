@@ -9,6 +9,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DoAn01.Home.Manage.Dentist;
 
 namespace DoAn01
 {
@@ -33,44 +34,44 @@ namespace DoAn01
             }
             else
             {
-                otp = random.Next(100000, 1000000);
+                otp = /*random.Next(100000, 1000000)*/ 1;
+                /*
+                                String SendMailFrom = "pthocwinform@gmail.com";
+                                String SendMailTo = txtEmail.Text;
+                                String SendMailSubject = "OTP COde";
+                                String SendMailBody = otp.ToString();
 
-                String SendMailFrom = "pthocwinform@gmail.com";
-                String SendMailTo = txtEmail.Text;
-                String SendMailSubject = "OTP COde";
-                String SendMailBody = otp.ToString();
-
-                try
-                {
-                    SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com", 587)
-                    {
-                        DeliveryMethod = SmtpDeliveryMethod.Network
-                    };
-                    MailMessage email = new MailMessage
-                    {
-                        // START
-                        From = new MailAddress(SendMailFrom)
-                    };
-                    email.To.Add(SendMailTo);
-                    email.CC.Add(SendMailFrom);
-                    email.Subject = SendMailSubject;
-                    email.Body = SendMailBody;
-                    //END
-                    SmtpServer.Timeout = 10000;
-                    SmtpServer.EnableSsl = true;
-                    SmtpServer.UseDefaultCredentials = false;
-                    SmtpServer.Credentials = new NetworkCredential(SendMailFrom, "wuoq bkqm avnu ixvf");
-                    SmtpServer.Send(email);
-
-                    MessageBox.Show("OTP đã được gửi.");
-                }
+                                try
+                                {
+                                    SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com", 587)
+                                    {
+                                        DeliveryMethod = SmtpDeliveryMethod.Network
+                                    };
+                                    MailMessage email = new MailMessage
+                                    {
+                                        // START
+                                        From = new MailAddress(SendMailFrom)
+                                    };
+                                    email.To.Add(SendMailTo);
+                                    email.CC.Add(SendMailFrom);
+                                    email.Subject = SendMailSubject;
+                                    email.Body = SendMailBody;
+                                    //END
+                                    SmtpServer.Timeout = 10000;
+                                    SmtpServer.EnableSsl = true;
+                                    SmtpServer.UseDefaultCredentials = false;
+                                    SmtpServer.Credentials = new NetworkCredential(SendMailFrom, "wuoq bkqm avnu ixvf");
+                                    SmtpServer.Send(email);*/
+/*
+                MessageBox.Show("OTP đã được gửi.");
+            }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-
+                MessageBox.Show(ex.Message);
+            }*/
         }
+
+    }
 
         private void btnSignup_Click(object sender, EventArgs e)
         {
@@ -80,6 +81,23 @@ namespace DoAn01
 
         private void btnSignUP_Click_1(object sender, EventArgs e)
         {
+            string role;
+
+            // Kiểm tra trạng thái của checkbox
+            if (guna2CustomRadioButton1.Checked)
+            {
+                role = "staff";
+
+            }
+            else if (guna2CustomRadioButton2.Checked)
+            {
+                role = "dentist";
+            }
+            else
+            {
+                role = "user";
+            }
+            Global.setRole(role);
             errorProvider1.Clear();
             errorProvider2.Clear();
             errorProvider3.Clear();
@@ -116,16 +134,29 @@ namespace DoAn01
                 string password = txtPassword.Text;
                 string confirmPassword = txtRepass.Text;
                 string email = txtEmail.Text;
-                string role = "user";
 
                 if (password == confirmPassword)
                 {
                     try
                     {
+                        
                         if (otp.ToString().Equals(txtOTP.Text))
                         {
-                            User user = new User(username, password, email, role);
-                            user.CreateUser();
+                            if (role == "user")
+                            {
+                                User user = new User(username, password, email);
+                                user.CreateUser();
+                            }
+                            else if (role == "staff")
+                            {
+                                Staff user = new Staff(username, password, email);
+                                user.CreateStaff();
+                            }
+                            else if (role == "dentist")
+                            {
+                                Dentist user = new Dentist(username, password, email);
+                                user.CreateDentist();
+                            }
                         }
                         else
                         {

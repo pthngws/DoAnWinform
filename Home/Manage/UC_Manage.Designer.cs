@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnStaff = new Guna.UI2.WinForms.Guna2Button();
             this.btnService = new Guna.UI2.WinForms.Guna2Button();
             this.btnDentist = new Guna.UI2.WinForms.Guna2Button();
             this.btnPatient = new Guna.UI2.WinForms.Guna2Button();
@@ -39,6 +40,7 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
+            this.guna2Panel1.Controls.Add(this.btnStaff);
             this.guna2Panel1.Controls.Add(this.btnService);
             this.guna2Panel1.Controls.Add(this.btnDentist);
             this.guna2Panel1.Controls.Add(this.btnPatient);
@@ -48,6 +50,33 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(225, 572);
             this.guna2Panel1.TabIndex = 0;
+            // 
+            // btnStaff
+            // 
+            this.btnStaff.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnStaff.CheckedState.CustomBorderColor = System.Drawing.Color.RoyalBlue;
+            this.btnStaff.CheckedState.FillColor = System.Drawing.Color.Lavender;
+            this.btnStaff.CustomBorderColor = System.Drawing.Color.White;
+            this.btnStaff.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.btnStaff.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnStaff.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnStaff.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnStaff.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnStaff.FillColor = System.Drawing.Color.White;
+            this.btnStaff.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnStaff.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(26)))), ((int)(((byte)(150)))));
+            this.btnStaff.HoverState.CustomBorderColor = System.Drawing.Color.RoyalBlue;
+            this.btnStaff.Image = global::DoAn01.Properties.Resources.icons8_users_90;
+            this.btnStaff.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnStaff.ImageOffset = new System.Drawing.Point(-5, -3);
+            this.btnStaff.ImageSize = new System.Drawing.Size(45, 45);
+            this.btnStaff.Location = new System.Drawing.Point(0, 147);
+            this.btnStaff.Name = "btnStaff";
+            this.btnStaff.Size = new System.Drawing.Size(222, 44);
+            this.btnStaff.TabIndex = 5;
+            this.btnStaff.Text = "Staff";
+            this.btnStaff.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnStaff.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // btnService
             // 
@@ -68,7 +97,7 @@
             this.btnService.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnService.ImageOffset = new System.Drawing.Point(-5, -3);
             this.btnService.ImageSize = new System.Drawing.Size(45, 45);
-            this.btnService.Location = new System.Drawing.Point(0, 100);
+            this.btnService.Location = new System.Drawing.Point(0, 47);
             this.btnService.Name = "btnService";
             this.btnService.Size = new System.Drawing.Size(222, 44);
             this.btnService.TabIndex = 4;
@@ -95,7 +124,7 @@
             this.btnDentist.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDentist.ImageOffset = new System.Drawing.Point(-5, -3);
             this.btnDentist.ImageSize = new System.Drawing.Size(45, 45);
-            this.btnDentist.Location = new System.Drawing.Point(0, 50);
+            this.btnDentist.Location = new System.Drawing.Point(0, 97);
             this.btnDentist.Name = "btnDentist";
             this.btnDentist.Size = new System.Drawing.Size(222, 44);
             this.btnDentist.TabIndex = 3;
@@ -161,5 +190,6 @@
         private Guna.UI2.WinForms.Guna2Button btnPatient;
         private Guna.UI2.WinForms.Guna2Button btnDentist;
         private Guna.UI2.WinForms.Guna2Button btnService;
+        private Guna.UI2.WinForms.Guna2Button btnStaff;
     }
 }

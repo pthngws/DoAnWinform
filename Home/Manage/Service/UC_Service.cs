@@ -47,7 +47,7 @@ namespace DoAn01.Home.Manage.Service
         }
         private void txtSearch_KeyUp(object sender, KeyEventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("select * from medicine where name like'%" + txtSearch.Text + "%'");
+            SqlCommand cmd = new SqlCommand("select * from service where name like'%" + txtSearch.Text + "%'");
             fillGrid(cmd);
         }
 

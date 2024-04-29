@@ -41,6 +41,8 @@
             this.guna2CustomRadioButton1 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.guna2CustomRadioButton2 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.guna2CheckBox1 = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.guna2CustomRadioButton3 = new Guna.UI2.WinForms.Guna2CustomRadioButton();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.SuspendLayout();
@@ -102,7 +104,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(244, 108);
+            this.label1.Location = new System.Drawing.Point(320, 106);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 21);
             this.label1.TabIndex = 22;
@@ -112,7 +114,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(122, 108);
+            this.label2.Location = new System.Drawing.Point(202, 105);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 21);
             this.label2.TabIndex = 23;
@@ -170,7 +172,7 @@
             this.guna2CustomRadioButton1.CheckedState.BorderThickness = 0;
             this.guna2CustomRadioButton1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2CustomRadioButton1.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.guna2CustomRadioButton1.Location = new System.Drawing.Point(96, 109);
+            this.guna2CustomRadioButton1.Location = new System.Drawing.Point(176, 106);
             this.guna2CustomRadioButton1.Name = "guna2CustomRadioButton1";
             this.guna2CustomRadioButton1.Size = new System.Drawing.Size(20, 20);
             this.guna2CustomRadioButton1.TabIndex = 30;
@@ -186,7 +188,7 @@
             this.guna2CustomRadioButton2.CheckedState.BorderThickness = 0;
             this.guna2CustomRadioButton2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2CustomRadioButton2.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.guna2CustomRadioButton2.Location = new System.Drawing.Point(227, 108);
+            this.guna2CustomRadioButton2.Location = new System.Drawing.Point(294, 106);
             this.guna2CustomRadioButton2.Name = "guna2CustomRadioButton2";
             this.guna2CustomRadioButton2.Size = new System.Drawing.Size(20, 20);
             this.guna2CustomRadioButton2.TabIndex = 31;
@@ -214,11 +216,40 @@
             this.guna2CheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.guna2CheckBox1.CheckedChanged += new System.EventHandler(this.guna2CheckBox1_CheckedChanged);
             // 
+            // guna2CustomRadioButton3
+            // 
+            this.guna2CustomRadioButton3.Checked = true;
+            this.guna2CustomRadioButton3.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2CustomRadioButton3.CheckedState.BorderThickness = 0;
+            this.guna2CustomRadioButton3.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2CustomRadioButton3.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.guna2CustomRadioButton3.Location = new System.Drawing.Point(48, 105);
+            this.guna2CustomRadioButton3.Name = "guna2CustomRadioButton3";
+            this.guna2CustomRadioButton3.Size = new System.Drawing.Size(20, 20);
+            this.guna2CustomRadioButton3.TabIndex = 34;
+            this.guna2CustomRadioButton3.Text = "guna2CustomRadioButton3";
+            this.guna2CustomRadioButton3.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2CustomRadioButton3.UncheckedState.BorderThickness = 2;
+            this.guna2CustomRadioButton3.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2CustomRadioButton3.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(71, 105);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 21);
+            this.label3.TabIndex = 33;
+            this.label3.Text = "Admin";
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
+            this.Controls.Add(this.guna2CustomRadioButton3);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.guna2CheckBox1);
             this.Controls.Add(this.guna2CustomRadioButton2);
             this.Controls.Add(this.guna2CustomRadioButton1);
@@ -251,5 +282,7 @@
         private Guna.UI2.WinForms.Guna2CustomRadioButton guna2CustomRadioButton2;
         private Guna.UI2.WinForms.Guna2CustomRadioButton guna2CustomRadioButton1;
         private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox1;
+        private Guna.UI2.WinForms.Guna2CustomRadioButton guna2CustomRadioButton3;
+        private System.Windows.Forms.Label label3;
     }
 }

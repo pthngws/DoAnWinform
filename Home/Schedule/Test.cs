@@ -28,8 +28,14 @@ namespace DoAn01.Home.Schedule
             this.name = name;
             this.ca = ca;
             this.date = date;
-
-            using (SqlConnection connection = mydb.getConnection)
+            if (Global.GlobalRole == "dentist")
+            {
+                label1.Visible = false;
+                guna2RatingStar1.Visible = false;
+                label3.Visible = true;
+                label3.Text =  ca;
+            }
+                using (SqlConnection connection = mydb.getConnection)
             {
                 connection.Open();
                 using (SqlCommand cmd = new SqlCommand("SELECT AVG(rating) AS rating FROM Schedule INNER JOIN PhieuDIeuTri ON Schedule.Id = PhieuDIeuTri.scheduleid WHERE Schedule.DentistId = @did", connection))

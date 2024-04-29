@@ -88,6 +88,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChiaCa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChiaCa.Designer.cs">
+      <DependentUpon>ChiaCa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global.cs" />
     <Compile Include="Home\Schedule\Bill.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,6 +270,12 @@
     <Compile Include="Home\Manage\Patient\LichSuDieuTri.Designer.cs">
       <DependentUpon>LichSuDieuTri.cs</DependentUpon>
     </Compile>
+    <Compile Include="Home\Manage\Staff\InfoStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\Manage\Staff\InfoStaff.Designer.cs">
+      <DependentUpon>InfoStaff.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\ChangePassword.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -335,6 +348,16 @@
     <Compile Include="Login\Verify.Designer.cs">
       <DependentUpon>Verify.cs</DependentUpon>
     </Compile>
+    <Compile Include="Home\Manage\Staff\Staff.cs" />
+    <Compile Include="Home\Manage\Staff\UC_Staff.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home\Manage\Staff\UC_Staff.Designer.cs">
+      <DependentUpon>UC_Staff.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ChiaCa.resx">
+      <DependentUpon>ChiaCa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home\Schedule\Bill.resx">
       <DependentUpon>Bill.cs</DependentUpon>
     </EmbeddedResource>
@@ -395,6 +418,9 @@
     <EmbeddedResource Include="Home\Manage\Patient\LichSuDieuTri.resx">
       <DependentUpon>LichSuDieuTri.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Home\Manage\Staff\InfoStaff.resx">
+      <DependentUpon>InfoStaff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login\ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -438,6 +464,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login\Verify.resx">
       <DependentUpon>Verify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Manage\Staff\UC_Staff.resx">
+      <DependentUpon>UC_Staff.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DentalSmileDataSet.xsc">
       <DependentUpon>DentalSmileDataSet.xsd</DependentUpon>
@@ -693,7 +722,9 @@
   <ItemGroup>
     <None Include="Resources\icons8-log-out-90.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\icons8-users-90.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-search-150.png" />
   </ItemGroup>

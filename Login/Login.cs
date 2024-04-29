@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoAn01.Home.Manage.Dentist;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,12 +27,19 @@ namespace DoAn01
             // Kiểm tra trạng thái của checkbox
             if (guna2CustomRadioButton1.Checked)
             {
-                role = "user";
+                role = "staff";
+
+            }
+            else if(guna2CustomRadioButton2.Checked)
+            {
+                role = "dentist";
             }
             else
             {
-                role = "admin";
+                role = "user";
             }
+            Global.setRole(role);
+            Global.setID(txtUsername.Text);
             errorProvider1.Clear();
             errorProvider2.Clear();
             bool flag = true;
@@ -47,14 +55,46 @@ namespace DoAn01
             }
             if (flag)
             {
-                User user = new User(txtUsername.Text, txtPassword.Text, null, role);
-                if (user.LoginUser() != null)
+                switch (role)
                 {
-                    Main main = new Main();
-                    main.StartPosition = FormStartPosition.CenterParent;
-                    main.ShowDialog();
-                    LoginButtonClicked?.Invoke(this, EventArgs.Empty);
+                    case "staff":
+                        Staff staff = new Staff(txtUsername.Text, txtPassword.Text);
+                        if (staff.LoginStaff()!=null)
+                        {
+                            Main main = new Main();
+                            main.StartPosition = FormStartPosition.CenterParent;
+                            main.ShowDialog();
+                            LoginButtonClicked?.Invoke(this, EventArgs.Empty);
+                        }
+                        break;
+
+                    case "user":
+                        User user = new User(txtUsername.Text, txtPassword.Text);
+                        if (user.LoginUser() != null)
+                        {
+                            Main main = new Main();
+                            main.StartPosition = FormStartPosition.CenterParent;
+                            main.ShowDialog();
+                            LoginButtonClicked?.Invoke(this, EventArgs.Empty);
+                        }
+                        break;
+
+                    case "dentist":
+                        Dentist dentist = new Dentist(txtUsername.Text, txtPassword.Text, null);
+                        if (dentist.LoginDentist() != null)
+                        {
+                            Main main = new Main();
+                            main.StartPosition = FormStartPosition.CenterParent;
+                            main.ShowDialog();
+                            LoginButtonClicked?.Invoke(this, EventArgs.Empty);
+                        }
+                        break;
+
+                    default:
+                        // Xử lý nếu role không phù hợp với bất kỳ trường hợp nào
+                        break;
                 }
+
             }
         }
         bool passwordChar = true;

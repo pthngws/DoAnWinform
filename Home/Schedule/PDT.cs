@@ -12,12 +12,12 @@ namespace DoAn01
     internal class PDT
     {
         MY_DB mydb = new MY_DB();
-        public bool InsertData(string adv, string lotrinh,string scheduleid,double rating,double price)
+        public bool InsertData(string adv, string lotrinh,string scheduleid,double rating,double price,string ngaytaikham)
         {
 
                     
                     // Tạo câu lệnh SQL chèn dữ liệu vào bảng PhieuDieuTri
-                    string query = "INSERT INTO PhieuDieuTri (Advice, LoTrinh,scheduleid,rating,price) VALUES (@Advise, @LoTrinh,@id,@rating,@price)";
+                    string query = "INSERT INTO PhieuDieuTri (Advice, LoTrinh,scheduleid,rating,price,ngaytaikham) VALUES (@Advise, @LoTrinh,@id,@rating,@price,@ngaytaikham)";
 
                     using (SqlCommand command = new SqlCommand(query, mydb.getConnection))
                     {
@@ -28,6 +28,7 @@ namespace DoAn01
                     command.Parameters.AddWithValue("@id", scheduleid);
                 command.Parameters.AddWithValue("@rating", rating);
                 command.Parameters.AddWithValue("@price", price);
+                command.Parameters.AddWithValue("@ngaytaikham", ngaytaikham);
 
                 // Thực thi câu lệnh SQL
                 command.ExecuteNonQuery();

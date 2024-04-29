@@ -1,11 +1,14 @@
 ﻿using DoAn01.Home;
+using DoAn01.Home.Manage.Dentist;
 using DoAn01.Home.Report;
 using DoAn01.Home.Schedule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,16 +23,43 @@ namespace DoAn01
             InitializeComponent();
             UC_Home uC_Home = new UC_Home();
             addUserControl(uC_Home);
+            if (Global.GlobalRole != "user")
+            {
+                getName();
+                linkLabel1.Visible = true;
+            }
+            if(Global.GlobalRole == "dentist")
+            {
+                linkLabel2.Visible = false;
+            }
+            if(Global.GlobalRole == "user")
+            {
+                linkLabel2.Location = new Point(6, 38);
+            }
         }
         User user = new User();
 
-        public Main(User user)
+        MY_DB mydb = new MY_DB();
+        public void getName()
         {
-            InitializeComponent();
-            UC_Home uC_Home = new UC_Home();
-            addUserControl(uC_Home);
-            this.user = user;
-            label2.Text = user.Username;
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            string tableName = Global.GlobalRole; // Assuming GlobalRole contains the table name
+            string username = Global.GlobalID; // Assuming GlobalID contains the username
+
+            // Constructing the SQL query dynamically
+            string query = $"SELECT name FROM {tableName} WHERE id = @username";
+
+            SqlCommand cmd = new SqlCommand(query, mydb.getConnection);
+            cmd.Parameters.AddWithValue("@username", username);
+            sqlDataAdapter.SelectCommand = cmd;
+            sqlDataAdapter.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                string fullname = dt.Rows[0]["name"].ToString();
+            
+                label2.Text = "Hello, " + fullname;
+            }
         }
         private void Main_Load(object sender, EventArgs e)
         {
@@ -68,6 +98,34 @@ namespace DoAn01
         {
             UC_Schedule uC_Schedule = new UC_Schedule();
             addUserControl(uC_Schedule);
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (Global.GlobalRole == "dentist")
+            {
+                Dentist dentist = new Dentist();
+                InfoDentist infoDentist = new InfoDentist(dentist.GetDentistById(Global.GlobalID));
+                    infoDentist.Show();
+            }
+            else if(Global.GlobalRole =="staff")
+            {
+                Staff staff = new Staff();
+                InfoStaff infoStaff = new InfoStaff(staff.GetStaffById(Global.GlobalID));
+                infoStaff.Show();
+            }    
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ChiaCa chiaCa = new ChiaCa();
+            chiaCa.Show();
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ResetPassword resetPassword = new ResetPassword();
+            resetPassword.Show();
         }
     }
 }

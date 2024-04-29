@@ -20,6 +20,12 @@ namespace DoAn01.Home
             InitializeComponent();
             UC_Patient uC_Patient = new UC_Patient();
             addUserControl(uC_Patient);
+            if(Global.GlobalRole!="user" )
+            {
+                btnDentist.Visible = false;
+                btnService.Visible = false;
+                btnStaff.Visible = false;
+            }
         }
         private void addUserControl(UserControl userControl)
         {
@@ -50,6 +56,12 @@ namespace DoAn01.Home
         {
             UC_Service uC_Service = new UC_Service();
             addUserControl(uC_Service);
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            UC_Staff uStaff = new UC_Staff();
+            addUserControl(uStaff);
         }
     }
 }
