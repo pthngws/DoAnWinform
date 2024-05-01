@@ -51,6 +51,7 @@
             this.btnEdit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnEdit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnEdit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEdit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(26)))), ((int)(((byte)(150)))));
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnEdit.ForeColor = System.Drawing.Color.White;
             this.btnEdit.Location = new System.Drawing.Point(109, 210);
@@ -153,6 +154,7 @@
             this.btnRemove.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnRemove.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnRemove.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRemove.FillColor = System.Drawing.Color.DarkRed;
             this.btnRemove.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnRemove.ForeColor = System.Drawing.Color.White;
             this.btnRemove.Location = new System.Drawing.Point(301, 210);
@@ -178,6 +180,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(453, 278);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnEdit);

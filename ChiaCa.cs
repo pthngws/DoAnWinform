@@ -26,6 +26,11 @@ namespace DoAn01
                     return "Tối"; // Giá trị 3 chuyển thành 17-22
                 case 4:
                     return "Khuya";
+            case 5:
+                    return "Rất Khuya";
+
+                    case 6:
+                    return "Rất rất khuya";
                 default:
                     return "X"; // Trả về null cho các giá trị khác
             }

@@ -84,6 +84,12 @@ namespace DoAn01
             // Tạo một DataTable để lưu trữ kết quả
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
+            SqlCommand cmdx = new SqlCommand("select S.Name as 'Tên dịch vụ', count(L.idMedicine) as 'Số lượng',sum(S.price) as 'Thành tiền' from Medicine as S, LichSuThuoc as L where S.Id = L.idMedicine and L.idSchedule =@idSchedule group by S.name", mydb.getConnection);
+            cmdx.Parameters.AddWithValue("idSchedule", idSchedule);
+            SqlDataAdapter adapter2 = new SqlDataAdapter(cmdx);
+
+            adapter2.Fill(dataTable);
+
 
             // Thiết lập DataSource cho DataGridView
             guna2DataGridView1.DataSource = dataTable;
@@ -327,21 +333,57 @@ namespace DoAn01
             bill.Show();
         }
 
+        // Định nghĩa DataTable toàn cục
+        DataTable dataTable = new DataTable();
+
         private void guna2Button3_Click(object sender, EventArgs e)
         {
             ChonDichVu chonDichVu = new ChonDichVu(idSchedule);
             chonDichVu.ShowDialog();
-            SqlCommand cmd = new SqlCommand("select S.Name as 'Tên dịch vụ', count(L.idService) as 'Số lượng',sum(S.price) as 'Thành tiền' from Service as S, LichSuDichVu as L where S.Id = L.idService and L.idSchedule =@idSchedule group by S.name", mydb.getConnection);
-            cmd.Parameters.AddWithValue("idSchedule", idSchedule);
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-
-            // Tạo một DataTable để lưu trữ kết quả
-            DataTable dataTable = new DataTable();
-            adapter.Fill(dataTable);
-
-            // Thiết lập DataSource cho DataGridView
-            guna2DataGridView1.DataSource = dataTable;
+            UpdateDataTable();
         }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            ChonThuoc chonThuoc = new ChonThuoc(idSchedule);
+            chonThuoc.ShowDialog();
+            UpdateDataTable();
+        }
+
+        private void UpdateDataTable()
+        {
+            // Xóa dữ liệu cũ trước khi thêm dữ liệu mới
+            dataTable.Clear();
+
+            // Lấy dữ liệu cho dịch vụ từ database
+            SqlCommand cmd1 = new SqlCommand("select S.Name as 'Tên dịch vụ', count(L.idService) as 'Số lượng',sum(S.price) as 'Thành tiền' from Service as S, LichSuDichVu as L where S.Id = L.idService and L.idSchedule =@idSchedule group by S.name", mydb.getConnection);
+            cmd1.Parameters.AddWithValue("idSchedule", idSchedule);
+            SqlDataAdapter adapter1 = new SqlDataAdapter(cmd1);
+            adapter1.Fill(dataTable);
+
+            // Lấy dữ liệu cho thuốc từ database
+            SqlCommand cmd2 = new SqlCommand("select S.Name as 'Tên dịch vụ', count(L.idMedicine) as 'Số lượng',sum(S.price) as 'Thành tiền' from Medicine as S, LichSuThuoc as L where S.Id = L.idMedicine and L.idSchedule =@idSchedule group by S.name", mydb.getConnection);
+            cmd2.Parameters.AddWithValue("idSchedule", idSchedule);
+            SqlDataAdapter adapter2 = new SqlDataAdapter(cmd2);
+            adapter2.Fill(dataTable);
+
+            // Cập nhật DataSource cho DataGridView
+            guna2DataGridView1.DataSource = dataTable;
+
+            // Tính tổng số tiền
+            decimal totalAmount = 0;
+            foreach (DataRow row in dataTable.Rows)
+            {
+                totalAmount += Convert.ToDecimal(row["Thành tiền"]);
+            }
+
+            // Định dạng số tiền với dấu chấm phân tách hàng nghìn
+            string formattedAmount = totalAmount.ToString("#,##0");
+
+            // Hiển thị số tiền đã định dạng trong Label
+            label17.Text = "Total: " + formattedAmount;
+        }
+
     }
 }
 

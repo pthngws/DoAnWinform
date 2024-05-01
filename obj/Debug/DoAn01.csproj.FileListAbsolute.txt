@@ -188,3 +188,4 @@ C:\Users\thang\source\repos\DoAnWinform\obj\Debug\DoAn01.Bill.resources
 C:\Users\thang\source\repos\DoAnWinform\obj\Debug\DoAn01.ChiaCa.resources
 C:\Users\thang\source\repos\DoAnWinform\obj\Debug\DoAn01.InfoStaff.resources
 C:\Users\thang\source\repos\DoAnWinform\obj\Debug\DoAn01.UC_Staff.resources
+C:\Users\thang\source\repos\DoAnWinform\obj\Debug\DoAn01.ChonThuoc.resources

@@ -94,6 +94,17 @@
     <Compile Include="ChiaCa.Designer.cs">
       <DependentUpon>ChiaCa.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChonThuoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChonThuoc.Designer.cs">
+      <DependentUpon>ChonThuoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DentalSmileDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DentalSmileDataSet10.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="Home\Schedule\Bill.cs">
       <SubType>Form</SubType>
@@ -358,6 +369,9 @@
     <EmbeddedResource Include="ChiaCa.resx">
       <DependentUpon>ChiaCa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChonThuoc.resx">
+      <DependentUpon>ChonThuoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home\Schedule\Bill.resx">
       <DependentUpon>Bill.cs</DependentUpon>
     </EmbeddedResource>
@@ -489,6 +503,17 @@
     </None>
     <None Include="DentalSmileDataSet1.xss">
       <DependentUpon>DentalSmileDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DentalSmileDataSet10.xsc">
+      <DependentUpon>DentalSmileDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="DentalSmileDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DentalSmileDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DentalSmileDataSet10.xss">
+      <DependentUpon>DentalSmileDataSet10.xsd</DependentUpon>
     </None>
     <None Include="DentalSmileDataSet2.xsc">
       <DependentUpon>DentalSmileDataSet2.xsd</DependentUpon>
@@ -778,6 +803,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-client-90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-medicine-90.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

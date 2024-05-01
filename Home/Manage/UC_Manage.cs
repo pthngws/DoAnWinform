@@ -25,6 +25,7 @@ namespace DoAn01.Home
                 btnDentist.Visible = false;
                 btnService.Visible = false;
                 btnStaff.Visible = false;
+                btnMedicine.Visible = false;
             }
         }
         private void addUserControl(UserControl userControl)
@@ -63,5 +64,6 @@ namespace DoAn01.Home
             UC_Staff uStaff = new UC_Staff();
             addUserControl(uStaff);
         }
+
     }
 }

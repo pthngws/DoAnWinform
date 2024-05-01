@@ -29,17 +29,19 @@
         private void InitializeComponent()
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.panelContainer = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnMedicine = new Guna.UI2.WinForms.Guna2Button();
             this.btnStaff = new Guna.UI2.WinForms.Guna2Button();
             this.btnService = new Guna.UI2.WinForms.Guna2Button();
             this.btnDentist = new Guna.UI2.WinForms.Guna2Button();
             this.btnPatient = new Guna.UI2.WinForms.Guna2Button();
-            this.panelContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.White;
+            this.guna2Panel1.BackColor = System.Drawing.Color.AliceBlue;
+            this.guna2Panel1.Controls.Add(this.btnMedicine);
             this.guna2Panel1.Controls.Add(this.btnStaff);
             this.guna2Panel1.Controls.Add(this.btnService);
             this.guna2Panel1.Controls.Add(this.btnDentist);
@@ -50,6 +52,41 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(225, 572);
             this.guna2Panel1.TabIndex = 0;
+            // 
+            // panelContainer
+            // 
+            this.panelContainer.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelContainer.Location = new System.Drawing.Point(228, -3);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(1032, 575);
+            this.panelContainer.TabIndex = 1;
+            // 
+            // btnMedicine
+            // 
+            this.btnMedicine.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnMedicine.CheckedState.CustomBorderColor = System.Drawing.Color.RoyalBlue;
+            this.btnMedicine.CheckedState.FillColor = System.Drawing.Color.Lavender;
+            this.btnMedicine.CustomBorderColor = System.Drawing.Color.White;
+            this.btnMedicine.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.btnMedicine.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnMedicine.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnMedicine.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnMedicine.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnMedicine.FillColor = System.Drawing.Color.White;
+            this.btnMedicine.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnMedicine.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(26)))), ((int)(((byte)(150)))));
+            this.btnMedicine.HoverState.CustomBorderColor = System.Drawing.Color.RoyalBlue;
+            this.btnMedicine.Image = global::DoAn01.Properties.Resources.icons8_medicine_90;
+            this.btnMedicine.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnMedicine.ImageOffset = new System.Drawing.Point(-5, -3);
+            this.btnMedicine.ImageSize = new System.Drawing.Size(45, 45);
+            this.btnMedicine.Location = new System.Drawing.Point(0, 102);
+            this.btnMedicine.Name = "btnMedicine";
+            this.btnMedicine.Size = new System.Drawing.Size(222, 51);
+            this.btnMedicine.TabIndex = 6;
+            this.btnMedicine.Text = "Medicine";
+            this.btnMedicine.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnMedicine.Click += new System.EventHandler(this.btnMedicine_Click);
             // 
             // btnStaff
             // 
@@ -70,9 +107,9 @@
             this.btnStaff.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnStaff.ImageOffset = new System.Drawing.Point(-5, -3);
             this.btnStaff.ImageSize = new System.Drawing.Size(45, 45);
-            this.btnStaff.Location = new System.Drawing.Point(0, 147);
+            this.btnStaff.Location = new System.Drawing.Point(0, 204);
             this.btnStaff.Name = "btnStaff";
-            this.btnStaff.Size = new System.Drawing.Size(222, 44);
+            this.btnStaff.Size = new System.Drawing.Size(222, 51);
             this.btnStaff.TabIndex = 5;
             this.btnStaff.Text = "Staff";
             this.btnStaff.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -97,9 +134,9 @@
             this.btnService.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnService.ImageOffset = new System.Drawing.Point(-5, -3);
             this.btnService.ImageSize = new System.Drawing.Size(45, 45);
-            this.btnService.Location = new System.Drawing.Point(0, 47);
+            this.btnService.Location = new System.Drawing.Point(0, 51);
             this.btnService.Name = "btnService";
-            this.btnService.Size = new System.Drawing.Size(222, 44);
+            this.btnService.Size = new System.Drawing.Size(222, 51);
             this.btnService.TabIndex = 4;
             this.btnService.Text = "Service";
             this.btnService.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -124,9 +161,9 @@
             this.btnDentist.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDentist.ImageOffset = new System.Drawing.Point(-5, -3);
             this.btnDentist.ImageSize = new System.Drawing.Size(45, 45);
-            this.btnDentist.Location = new System.Drawing.Point(0, 97);
+            this.btnDentist.Location = new System.Drawing.Point(0, 153);
             this.btnDentist.Name = "btnDentist";
-            this.btnDentist.Size = new System.Drawing.Size(222, 44);
+            this.btnDentist.Size = new System.Drawing.Size(222, 51);
             this.btnDentist.TabIndex = 3;
             this.btnDentist.Text = "Dentist";
             this.btnDentist.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -155,19 +192,11 @@
             this.btnPatient.Location = new System.Drawing.Point(0, 0);
             this.btnPatient.Margin = new System.Windows.Forms.Padding(0);
             this.btnPatient.Name = "btnPatient";
-            this.btnPatient.Size = new System.Drawing.Size(222, 44);
+            this.btnPatient.Size = new System.Drawing.Size(222, 51);
             this.btnPatient.TabIndex = 1;
             this.btnPatient.Text = "Patient";
             this.btnPatient.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnPatient.Click += new System.EventHandler(this.btnPatient_Click);
-            // 
-            // panelContainer
-            // 
-            this.panelContainer.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelContainer.Location = new System.Drawing.Point(228, -3);
-            this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1032, 575);
-            this.panelContainer.TabIndex = 1;
             // 
             // UC_Manage
             // 
@@ -191,5 +220,6 @@
         private Guna.UI2.WinForms.Guna2Button btnDentist;
         private Guna.UI2.WinForms.Guna2Button btnService;
         private Guna.UI2.WinForms.Guna2Button btnStaff;
+        private Guna.UI2.WinForms.Guna2Button btnMedicine;
     }
 }

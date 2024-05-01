@@ -443,6 +443,16 @@ namespace DoAn01.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_medicine_90 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-medicine-90", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_password_104 {
             get {
                 object obj = ResourceManager.GetObject("icons8-password-104", resourceCulture);
