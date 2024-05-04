@@ -24,6 +24,7 @@ namespace DoAn01.Home.Schedule
         string status;
         internal ScheduleForm(Schedule schedule, string ca, string dentistid, string date)
         {
+
             InitializeComponent();
             this.schedule = schedule;
             this.ca = ca;
@@ -42,6 +43,7 @@ namespace DoAn01.Home.Schedule
             }
             else
             {
+                status = "false";
                 RadioButtonFalse.Checked = true;
             }
         }
@@ -51,6 +53,7 @@ namespace DoAn01.Home.Schedule
 
         private void ScheduleForm_Load(object sender, EventArgs e)
         {
+            btnAdd.Enabled = true;
             txtID.Text = schedule.Id;
             if (string.IsNullOrEmpty(txtID.Text))
             {
@@ -81,6 +84,9 @@ namespace DoAn01.Home.Schedule
             {
                 // Nếu txtID.Text không rỗng, hiển thị giá trị của txtID.Text
                 txtID.Text = schedule.Id;
+                btnAdd.Enabled = false;
+                txtPatientID.Enabled = false;
+
             }
 
             txtPatientID.Text = schedule.PatientID;
@@ -106,9 +112,10 @@ namespace DoAn01.Home.Schedule
                 if (schedule.insertSchedule(txtID.Text, dentistid, patientid, Convert.ToDateTime(date), tinhtrang, ca))
                 {
                     MessageBox.Show("ADD Success");
-
+                    btnAdd.Enabled = false;
                 }
             }
+
                
         }
         MY_DB mydb = new MY_DB();
@@ -146,9 +153,18 @@ namespace DoAn01.Home.Schedule
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            if(schedule.deleteSchedule(txtID.Text))
+            if (status == "false")
             {
-                MessageBox.Show("Remove Success");
+                if (schedule.deleteSchedule(txtID.Text))
+                {
+                    ScheduleForm_Load(null,null);
+                    MessageBox.Show("Remove Success");
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Can't remove");
             }
         }
     }

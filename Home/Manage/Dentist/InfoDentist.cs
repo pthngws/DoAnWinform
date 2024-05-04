@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -86,10 +87,28 @@ namespace DoAn01.Home.Manage.Dentist
                 gender = "Male";
             else gender = "Female";
             DateTime dob = guna2DateTimePicker1.Value;
+
+
             if (verify(txtID.Text, name, address, phone))
             {
-                if (dentist.UpdateDentist(dentist.id, name, address, phone, dob, gender))
-                    MessageBox.Show("Edit Success");
+                MemoryStream picture = new MemoryStream();
+
+                if (pictureBox1.Image != null)
+                {
+                    // Nếu hình ảnh trong PictureBox tồn tại, lưu vào MemoryStream
+
+                    pictureBox1.Image.Save(picture, pictureBox1.Image.RawFormat);
+                    if (dentist.UpdateDentist(dentist.id, name, address, phone, dob, gender,picture))
+                        MessageBox.Show("Edit Success");
+                    // Sử dụng biến picture ở đây cho mục đích khác nếu cần
+                }
+                else
+                {
+                    // Nếu không có hình ảnh, bạn có thể thông báo lỗi hoặc thực hiện xử lý khác tùy thuộc vào yêu cầu của bạn
+                    MessageBox.Show("Không có hình ảnh để lưu.");
+                    picture = null;
+                }
+                
             }
         }
 
@@ -121,6 +140,16 @@ namespace DoAn01.Home.Manage.Dentist
                 guna2DateTimePicker1.Value = new DateTime(2000, 1, 1);
             }
 
+            if (dentist.picture != null)
+            {
+                Image image = Image.FromStream(dentist.picture);
+
+                // Gán hình ảnh cho PictureBox
+                pictureBox1.Image = image;
+            }
+
+
+
             SqlCommand cmd = new SqlCommand("select avg(rating) as rating \r\nfrom Schedule,PhieuDIeuTri\r\nwhere Schedule.Id = PhieuDIeuTri.scheduleid and Schedule.DentistId = @did", mydb.getConnection);
             cmd.Parameters.AddWithValue("@did",dentist.id);
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
@@ -146,6 +175,17 @@ namespace DoAn01.Home.Manage.Dentist
                 
             }
 
+        }
+
+        private void buttonUpIMG_Click(object sender, EventArgs e)
+        {
+
+                OpenFileDialog opf = new OpenFileDialog();
+                opf.Filter = "Select Image(*.jpg;*.png;*.gif)|*.jpg;*.png;*.gif";
+                if ((opf.ShowDialog() == DialogResult.OK))
+                {
+                pictureBox1.Image = Image.FromFile(opf.FileName);
+                }
         }
     }
 }

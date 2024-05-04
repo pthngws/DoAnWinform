@@ -23,6 +23,7 @@ namespace DoAn01
         public string phone;
         public DateTime Dob;
         public string Gender;
+        public MemoryStream picture;
         public Staff(string id,string password) {
             this.id = id;
             this.password = password;
@@ -193,10 +194,10 @@ namespace DoAn01
         }
 
 
-        public bool UpdateStaff(string id, string name, string address, string phone, DateTime dob, string gender)
+        public bool UpdateStaff(string id, string name, string address, string phone, DateTime dob, string gender, MemoryStream picture)
         {
             SqlCommand command = new SqlCommand("UPDATE Staff " +
-                                                "SET name = @name, address = @address, phone = @phone, dob = @dob, gender = @gender " +
+                                                "SET name = @name, address = @address, phone = @phone, dob = @dob, gender = @gender,picture = @pic " +
                                                 "WHERE id = @id", mydb.getConnection);
             command.Parameters.AddWithValue("@name", name);
             command.Parameters.AddWithValue("@address", address);
@@ -204,6 +205,7 @@ namespace DoAn01
             command.Parameters.AddWithValue("@dob", dob);
             command.Parameters.AddWithValue("@gender", gender);
             command.Parameters.AddWithValue("@id", id);
+            command.Parameters.Add("@pic", SqlDbType.Image).Value = picture.ToArray();
             mydb.openConnection();
 
             if (command.ExecuteNonQuery() == 1)
@@ -240,6 +242,20 @@ namespace DoAn01
                             dentist.phone = dataReader["phone"].ToString();
                             dentist.Dob = dataReader.IsDBNull(dataReader.GetOrdinal("dob")) ? DateTime.MinValue : Convert.ToDateTime(dataReader["dob"]);
                             dentist.Gender = dataReader["gender"].ToString();
+                            if (!dataReader.IsDBNull(dataReader.GetOrdinal("picture")))
+                            {
+                                // Đọc dữ liệu hình ảnh từ cột "picture" và tạo MemoryStream
+                                byte[] pic = (byte[])dataReader["picture"];
+                                MemoryStream picture = new MemoryStream(pic);
+
+                                // Gán MemoryStream cho thuộc tính picture trong lớp Dentist
+                                dentist.picture = picture;
+                            }
+                            else
+                            {
+                                // Nếu không có dữ liệu ảnh, gán thuộc tính picture là null
+                                dentist.picture = null;
+                            }
                         }
                     }
                 }

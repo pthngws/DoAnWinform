@@ -22,11 +22,13 @@ namespace DoAn01.Home.Schedule
         List<Dentist> listBacSi = new List<Dentist>();
         public UC_Schedule()
         {
+           
             InitializeComponent();
             if(Global.GlobalRole =="dentist")
             {
                 comboBox1.Visible = false;
                 guna2ImageButton1.Visible = false;
+               
             }
         }
 

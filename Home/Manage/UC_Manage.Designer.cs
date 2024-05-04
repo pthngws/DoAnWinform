@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.panelContainer = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnMedicine = new Guna.UI2.WinForms.Guna2Button();
             this.btnStaff = new Guna.UI2.WinForms.Guna2Button();
             this.btnService = new Guna.UI2.WinForms.Guna2Button();
@@ -37,6 +37,14 @@
             this.btnPatient = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panelContainer
+            // 
+            this.panelContainer.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelContainer.Location = new System.Drawing.Point(228, -1);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(1032, 575);
+            this.panelContainer.TabIndex = 3;
             // 
             // guna2Panel1
             // 
@@ -46,20 +54,12 @@
             this.guna2Panel1.Controls.Add(this.btnService);
             this.guna2Panel1.Controls.Add(this.btnDentist);
             this.guna2Panel1.Controls.Add(this.btnPatient);
-            this.guna2Panel1.Font = new System.Drawing.Font("Century Gothic", 7.8F);
+            this.guna2Panel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(26)))), ((int)(((byte)(150)))));
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 2);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(225, 572);
-            this.guna2Panel1.TabIndex = 0;
-            // 
-            // panelContainer
-            // 
-            this.panelContainer.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelContainer.Location = new System.Drawing.Point(228, -3);
-            this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(1032, 575);
-            this.panelContainer.TabIndex = 1;
+            this.guna2Panel1.TabIndex = 2;
             // 
             // btnMedicine
             // 
@@ -200,11 +200,12 @@
             // 
             // UC_Manage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.guna2Panel1);
-            this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UC_Manage";
             this.Size = new System.Drawing.Size(1260, 572);
             this.guna2Panel1.ResumeLayout(false);
@@ -214,12 +215,12 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Panel panelContainer;
-        private Guna.UI2.WinForms.Guna2Button btnPatient;
-        private Guna.UI2.WinForms.Guna2Button btnDentist;
-        private Guna.UI2.WinForms.Guna2Button btnService;
-        private Guna.UI2.WinForms.Guna2Button btnStaff;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Button btnMedicine;
+        private Guna.UI2.WinForms.Guna2Button btnStaff;
+        private Guna.UI2.WinForms.Guna2Button btnService;
+        private Guna.UI2.WinForms.Guna2Button btnDentist;
+        private Guna.UI2.WinForms.Guna2Button btnPatient;
     }
 }

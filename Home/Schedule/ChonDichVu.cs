@@ -94,7 +94,7 @@ namespace DoAn01
                     }
 
                     MessageBox.Show("Thêm vào Lịch sử dịch vụ thành công!");
-                
+            Add.Enabled = false;
 
 
         }

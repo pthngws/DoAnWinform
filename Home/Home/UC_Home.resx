@@ -117,4 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label7.Text" xml:space="preserve">
+    <value>We are committed to offering quality dental care for the whole family. Whether you
+are in need of cosmetic dentistry, restorative work, or a regular dental checkup, you 
+are in good hands with our friendly, skilled dental technicians and qualified dentists.</value>
+  </data>
 </root>

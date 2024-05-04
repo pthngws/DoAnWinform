@@ -58,10 +58,10 @@
             // linkForgotPass
             // 
             this.linkForgotPass.AutoSize = true;
-            this.linkForgotPass.Font = new System.Drawing.Font("Century Gothic", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.linkForgotPass.Location = new System.Drawing.Point(232, 302);
+            this.linkForgotPass.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkForgotPass.Location = new System.Drawing.Point(231, 303);
             this.linkForgotPass.Name = "linkForgotPass";
-            this.linkForgotPass.Size = new System.Drawing.Size(151, 21);
+            this.linkForgotPass.Size = new System.Drawing.Size(152, 19);
             this.linkForgotPass.TabIndex = 17;
             this.linkForgotPass.TabStop = true;
             this.linkForgotPass.Text = "Forgot Password?";
@@ -75,7 +75,7 @@
             this.btnLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnLogin.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(26)))), ((int)(((byte)(150)))));
-            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(42, 377);
             this.btnLogin.Name = "btnLogin";
@@ -92,7 +92,7 @@
             this.btnCancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnCancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnCancel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(223, 377);
             this.btnCancel.Name = "btnCancel";
@@ -103,20 +103,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(320, 106);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(308, 105);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 21);
+            this.label1.Size = new System.Drawing.Size(75, 23);
             this.label1.TabIndex = 22;
             this.label1.Text = "Dentist";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(202, 105);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 21);
+            this.label2.Size = new System.Drawing.Size(51, 23);
             this.label2.TabIndex = 23;
             this.label2.Text = "Staff";
             // 
@@ -188,7 +188,7 @@
             this.guna2CustomRadioButton2.CheckedState.BorderThickness = 0;
             this.guna2CustomRadioButton2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2CustomRadioButton2.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.guna2CustomRadioButton2.Location = new System.Drawing.Point(294, 106);
+            this.guna2CustomRadioButton2.Location = new System.Drawing.Point(282, 105);
             this.guna2CustomRadioButton2.Name = "guna2CustomRadioButton2";
             this.guna2CustomRadioButton2.Size = new System.Drawing.Size(20, 20);
             this.guna2CustomRadioButton2.TabIndex = 31;
@@ -205,9 +205,10 @@
             this.guna2CheckBox1.CheckedState.BorderRadius = 0;
             this.guna2CheckBox1.CheckedState.BorderThickness = 0;
             this.guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2CheckBox1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2CheckBox1.Location = new System.Drawing.Point(48, 303);
             this.guna2CheckBox1.Name = "guna2CheckBox1";
-            this.guna2CheckBox1.Size = new System.Drawing.Size(125, 20);
+            this.guna2CheckBox1.Size = new System.Drawing.Size(158, 23);
             this.guna2CheckBox1.TabIndex = 32;
             this.guna2CheckBox1.Text = "Show Password\r\n";
             this.guna2CheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -236,10 +237,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(71, 105);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 21);
+            this.label3.Size = new System.Drawing.Size(74, 23);
             this.label3.TabIndex = 33;
             this.label3.Text = "Admin";
             // 

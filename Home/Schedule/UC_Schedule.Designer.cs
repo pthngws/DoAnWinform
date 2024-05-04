@@ -29,44 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dentalSmileDataSet5 = new DoAn01.DentalSmileDataSet5();
             this.scheduleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.scheduleTableAdapter = new DoAn01.DentalSmileDataSet5TableAdapters.ScheduleTableAdapter();
             this.panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.dateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.comboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dentalSmileDataSet5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(28, 13);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(227, 41);
-            this.dateTimePicker1.TabIndex = 1;
-            this.dateTimePicker1.FormatChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "7-9",
-            "9-11",
-            "13-15",
-            "15-17",
-            "17-19",
-            "19-21"});
-            this.comboBox1.Location = new System.Drawing.Point(261, 13);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(174, 41);
-            this.comboBox1.TabIndex = 2;
-            this.comboBox1.Text = "7-9";
             // 
             // dentalSmileDataSet5
             // 
@@ -100,7 +72,7 @@
             this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton1.ImageRotate = 0F;
             this.guna2ImageButton1.ImageSize = new System.Drawing.Size(35, 35);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(438, 10);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(421, 10);
             this.guna2ImageButton1.Margin = new System.Windows.Forms.Padding(0);
             this.guna2ImageButton1.Name = "guna2ImageButton1";
             this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(35, 35);
@@ -108,14 +80,56 @@
             this.guna2ImageButton1.TabIndex = 3;
             this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.BackColor = System.Drawing.Color.AliceBlue;
+            this.dateTimePicker1.BorderRadius = 10;
+            this.dateTimePicker1.Checked = true;
+            this.dateTimePicker1.FillColor = System.Drawing.Color.Silver;
+            this.dateTimePicker1.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(40, 15);
+            this.dateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 36);
+            this.dateTimePicker1.TabIndex = 4;
+            this.dateTimePicker1.Value = new System.DateTime(2024, 5, 4, 12, 42, 12, 201);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dateTimePicker1.FormatChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.comboBox1.BorderRadius = 10;
+            this.comboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.ForeColor = System.Drawing.Color.Black;
+            this.comboBox1.ItemHeight = 30;
+            this.comboBox1.Items.AddRange(new object[] {
+            "7-9",
+            "9-11",
+            "13-15",
+            "15-17",
+            "17-19",
+            "19-21"});
+            this.comboBox1.Location = new System.Drawing.Point(246, 15);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(172, 36);
+            this.comboBox1.StartIndex = 0;
+            this.comboBox1.TabIndex = 5;
+            // 
             // UC_Schedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.guna2ImageButton1);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.guna2ImageButton1);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UC_Schedule";
             this.Size = new System.Drawing.Size(1260, 572);
@@ -129,10 +143,10 @@
         #endregion
         private System.Windows.Forms.BindingSource scheduleBindingSource;
         private DentalSmileDataSet5 dentalSmileDataSet5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private DentalSmileDataSet5TableAdapters.ScheduleTableAdapter scheduleTableAdapter;
         private Guna.UI2.WinForms.Guna2Panel panel1;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dateTimePicker1;
+        private Guna.UI2.WinForms.Guna2ComboBox comboBox1;
     }
 }

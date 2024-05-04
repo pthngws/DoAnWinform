@@ -43,23 +43,14 @@ namespace DoAn01
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            staff.id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            staff.name = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            staff.address = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            if (dataGridView1.CurrentRow.Cells[3].Value != null && dataGridView1.CurrentRow.Cells[3].Value != DBNull.Value)
-            {
-                staff.Dob = (DateTime)dataGridView1.CurrentRow.Cells[3].Value;
-            }
-            else
-            {
-                staff.Dob = new DateTime(2000, 1, 1);
-            }
+            Staff dentist = new Staff();
+            InfoStaff infoDentist = new InfoStaff(staff.GetStaffById(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
+            infoDentist.Show();
+        }
 
-            staff.Gender = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            staff.phone = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
-            InfoStaff infostaff = new InfoStaff(staff) { StartPosition = FormStartPosition.CenterScreen };
-            infostaff.Show();
         }
     }
 }

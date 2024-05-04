@@ -48,15 +48,15 @@ namespace DoAn01.Home.Manage.Dentist
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            dentist.id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            dentist.name = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            dentist.address = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            dentist.Dob = (DateTime)dataGridView1.CurrentRow.Cells[3].Value;
-            dentist.Gender = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            dentist.phone = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            
+            Dentist dentist = new Dentist();
+            InfoDentist infoDentist = new InfoDentist(dentist.GetDentistById(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
+            infoDentist.Show();
+        }
 
-            InfoDentist infodentist = new InfoDentist(dentist) { StartPosition = FormStartPosition.CenterScreen };
-            infodentist.Show();
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

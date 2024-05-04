@@ -153,6 +153,16 @@ namespace DoAn01.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_address_20 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-address-20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_admin_settings_male_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-admin-settings-male-50", resourceCulture);
@@ -236,6 +246,26 @@ namespace DoAn01.Properties {
         internal static System.Drawing.Bitmap icons8_client_90 {
             get {
                 object obj = ResourceManager.GetObject("icons8-client-90", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_clock_90 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-clock-90", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_clock_90__2_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-clock-90 (2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -376,6 +406,16 @@ namespace DoAn01.Properties {
         internal static System.Drawing.Bitmap icons8_home_901 {
             get {
                 object obj = ResourceManager.GetObject("icons8-home-901", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_hotline_20 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-hotline-20", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -583,6 +623,66 @@ namespace DoAn01.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_tick_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-tick-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_tick_501 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-tick-501", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_tick_502 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-tick-502", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_tick_box_20 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-tick-box-20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_time_90 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-time-90", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_time_machine_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-time-machine-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_user_24 {
             get {
                 object obj = ResourceManager.GetObject("icons8-user-24", resourceCulture);
@@ -626,6 +726,16 @@ namespace DoAn01.Properties {
         internal static System.Drawing.Bitmap icons8_users_90 {
             get {
                 object obj = ResourceManager.GetObject("icons8-users-90", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_write_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-write-50", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

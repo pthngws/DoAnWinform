@@ -74,28 +74,32 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label6.Location = new System.Drawing.Point(333, 316);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(33, 17);
+            this.label6.Size = new System.Drawing.Size(55, 23);
             this.label6.TabIndex = 27;
             this.label6.Text = "Busy";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label5.Location = new System.Drawing.Point(150, 316);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 17);
+            this.label5.Size = new System.Drawing.Size(52, 23);
             this.label5.TabIndex = 26;
             this.label5.Text = "Free";
             // 
             // btnAdd
             // 
+            this.btnAdd.BorderRadius = 10;
             this.btnAdd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAdd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAdd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAdd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(26)))), ((int)(((byte)(150)))));
+            this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Location = new System.Drawing.Point(119, 349);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -115,6 +119,7 @@
             this.RadioButtonTrue.CheckedState.BorderThickness = 0;
             this.RadioButtonTrue.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.RadioButtonTrue.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.RadioButtonTrue.Enabled = false;
             this.RadioButtonTrue.Location = new System.Drawing.Point(303, 316);
             this.RadioButtonTrue.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RadioButtonTrue.Name = "RadioButtonTrue";
@@ -132,6 +137,7 @@
             this.RadioButtonFalse.CheckedState.BorderThickness = 0;
             this.RadioButtonFalse.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.RadioButtonFalse.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.RadioButtonFalse.Enabled = false;
             this.RadioButtonFalse.Location = new System.Drawing.Point(119, 316);
             this.RadioButtonFalse.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RadioButtonFalse.Name = "RadioButtonFalse";
@@ -146,14 +152,16 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(12, 192);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 17);
+            this.label3.Size = new System.Drawing.Size(96, 23);
             this.label3.TabIndex = 19;
             this.label3.Text = "PatientID";
             // 
             // txtPatientID
             // 
+            this.txtPatientID.BorderRadius = 10;
             this.txtPatientID.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPatientID.DefaultText = "";
             this.txtPatientID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -175,14 +183,16 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(12, 146);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(20, 17);
+            this.label1.Size = new System.Drawing.Size(30, 23);
             this.label1.TabIndex = 15;
             this.label1.Text = "ID";
             // 
             // txtID
             // 
+            this.txtID.BorderRadius = 10;
             this.txtID.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtID.DefaultText = "";
             this.txtID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -204,12 +214,13 @@
             // 
             // btnPhieuDieuTri
             // 
+            this.btnPhieuDieuTri.BorderRadius = 10;
             this.btnPhieuDieuTri.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnPhieuDieuTri.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnPhieuDieuTri.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnPhieuDieuTri.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnPhieuDieuTri.FillColor = System.Drawing.Color.Green;
-            this.btnPhieuDieuTri.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnPhieuDieuTri.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.btnPhieuDieuTri.ForeColor = System.Drawing.Color.White;
             this.btnPhieuDieuTri.Location = new System.Drawing.Point(303, 251);
             this.btnPhieuDieuTri.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -226,18 +237,19 @@
             this.label2.Font = new System.Drawing.Font("Century Gothic", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(87, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(271, 44);
+            this.label2.Size = new System.Drawing.Size(333, 56);
             this.label2.TabIndex = 30;
             this.label2.Text = "Info Schedule";
             // 
             // guna2Button3
             // 
+            this.guna2Button3.BorderRadius = 10;
             this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button3.FillColor = System.Drawing.Color.DarkRed;
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.guna2Button3.ForeColor = System.Drawing.Color.White;
             this.guna2Button3.Location = new System.Drawing.Point(303, 349);
             this.guna2Button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -253,7 +265,7 @@
             // 
             // ScheduleForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(504, 418);

@@ -55,6 +55,24 @@
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
       <HintPath>packages\OpenTK.1.1.2225.0\lib\net20\OpenTK.dll</HintPath>
     </Reference>
@@ -88,16 +106,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChiaCa.cs">
+    <Compile Include="DataSetBill.cs">
+      <DependentUpon>DataSetBill.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetBill.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetBill.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Shift\UC_Shift.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home\Shift\UC_Shift.Designer.cs">
+      <DependentUpon>UC_Shift.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Schedule\ChonThuoc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChiaCa.Designer.cs">
-      <DependentUpon>ChiaCa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ChonThuoc.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChonThuoc.Designer.cs">
+    <Compile Include="Home\Schedule\ChonThuoc.Designer.cs">
       <DependentUpon>ChonThuoc.cs</DependentUpon>
     </Compile>
     <Compile Include="DentalSmileDataSet10.Designer.cs">
@@ -366,10 +392,11 @@
     <Compile Include="Home\Manage\Staff\UC_Staff.Designer.cs">
       <DependentUpon>UC_Staff.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ChiaCa.resx">
-      <DependentUpon>ChiaCa.cs</DependentUpon>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Home\Shift\UC_Shift.resx">
+      <DependentUpon>UC_Shift.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChonThuoc.resx">
+    <EmbeddedResource Include="Home\Schedule\ChonThuoc.resx">
       <DependentUpon>ChonThuoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home\Schedule\Bill.resx">
@@ -482,6 +509,18 @@
     <EmbeddedResource Include="Home\Manage\Staff\UC_Staff.resx">
       <DependentUpon>UC_Staff.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Home\Schedule\ReportBill.rdlc" />
+    <None Include="DataSetBill.xsc">
+      <DependentUpon>DataSetBill.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetBill.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetBill.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetBill.xss">
+      <DependentUpon>DataSetBill.xsd</DependentUpon>
+    </None>
     <None Include="DentalSmileDataSet.xsc">
       <DependentUpon>DentalSmileDataSet.xsd</DependentUpon>
     </None>
@@ -806,6 +845,32 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-medicine-90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-clock-90 %282%29.png" />
+    <None Include="Resources\icons8-time-machine-100.png" />
+    <None Include="Resources\icons8-time-90.png" />
+    <None Include="Resources\icons8-clock-90.png" />
+    <None Include="Resources\icons8-tick-50.png" />
+    <None Include="Resources\icons8-tick-501.png" />
+    <None Include="Resources\icons8-tick-502.png" />
+    <None Include="Resources\icons8-tick-box-20.png" />
+    <None Include="Resources\icons8-write-50.png" />
+    <None Include="Resources\icons8-hotline-20.png" />
+    <None Include="Resources\icons8-address-20.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

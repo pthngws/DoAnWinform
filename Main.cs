@@ -1,4 +1,5 @@
 ﻿using DoAn01.Home;
+using DoAn01.Home.Manage;
 using DoAn01.Home.Manage.Dentist;
 using DoAn01.Home.Report;
 using DoAn01.Home.Schedule;
@@ -30,11 +31,9 @@ namespace DoAn01
             }
             if(Global.GlobalRole == "dentist")
             {
-                linkLabel2.Visible = false;
-            }
-            if(Global.GlobalRole == "user")
-            {
-                linkLabel2.Location = new Point(6, 38);
+                Dentist dentist = new Dentist();
+
+                btnShift.Visible = false;
             }
         }
         User user = new User();
@@ -48,7 +47,7 @@ namespace DoAn01
             string username = Global.GlobalID; // Assuming GlobalID contains the username
 
             // Constructing the SQL query dynamically
-            string query = $"SELECT name FROM {tableName} WHERE id = @username";
+            string query = $"SELECT name, picture FROM {tableName} WHERE id = @username";
 
             SqlCommand cmd = new SqlCommand(query, mydb.getConnection);
             cmd.Parameters.AddWithValue("@username", username);
@@ -57,10 +56,24 @@ namespace DoAn01
             if (dt.Rows.Count > 0)
             {
                 string fullname = dt.Rows[0]["name"].ToString();
-            
+                byte[] imageData = (byte[])dt.Rows[0]["picture"]; // Assuming the picture is stored as byte array in the database
+
+                // Convert byte array to image
+                Image image;
+                using (MemoryStream ms = new MemoryStream(imageData))
+                {
+                    image = Image.FromStream(ms);
+                }
+
                 label2.Text = "Hello, " + fullname;
+                // Set the image to a PictureBox
+                guna2CirclePictureBox1.Image = image;
+
+                guna2CirclePictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+
             }
         }
+
         private void Main_Load(object sender, EventArgs e)
         {
         }
@@ -116,16 +129,17 @@ namespace DoAn01
             }    
         }
 
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            ChiaCa chiaCa = new ChiaCa();
-            chiaCa.Show();
-        }
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ResetPassword resetPassword = new ResetPassword();
             resetPassword.Show();
+        }
+
+        private void btnShift_Click(object sender, EventArgs e)
+        {
+            UC_Shift uC_Shift = new UC_Shift();
+            addUserControl(uC_Shift);
         }
     }
 }

@@ -49,7 +49,7 @@
             this.btnVerify.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnVerify.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnVerify.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(26)))), ((int)(((byte)(150)))));
-            this.btnVerify.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerify.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.btnVerify.ForeColor = System.Drawing.Color.White;
             this.btnVerify.Location = new System.Drawing.Point(193, 221);
             this.btnVerify.Name = "btnVerify";
@@ -66,7 +66,7 @@
             this.btnSendOTP.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSendOTP.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSendOTP.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnSendOTP.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSendOTP.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.btnSendOTP.ForeColor = System.Drawing.Color.White;
             this.btnSendOTP.Location = new System.Drawing.Point(293, 150);
             this.btnSendOTP.Name = "btnSendOTP";
@@ -79,7 +79,7 @@
             // 
             this.txtOTP.BorderRadius = 10;
             this.txtOTP.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtOTP.DefaultText = "OTP";
+            this.txtOTP.DefaultText = "";
             this.txtOTP.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtOTP.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtOTP.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -92,7 +92,7 @@
             this.txtOTP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtOTP.Name = "txtOTP";
             this.txtOTP.PasswordChar = '\0';
-            this.txtOTP.PlaceholderText = "Password";
+            this.txtOTP.PlaceholderText = "OTP";
             this.txtOTP.SelectedText = "";
             this.txtOTP.Size = new System.Drawing.Size(190, 41);
             this.txtOTP.TabIndex = 39;

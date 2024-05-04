@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -91,8 +92,23 @@ namespace DoAn01
             DateTime dob = guna2DateTimePicker1.Value;
             if (verify(txtID.Text, name, address, phone))
             {
-                if (staff.UpdateStaff(staff.id, name, address, phone, dob, gender))
-                    MessageBox.Show("Edit Success");
+                MemoryStream picture = new MemoryStream();
+
+                if (pictureBox1.Image != null)
+                {
+                    // Nếu hình ảnh trong PictureBox tồn tại, lưu vào MemoryStream
+
+                    pictureBox1.Image.Save(picture, pictureBox1.Image.RawFormat);
+                    if (staff.UpdateStaff(staff.id, name, address, phone, dob, gender, picture))
+                        MessageBox.Show("Edit Success");
+                    // Sử dụng biến picture ở đây cho mục đích khác nếu cần
+                }
+                else
+                {
+                    // Nếu không có hình ảnh, bạn có thể thông báo lỗi hoặc thực hiện xử lý khác tùy thuộc vào yêu cầu của bạn
+                    MessageBox.Show("Không có hình ảnh để lưu.");
+                    picture = null;
+                }
             }
         }
 
@@ -124,13 +140,31 @@ namespace DoAn01
                 guna2DateTimePicker1.Value = new DateTime(2000, 1, 1);
             }
 
-                       // Assuming you have already executed the SQL query and filled the DataTable
+            // Assuming you have already executed the SQL query and filled the DataTable
 
 
-                // Assign the value to guna2RatingStar1
+            // Assign the value to guna2RatingStar1
+
+            if (staff.picture != null)
+            {
+                Image image = Image.FromStream(staff.picture);
+
+                // Gán hình ảnh cho PictureBox
+                pictureBox1.Image = image;
+            }
 
 
+        }
 
+        private void buttonUpIMG_Click(object sender, EventArgs e)
+        {
+
+            OpenFileDialog opf = new OpenFileDialog();
+            opf.Filter = "Select Image(*.jpg;*.png;*.gif)|*.jpg;*.png;*.gif";
+            if ((opf.ShowDialog() == DialogResult.OK))
+            {
+                pictureBox1.Image = Image.FromFile(opf.FileName);
+            }
         }
     }
 }

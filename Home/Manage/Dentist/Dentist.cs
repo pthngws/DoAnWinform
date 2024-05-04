@@ -28,7 +28,7 @@ namespace DoAn01.Home.Manage.Dentist
         public string phone;
         public DateTime Dob;
         public string Gender;
-
+        public MemoryStream picture;
         string username;
         string password;
         string email;
@@ -181,16 +181,17 @@ namespace DoAn01.Home.Manage.Dentist
             }
         }
 
-        public bool UpdateDentist(string id, string name, string address, string phone, DateTime dob, string gender)
+        public bool UpdateDentist(string id, string name, string address, string phone, DateTime dob, string gender, MemoryStream picture)
         {
             SqlCommand command = new SqlCommand("UPDATE dentist " +
-                                                "SET name = @name, address = @address, phone = @phone, dob = @dob, gender = @gender " +
+                                                "SET name = @name, address = @address, phone = @phone, dob = @dob, gender = @gender, picture = @pic " +
                                                 "WHERE id = @id", mydb.getConnection);
             command.Parameters.AddWithValue("@name", name);
             command.Parameters.AddWithValue("@address", address);
             command.Parameters.AddWithValue("@phone", phone);
             command.Parameters.AddWithValue("@dob", dob);
             command.Parameters.AddWithValue("@gender", gender);
+            command.Parameters.Add("@pic", SqlDbType.Image).Value = picture.ToArray();
             command.Parameters.AddWithValue("@id", id);
             mydb.openConnection();
 
@@ -228,6 +229,22 @@ namespace DoAn01.Home.Manage.Dentist
                             dentist.phone = dataReader["phone"].ToString();
                             dentist.Dob = dataReader.IsDBNull(dataReader.GetOrdinal("dob")) ? DateTime.MinValue : Convert.ToDateTime(dataReader["dob"]);
                             dentist.Gender = dataReader["gender"].ToString();
+
+                            // Đọc dữ liệu hình ảnh từ cột "picture" và tạo MemoryStream
+                            if (!dataReader.IsDBNull(dataReader.GetOrdinal("picture")))
+                            {
+                                // Đọc dữ liệu hình ảnh từ cột "picture" và tạo MemoryStream
+                                byte[] pic = (byte[])dataReader["picture"];
+                                MemoryStream picture = new MemoryStream(pic);
+
+                                // Gán MemoryStream cho thuộc tính picture trong lớp Dentist
+                                dentist.picture = picture;
+                            }
+                            else
+                            {
+                                // Nếu không có dữ liệu ảnh, gán thuộc tính picture là null
+                                dentist.picture = null;
+                            }
                         }
                     }
                 }
@@ -241,7 +258,9 @@ namespace DoAn01.Home.Manage.Dentist
             }
         }
 
-        public bool DeleteDentist(string id)
+    
+
+    public bool DeleteDentist(string id)
         {
             SqlCommand command = new SqlCommand("Delete from dentist where id = @id", mydb.getConnection);
             command.Parameters.AddWithValue("@id", id);

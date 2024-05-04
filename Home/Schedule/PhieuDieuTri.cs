@@ -259,7 +259,7 @@ namespace DoAn01
                     SqlCommand command1 = new SqlCommand("update LichSuThuoc set status = @tt where idSchedule = @ID", mydb.getConnection);
                     command1.Parameters.AddWithValue("@tt", "True");
                     command1.Parameters.AddWithValue("@ID", idSchedule);
-                    command.ExecuteNonQuery();
+                    command1.ExecuteNonQuery();
 
                     mydb.closeConnection();
                     schedule.updateStatusSchedule(idSchedule);
@@ -301,7 +301,8 @@ namespace DoAn01
             label12.Visible = true;
             label13.Text = txtLLoTrinh.Text;
 
-            label15.Text = guna2DateTimePicker1.Value.ToString("dd/mm/yyyy");
+            label15.Text = guna2DateTimePicker1.Value.ToString("dd/MM/yyyy");
+
             guna2DateTimePicker1.Visible = false;
             label15.Visible = true;
             // Ẩn TextBox và hiển thị Label
@@ -339,11 +340,11 @@ namespace DoAn01
             toolTip1.SetToolTip(btnPrint, "Print");
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
+/*        private void guna2Button1_Click(object sender, EventArgs e)
         {
             Bill bill = new Bill(patientID,dentistID,idSchedule);
             bill.Show();
-        }
+        }*/
 
         // Định nghĩa DataTable toàn cục
         DataTable dataTable = new DataTable();
@@ -397,6 +398,11 @@ namespace DoAn01
             price = Convert.ToDouble(totalAmount);
         }
 
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            Bill bill = new Bill(idSchedule);
+            bill.ShowDialog();
+        }
     }
 }
 
