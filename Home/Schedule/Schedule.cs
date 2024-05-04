@@ -8,7 +8,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 using System.Xml.Linq;
+
 
 namespace DoAn01.Home.Schedule
 {
@@ -80,6 +82,13 @@ namespace DoAn01.Home.Schedule
         }
         public bool insertSchedule(string id, string dentistID,string patientid,DateTime date,string tinhtrang,string ca)
         {
+
+            if (!IsPatientExists(patientid))
+            {
+                System.Windows.Forms.MessageBox.Show("Id does not exists");
+                return false;
+            }
+
 
             SqlCommand command = new SqlCommand("INSERT INTO schedule (id,dentistid, patientid, ngaykham, tinhtrang, ca) " +
                                                 "VALUES (@id,@dentistid, @patientid, @date, @tinhtrang, @ca)", mydb.getConnection);
@@ -167,6 +176,20 @@ namespace DoAn01.Home.Schedule
 
             return schedule;
         }
+
+        private bool IsPatientExists(string patientid)
+        { 
+            string query = "SELECT COUNT(*) FROM Patient WHERE id = @patientid";
+            using (SqlCommand command = new SqlCommand(query, mydb.getConnection))
+            {
+                command.Parameters.AddWithValue("@patientid", patientid);
+                mydb.openConnection();
+                int count = (int)command.ExecuteScalar();
+                mydb.closeConnection();
+                return count > 0;
+            }
+        }
+
 
 
 

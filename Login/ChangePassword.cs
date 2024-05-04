@@ -72,16 +72,16 @@ namespace DoAn01
                 int rowsAffected = cmd.ExecuteNonQuery();
                 if (rowsAffected > 0)
                 {
-                    MessageBox.Show("Mật khẩu đã được cập nhật thành công.");
+                    MessageBox.Show("Password has been updated successfully.");
                 }
                 else
                 {
-                    MessageBox.Show("Không tìm thấy tài khoản với email đã cho.");
+                    MessageBox.Show("No account found with the given email.");
                 }
             }
             else
             {
-                MessageBox.Show("Nhập lại mật khẩu!");
+                MessageBox.Show("Enter again password!");
             }
         }
     }

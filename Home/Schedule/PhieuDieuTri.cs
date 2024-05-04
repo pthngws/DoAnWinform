@@ -77,14 +77,14 @@ namespace DoAn01
             label7.Text += " " + idSchedule;
             labelName.Text = patientName;
             labelAdd.Text = patientAddress;
-            SqlCommand cmd = new SqlCommand("select S.Name as 'Tên dịch vụ', count(L.idService) as 'Số lượng',sum(S.price) as 'Thành tiền' from Service as S, LichSuDichVu as L where S.Id = L.idService and L.idSchedule =@idSchedule group by S.name", mydb.getConnection);
+            SqlCommand cmd = new SqlCommand("select S.Name as 'Name Service', count(L.idService) as 'Quantity',sum(S.price) as 'Price' from Service as S, LichSuDichVu as L where S.Id = L.idService and L.idSchedule =@idSchedule group by S.name", mydb.getConnection);
             cmd.Parameters.AddWithValue("idSchedule", idSchedule);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
 
             // Tạo một DataTable để lưu trữ kết quả
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
-            SqlCommand cmdx = new SqlCommand("select S.Name as 'Tên dịch vụ', count(L.idMedicine) as 'Số lượng',sum(S.price) as 'Thành tiền' from Medicine as S, LichSuThuoc as L where S.Id = L.idMedicine and L.idSchedule =@idSchedule group by S.name", mydb.getConnection);
+            SqlCommand cmdx = new SqlCommand("select S.Name as 'Name Service', count(L.idMedicine) as 'Quantity',sum(S.price) as 'Price' from Medicine as S, LichSuThuoc as L where S.Id = L.idMedicine and L.idSchedule =@idSchedule group by S.name", mydb.getConnection);
             cmdx.Parameters.AddWithValue("idSchedule", idSchedule);
             SqlDataAdapter adapter2 = new SqlDataAdapter(cmdx);
 
@@ -163,7 +163,7 @@ namespace DoAn01
             decimal totalAmount = 0;
             foreach (DataRow row in dataTable.Rows)
             {
-                totalAmount += Convert.ToDecimal(row["Thành tiền"]);
+                totalAmount += Convert.ToDecimal(row["Price"]);
             }
             price = Convert.ToDouble(totalAmount);
             // Định dạng số tiền với dấu chấm phân tách hàng nghìn
@@ -238,7 +238,7 @@ namespace DoAn01
 
             if (isExisting)
             {
-                MessageBox.Show("Đã tồn tại");
+                MessageBox.Show("Already Exists");
                 /*// Nếu scheduleid đã tồn tại, thực hiện cập nhật
                 if (pDT.UpdateData(adv, lotrinh, idSchedule,rating,price))
                     MessageBox.Show("Cập nhật thành công");
@@ -250,11 +250,23 @@ namespace DoAn01
                 // Nếu scheduleid chưa tồn tại, thực hiện chèn mới
                 if (pDT.InsertData(adv, lotrinh, idSchedule,rating, price,ngaytaikham))
                 {
+                    mydb.openConnection();
+                    SqlCommand command = new SqlCommand("update LichSuDichVu set status = @tt where idSchedule = @ID", mydb.getConnection);
+                    command.Parameters.AddWithValue("@tt", "True");
+                    command.Parameters.AddWithValue("@ID", idSchedule);
+                    command.ExecuteNonQuery();
+
+                    SqlCommand command1 = new SqlCommand("update LichSuThuoc set status = @tt where idSchedule = @ID", mydb.getConnection);
+                    command1.Parameters.AddWithValue("@tt", "True");
+                    command1.Parameters.AddWithValue("@ID", idSchedule);
+                    command.ExecuteNonQuery();
+
+                    mydb.closeConnection();
                     schedule.updateStatusSchedule(idSchedule);
-                    MessageBox.Show("Thêm mới thành công");
+                    MessageBox.Show("Add Success");
                 }
                 else
-                    MessageBox.Show("Thêm mới thất bại");
+                    MessageBox.Show("Add Failed");
             }
         }
 
@@ -356,13 +368,13 @@ namespace DoAn01
             dataTable.Clear();
 
             // Lấy dữ liệu cho dịch vụ từ database
-            SqlCommand cmd1 = new SqlCommand("select S.Name as 'Tên dịch vụ', count(L.idService) as 'Số lượng',sum(S.price) as 'Thành tiền' from Service as S, LichSuDichVu as L where S.Id = L.idService and L.idSchedule =@idSchedule group by S.name", mydb.getConnection);
+            SqlCommand cmd1 = new SqlCommand("select S.Name as 'Name Service', count(L.idService) as 'Quantity',sum(S.price) as 'Price' from Service as S, LichSuDichVu as L where S.Id = L.idService and L.idSchedule =@idSchedule group by S.name", mydb.getConnection);
             cmd1.Parameters.AddWithValue("idSchedule", idSchedule);
             SqlDataAdapter adapter1 = new SqlDataAdapter(cmd1);
             adapter1.Fill(dataTable);
 
             // Lấy dữ liệu cho thuốc từ database
-            SqlCommand cmd2 = new SqlCommand("select S.Name as 'Tên dịch vụ', count(L.idMedicine) as 'Số lượng',sum(S.price) as 'Thành tiền' from Medicine as S, LichSuThuoc as L where S.Id = L.idMedicine and L.idSchedule =@idSchedule group by S.name", mydb.getConnection);
+            SqlCommand cmd2 = new SqlCommand("select S.Name as 'Name Service', count(L.idMedicine) as 'Quantity',sum(S.price) as 'Price' from Medicine as S, LichSuThuoc as L where S.Id = L.idMedicine and L.idSchedule =@idSchedule group by S.name", mydb.getConnection);
             cmd2.Parameters.AddWithValue("idSchedule", idSchedule);
             SqlDataAdapter adapter2 = new SqlDataAdapter(cmd2);
             adapter2.Fill(dataTable);
@@ -374,7 +386,7 @@ namespace DoAn01
             decimal totalAmount = 0;
             foreach (DataRow row in dataTable.Rows)
             {
-                totalAmount += Convert.ToDecimal(row["Thành tiền"]);
+                totalAmount += Convert.ToDecimal(row["Price"]);
             }
 
             // Định dạng số tiền với dấu chấm phân tách hàng nghìn
@@ -382,6 +394,7 @@ namespace DoAn01
 
             // Hiển thị số tiền đã định dạng trong Label
             label17.Text = "Total: " + formattedAmount;
+            price = Convert.ToDouble(totalAmount);
         }
 
     }

@@ -29,13 +29,13 @@ namespace DoAn01.Home.Report
         private void PanelService_Load(object sender, EventArgs e, string time)
         {
             // Kết nối đến cơ sở dữ liệu và thực hiện truy vấn
-            string query = "SELECT TOP 3 Service.Name AS 'Tên dịch vụ', COUNT(LichSuDichVu.idService) AS 'Số lượng' " +
+            string query = "SELECT TOP 3 Service.Name AS 'Tên dịch vụ', COUNT(LichSuDichVu.idService) AS 'Số lượng', price " +
                            "FROM Schedule " +
                            "JOIN LichSuDichVu ON Schedule.Id = LichSuDichVu.idSchedule " +
                            "JOIN Service ON LichSuDichVu.idService = Service.Id " +
-                           time +
-                           " GROUP BY Service.Name " +
-                           "ORDER BY COUNT(LichSuDichVu.idService) DESC";
+                           time + " and status = 'True'" +
+                           " GROUP BY Service.Name, Price " +
+                           "ORDER BY COUNT(LichSuDichVu.idService) DESC, price desc ";
 
             mydb.openConnection(); // Mở kết nối tại đây
             SqlCommand command = new SqlCommand(query, mydb.getConnection);
@@ -355,6 +355,11 @@ namespace DoAn01.Home.Report
             PanelDentist_Load(sender, e, query);
             UC_Report_Load(sender, e, query);
             LoadChart(query);
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

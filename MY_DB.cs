@@ -10,7 +10,7 @@ namespace DoAn01
 
         public MY_DB()
         {
-            con = new SqlConnection(@"Data Source=PHITHANG\SQLEXPRESS;Initial Catalog=DentalSmile;Integrated Security=True;");
+            con = new SqlConnection(@"Data Source=ADMIN-PC\SQLEXPRESS;Initial Catalog=DentalSmile;Integrated Security=True");
         }
 
         // get the connection

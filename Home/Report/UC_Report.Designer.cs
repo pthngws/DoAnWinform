@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -121,7 +121,7 @@
             this.totalpatient.ForeColor = System.Drawing.Color.White;
             this.totalpatient.Location = new System.Drawing.Point(15, 66);
             this.totalpatient.Name = "totalpatient";
-            this.totalpatient.Size = new System.Drawing.Size(34, 37);
+            this.totalpatient.Size = new System.Drawing.Size(25, 28);
             this.totalpatient.TabIndex = 2;
             this.totalpatient.Text = "0";
             this.totalpatient.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -133,7 +133,7 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(15, 10);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(222, 37);
+            this.label4.Size = new System.Drawing.Size(176, 28);
             this.label4.TabIndex = 1;
             this.label4.Text = "TOTAL PATIENT";
             // 
@@ -156,7 +156,7 @@
             this.totalrev.ForeColor = System.Drawing.Color.White;
             this.totalrev.Location = new System.Drawing.Point(21, 66);
             this.totalrev.Name = "totalrev";
-            this.totalrev.Size = new System.Drawing.Size(34, 37);
+            this.totalrev.Size = new System.Drawing.Size(25, 28);
             this.totalrev.TabIndex = 2;
             this.totalrev.Text = "0";
             this.totalrev.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -168,7 +168,7 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(21, 10);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(238, 37);
+            this.label5.Size = new System.Drawing.Size(188, 28);
             this.label5.TabIndex = 1;
             this.label5.Text = "TOTAL REVENUE";
             // 
@@ -191,7 +191,7 @@
             this.totalcase.ForeColor = System.Drawing.Color.White;
             this.totalcase.Location = new System.Drawing.Point(41, 65);
             this.totalcase.Name = "totalcase";
-            this.totalcase.Size = new System.Drawing.Size(34, 37);
+            this.totalcase.Size = new System.Drawing.Size(25, 28);
             this.totalcase.TabIndex = 2;
             this.totalcase.Text = "0";
             this.totalcase.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -203,7 +203,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(41, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(204, 37);
+            this.label2.Size = new System.Drawing.Size(161, 28);
             this.label2.TabIndex = 1;
             this.label2.Text = "TOTAL CASES";
             // 
@@ -220,29 +220,30 @@
             // chart1
             // 
             this.chart1.BorderlineColor = System.Drawing.Color.Black;
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.chart1.IsSoftShadows = false;
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(0, 1);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series2.BorderWidth = 10;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(26)))), ((int)(((byte)(150)))));
-            series2.Legend = "Legend1";
-            series2.Name = "Revenue";
-            this.chart1.Series.Add(series2);
+            series1.BorderWidth = 10;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(26)))), ((int)(((byte)(150)))));
+            series1.Legend = "Legend1";
+            series1.Name = "Revenue";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(779, 439);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "Revenue";
-            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title2.Name = "Title1";
-            title2.Text = "Revenue Dental Smile";
-            this.chart1.Titles.Add(title2);
+            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title1.Name = "Title1";
+            title1.Text = "Revenue Dental Smile";
+            this.chart1.Titles.Add(title1);
+            this.chart1.Click += new System.EventHandler(this.chart1_Click);
             // 
             // label3
             // 
@@ -250,7 +251,7 @@
             this.label3.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(25, 25);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 68);
+            this.label3.Size = new System.Drawing.Size(83, 52);
             this.label3.TabIndex = 1;
             this.label3.Text = "TIME \r\nFRAME";
             // 
@@ -309,7 +310,7 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(179, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 23);
+            this.label1.Size = new System.Drawing.Size(99, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "TOP DENTIST";
             // 
@@ -337,7 +338,7 @@
             this.QD3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QD3.Location = new System.Drawing.Point(358, 140);
             this.QD3.Name = "QD3";
-            this.QD3.Size = new System.Drawing.Size(15, 22);
+            this.QD3.Size = new System.Drawing.Size(13, 19);
             this.QD3.TabIndex = 17;
             this.QD3.Text = " ";
             // 
@@ -347,7 +348,7 @@
             this.QD2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QD2.Location = new System.Drawing.Point(358, 113);
             this.QD2.Name = "QD2";
-            this.QD2.Size = new System.Drawing.Size(15, 22);
+            this.QD2.Size = new System.Drawing.Size(13, 19);
             this.QD2.TabIndex = 16;
             this.QD2.Text = " ";
             // 
@@ -357,7 +358,7 @@
             this.QD1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QD1.Location = new System.Drawing.Point(358, 85);
             this.QD1.Name = "QD1";
-            this.QD1.Size = new System.Drawing.Size(15, 22);
+            this.QD1.Size = new System.Drawing.Size(13, 19);
             this.QD1.TabIndex = 15;
             this.QD1.Text = " ";
             // 
@@ -367,7 +368,7 @@
             this.D3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.D3.Location = new System.Drawing.Point(16, 140);
             this.D3.Name = "D3";
-            this.D3.Size = new System.Drawing.Size(15, 22);
+            this.D3.Size = new System.Drawing.Size(13, 19);
             this.D3.TabIndex = 14;
             this.D3.Text = " ";
             // 
@@ -377,7 +378,7 @@
             this.D2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.D2.Location = new System.Drawing.Point(16, 113);
             this.D2.Name = "D2";
-            this.D2.Size = new System.Drawing.Size(15, 22);
+            this.D2.Size = new System.Drawing.Size(13, 19);
             this.D2.TabIndex = 13;
             this.D2.Text = " ";
             // 
@@ -387,7 +388,7 @@
             this.D1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.D1.Location = new System.Drawing.Point(16, 85);
             this.D1.Name = "D1";
-            this.D1.Size = new System.Drawing.Size(15, 22);
+            this.D1.Size = new System.Drawing.Size(13, 19);
             this.D1.TabIndex = 12;
             this.D1.Text = " ";
             // 
@@ -397,7 +398,7 @@
             this.labelQuan.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelQuan.Location = new System.Drawing.Point(357, 58);
             this.labelQuan.Name = "labelQuan";
-            this.labelQuan.Size = new System.Drawing.Size(82, 27);
+            this.labelQuan.Size = new System.Drawing.Size(69, 23);
             this.labelQuan.TabIndex = 11;
             this.labelQuan.Text = "Rating";
             // 
@@ -407,7 +408,7 @@
             this.label15.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(15, 58);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(162, 27);
+            this.label15.Size = new System.Drawing.Size(133, 23);
             this.label15.TabIndex = 10;
             this.label15.Text = "Name Dentist";
             // 
@@ -435,7 +436,7 @@
             this.Q3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Q3.Location = new System.Drawing.Point(358, 129);
             this.Q3.Name = "Q3";
-            this.Q3.Size = new System.Drawing.Size(15, 22);
+            this.Q3.Size = new System.Drawing.Size(13, 19);
             this.Q3.TabIndex = 9;
             this.Q3.Text = " ";
             // 
@@ -445,7 +446,7 @@
             this.Q2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Q2.Location = new System.Drawing.Point(358, 102);
             this.Q2.Name = "Q2";
-            this.Q2.Size = new System.Drawing.Size(15, 22);
+            this.Q2.Size = new System.Drawing.Size(13, 19);
             this.Q2.TabIndex = 8;
             this.Q2.Text = " ";
             // 
@@ -455,7 +456,7 @@
             this.Q1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Q1.Location = new System.Drawing.Point(358, 74);
             this.Q1.Name = "Q1";
-            this.Q1.Size = new System.Drawing.Size(15, 22);
+            this.Q1.Size = new System.Drawing.Size(13, 19);
             this.Q1.TabIndex = 7;
             this.Q1.Text = " ";
             // 
@@ -465,7 +466,7 @@
             this.NS3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NS3.Location = new System.Drawing.Point(16, 129);
             this.NS3.Name = "NS3";
-            this.NS3.Size = new System.Drawing.Size(15, 22);
+            this.NS3.Size = new System.Drawing.Size(13, 19);
             this.NS3.TabIndex = 6;
             this.NS3.Text = " ";
             // 
@@ -475,7 +476,7 @@
             this.NS2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NS2.Location = new System.Drawing.Point(16, 102);
             this.NS2.Name = "NS2";
-            this.NS2.Size = new System.Drawing.Size(15, 22);
+            this.NS2.Size = new System.Drawing.Size(13, 19);
             this.NS2.TabIndex = 5;
             this.NS2.Text = " ";
             // 
@@ -485,7 +486,7 @@
             this.NS1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NS1.Location = new System.Drawing.Point(16, 74);
             this.NS1.Name = "NS1";
-            this.NS1.Size = new System.Drawing.Size(15, 22);
+            this.NS1.Size = new System.Drawing.Size(13, 19);
             this.NS1.TabIndex = 4;
             this.NS1.Text = " ";
             // 
@@ -495,7 +496,7 @@
             this.label.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label.Location = new System.Drawing.Point(357, 47);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(107, 27);
+            this.label.Size = new System.Drawing.Size(89, 23);
             this.label.TabIndex = 3;
             this.label.Text = "Quantity";
             // 
@@ -505,7 +506,7 @@
             this.label6.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(15, 47);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(170, 27);
+            this.label6.Size = new System.Drawing.Size(140, 23);
             this.label6.TabIndex = 2;
             this.label6.Text = "Name Service";
             // 
@@ -515,13 +516,13 @@
             this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(179, 14);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(130, 23);
+            this.label9.Size = new System.Drawing.Size(102, 19);
             this.label9.TabIndex = 1;
             this.label9.Text = "TOP SERVICE";
             // 
             // UC_Report
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelService);
             this.Controls.Add(this.panelDentist);

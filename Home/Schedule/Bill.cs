@@ -54,7 +54,7 @@ namespace DoAn01
 
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
 
             // In thông tin của bệnh nhân để kiểm tra

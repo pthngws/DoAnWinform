@@ -49,25 +49,25 @@ namespace DoAn01.Home
         Patient patient = new Patient();
         private void UC_Patient_Load(object sender, EventArgs e)
         {
-            this.patientTableAdapter.Fill(this.dentalSmileDataSet.Patient);
+           
             SqlCommand cmd = new SqlCommand("select * from patient");
             dataGridView1.ReadOnly = true;
             DataGridViewImageColumn picCol = new DataGridViewImageColumn();
             dataGridView1.RowTemplate.Height = 80;
             dataGridView1.DataSource = patient.getPatients(cmd);
             dataGridView1.AllowUserToAddRows = false;
-            this.patientTableAdapter.Fill(this.dentalSmileDataSet.Patient);
+           
             dataGridView1.Columns[3].DefaultCellStyle.Format = "dd/MM/yyyy";
         }
         private void fillGrid(SqlCommand cmd)
         {
-            this.patientTableAdapter.Fill(this.dentalSmileDataSet.Patient);
+     
             dataGridView1.ReadOnly = true;
             DataGridViewImageColumn picCol = new DataGridViewImageColumn();
             dataGridView1.RowTemplate.Height = 80;
             dataGridView1.DataSource = patient.getPatients(cmd);
             dataGridView1.AllowUserToAddRows = false;
-            this.patientTableAdapter.Fill(this.dentalSmileDataSet.Patient);
+       
             dataGridView1.Columns[3].DefaultCellStyle.Format = "dd/MM/yyyy";
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

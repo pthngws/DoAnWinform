@@ -46,11 +46,13 @@
             this.btnPhieuDieuTri = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.errorProvider6 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider6)).BeginInit();
             this.SuspendLayout();
             // 
             // errorProvider5
@@ -74,18 +76,18 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(333, 316);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 20);
+            this.label6.Size = new System.Drawing.Size(33, 17);
             this.label6.TabIndex = 27;
-            this.label6.Text = "Da kham";
+            this.label6.Text = "Busy";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(150, 316);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 20);
+            this.label5.Size = new System.Drawing.Size(34, 17);
             this.label5.TabIndex = 26;
-            this.label5.Text = "Chua kham";
+            this.label5.Text = "Free";
             // 
             // btnAdd
             // 
@@ -146,7 +148,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 192);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 20);
+            this.label3.Size = new System.Drawing.Size(63, 17);
             this.label3.TabIndex = 19;
             this.label3.Text = "PatientID";
             // 
@@ -175,7 +177,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 146);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(25, 20);
+            this.label1.Size = new System.Drawing.Size(20, 17);
             this.label1.TabIndex = 15;
             this.label1.Text = "ID";
             // 
@@ -214,7 +216,7 @@
             this.btnPhieuDieuTri.Name = "btnPhieuDieuTri";
             this.btnPhieuDieuTri.Size = new System.Drawing.Size(189, 46);
             this.btnPhieuDieuTri.TabIndex = 28;
-            this.btnPhieuDieuTri.Text = "View PhieuDieuTri";
+            this.btnPhieuDieuTri.Text = "View Treatment";
             this.btnPhieuDieuTri.Click += new System.EventHandler(this.btnPhieuDieuTri_Click);
             // 
             // label2
@@ -224,7 +226,7 @@
             this.label2.Font = new System.Drawing.Font("Century Gothic", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(87, 22);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(333, 56);
+            this.label2.Size = new System.Drawing.Size(271, 44);
             this.label2.TabIndex = 30;
             this.label2.Text = "Info Schedule";
             // 
@@ -245,9 +247,13 @@
             this.guna2Button3.Text = "Remove";
             this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
+            // errorProvider6
+            // 
+            this.errorProvider6.ContainerControl = this;
+            // 
             // ScheduleForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(504, 418);
@@ -273,6 +279,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,5 +304,6 @@
         private Guna.UI2.WinForms.Guna2Button btnPhieuDieuTri;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private System.Windows.Forms.ErrorProvider errorProvider6;
     }
 }

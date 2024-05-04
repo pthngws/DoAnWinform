@@ -49,6 +49,13 @@ namespace DoAn01 // Quản Lý Bệnh Nhân
         }
         public bool insertPatient(string id, string name, string address, string phone, DateTime dob, string gender)
         {
+            if (IsPatientIdExists(id))
+            {
+               
+                MessageBox.Show("ID already exists");
+                return false;
+            }
+
             SqlCommand command = new SqlCommand("INSERT INTO patient (id,name, address, phone, dob, gender) " +
                                                 "VALUES (@id,@name, @address, @phone, @dob, @gender)", mydb.getConnection);
             command.Parameters.AddWithValue("@id", id);
@@ -75,6 +82,8 @@ namespace DoAn01 // Quản Lý Bệnh Nhân
 
         public bool UpdatePatient(string id, string name, string address, string phone, DateTime dob, string gender)
         {
+           
+
             SqlCommand command = new SqlCommand("UPDATE patient " +
                                                 "SET name = @name, address = @address, phone = @phone, dob = @dob, gender = @gender " +
                                                 "WHERE id = @id", mydb.getConnection);
@@ -125,7 +134,7 @@ namespace DoAn01 // Quản Lý Bệnh Nhân
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi xảy ra khi xóa tập tin: " + ex.Message);
+                MessageBox.Show("An error occurred while deleting the file: " + ex.Message);
             }
         }
 
@@ -156,15 +165,25 @@ namespace DoAn01 // Quản Lý Bệnh Nhân
             return TABLE;
         }
 
-/*        public DataTable GetTreatmentHistory(int patientID)
+        private bool IsPatientIdExists(string id)
         {
-            SqlCommand command = new SqlCommand("SELECT * FROM treatment_history WHERE patient_id = @patientID", mydb.getConnection);
-            command.Parameters.AddWithValue("@patientID", patientID);
+            SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM patient WHERE id = @id", mydb.getConnection);
+            command.Parameters.AddWithValue("@id", id);
+            mydb.openConnection();
+            int count = (int)command.ExecuteScalar();
+            mydb.closeConnection();
+            return count > 0;
+        }
 
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-            DataTable treatmentHistory = new DataTable();
-            adapter.Fill(treatmentHistory);
-            return treatmentHistory;
-        }*/
+        /*        public DataTable GetTreatmentHistory(int patientID)
+                {
+                    SqlCommand command = new SqlCommand("SELECT * FROM treatment_history WHERE patient_id = @patientID", mydb.getConnection);
+                    command.Parameters.AddWithValue("@patientID", patientID);
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable treatmentHistory = new DataTable();
+                    adapter.Fill(treatmentHistory);
+                    return treatmentHistory;
+                }*/
     }
 }

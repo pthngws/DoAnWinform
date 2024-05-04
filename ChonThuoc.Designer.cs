@@ -59,13 +59,13 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.medicineBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dentalSmileDataSet10 = new DoAn01.DentalSmileDataSet10();
+            this.medicineTableAdapter = new DoAn01.DentalSmileDataSet10TableAdapters.MedicineTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Thêm = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.medicineBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dentalSmileDataSet10 = new DoAn01.DentalSmileDataSet10();
-            this.medicineTableAdapter = new DoAn01.DentalSmileDataSet10TableAdapters.MedicineTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.serviceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dentalSmileDataSet6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceBindingSource1)).BeginInit();
@@ -160,9 +160,10 @@
             this.guna2Panel2.Controls.Add(this.Add);
             this.guna2Panel2.Controls.Add(this.label2);
             this.guna2Panel2.Controls.Add(this.guna2DataGridView2);
-            this.guna2Panel2.Location = new System.Drawing.Point(588, 32);
+            this.guna2Panel2.Location = new System.Drawing.Point(441, 26);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(544, 584);
+            this.guna2Panel2.Size = new System.Drawing.Size(408, 474);
             this.guna2Panel2.TabIndex = 6;
             // 
             // Add
@@ -173,9 +174,10 @@
             this.Add.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.Add.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Add.ForeColor = System.Drawing.Color.White;
-            this.Add.Location = new System.Drawing.Point(344, 503);
+            this.Add.Location = new System.Drawing.Point(258, 409);
+            this.Add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Add.Name = "Add";
-            this.Add.Size = new System.Drawing.Size(180, 45);
+            this.Add.Size = new System.Drawing.Size(135, 37);
             this.Add.TabIndex = 2;
             this.Add.Text = "Add";
             this.Add.Click += new System.EventHandler(this.Add_Click);
@@ -183,11 +185,13 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 25);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(22, 20);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 16);
+            this.label2.Size = new System.Drawing.Size(136, 16);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Thuốc đã chọn";
+            this.label2.Text = "Selected Medicine";
             // 
             // guna2DataGridView2
             // 
@@ -217,7 +221,8 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.guna2DataGridView2.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView2.Location = new System.Drawing.Point(15, 79);
+            this.guna2DataGridView2.Location = new System.Drawing.Point(11, 64);
+            this.guna2DataGridView2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2DataGridView2.Name = "guna2DataGridView2";
             this.guna2DataGridView2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -231,7 +236,7 @@
             this.guna2DataGridView2.RowHeadersVisible = false;
             this.guna2DataGridView2.RowHeadersWidth = 51;
             this.guna2DataGridView2.RowTemplate.Height = 24;
-            this.guna2DataGridView2.Size = new System.Drawing.Size(495, 394);
+            this.guna2DataGridView2.Size = new System.Drawing.Size(371, 320);
             this.guna2DataGridView2.TabIndex = 0;
             this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -259,19 +264,22 @@
             // 
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Controls.Add(this.guna2DataGridView1);
-            this.guna2Panel1.Location = new System.Drawing.Point(32, 32);
+            this.guna2Panel1.Location = new System.Drawing.Point(24, 26);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(544, 584);
+            this.guna2Panel1.Size = new System.Drawing.Size(408, 474);
             this.guna2Panel1.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 26);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 16);
+            this.label1.Size = new System.Drawing.Size(98, 16);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Danh sách thuốc";
+            this.label1.Text = "Medicine List";
             // 
             // guna2DataGridView1
             // 
@@ -308,7 +316,8 @@
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle7;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(16, 79);
+            this.guna2DataGridView1.Location = new System.Drawing.Point(12, 64);
+            this.guna2DataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -322,7 +331,7 @@
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 51;
             this.guna2DataGridView1.RowTemplate.Height = 24;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(503, 469);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(377, 381);
             this.guna2DataGridView1.TabIndex = 0;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -346,6 +355,20 @@
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.guna2DataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellContentClick);
+            // 
+            // medicineBindingSource
+            // 
+            this.medicineBindingSource.DataMember = "Medicine";
+            this.medicineBindingSource.DataSource = this.dentalSmileDataSet10;
+            // 
+            // dentalSmileDataSet10
+            // 
+            this.dentalSmileDataSet10.DataSetName = "DentalSmileDataSet10";
+            this.dentalSmileDataSet10.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // medicineTableAdapter
+            // 
+            this.medicineTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -372,32 +395,19 @@
             // 
             this.Thêm.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Thêm.FillWeight = 95.45454F;
-            this.Thêm.HeaderText = "Thêm";
+            this.Thêm.HeaderText = "Add";
             this.Thêm.MinimumWidth = 6;
             this.Thêm.Name = "Thêm";
             this.Thêm.Text = "Thêm";
             // 
-            // medicineBindingSource
-            // 
-            this.medicineBindingSource.DataMember = "Medicine";
-            this.medicineBindingSource.DataSource = this.dentalSmileDataSet10;
-            // 
-            // dentalSmileDataSet10
-            // 
-            this.dentalSmileDataSet10.DataSetName = "DentalSmileDataSet10";
-            this.dentalSmileDataSet10.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // medicineTableAdapter
-            // 
-            this.medicineTableAdapter.ClearBeforeFill = true;
-            // 
             // ChonThuoc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1165, 649);
+            this.ClientSize = new System.Drawing.Size(874, 527);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ChonThuoc";
             this.Text = "ChonThuoc";
             this.Load += new System.EventHandler(this.ChonThuoc_Load);

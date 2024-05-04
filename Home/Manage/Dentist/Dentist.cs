@@ -236,7 +236,7 @@ namespace DoAn01.Home.Manage.Dentist
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi truy vấn thông tin bác sĩ: " + ex.Message);
+                MessageBox.Show("Error when querying dentist information: " + ex.Message);
                 return null;
             }
         }

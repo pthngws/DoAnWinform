@@ -30,7 +30,6 @@ namespace DoAn01
         private void ChonThuoc_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dentalSmileDataSet10.Medicine' table. You can move, or remove it, as needed.
-            this.medicineTableAdapter.Fill(this.dentalSmileDataSet10.Medicine);
             SqlCommand cmd = new SqlCommand("select id,name,price from medicine");
             // Thiết lập DataSource cho guna2DataGridView1
             guna2DataGridView1.DataSource = medicine.getMedicines(cmd);

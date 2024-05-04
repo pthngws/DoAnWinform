@@ -31,35 +31,35 @@ namespace DoAn01.Home.Manage.Dentist
             errorProvider4.Clear();
             if (string.IsNullOrEmpty(id))
             {
-                errorProvider1.SetError(txtID, "Vui lòng nhập ID");
+                errorProvider1.SetError(txtID, "Please enter ID");
                 return false;
             }
 
             if (string.IsNullOrEmpty(name))
             {
-                errorProvider2.SetError(txtName, "Vui lòng nhập tên");
+                errorProvider2.SetError(txtName, "Please enter name");
                 return false;
             }
             else if (ContainsNumbers(name))
             {
-                errorProvider2.SetError(txtName, "Tên không được chứa số");
+                errorProvider2.SetError(txtName, "Name can't contain numbers");
                 return false;
             }
 
             if (string.IsNullOrEmpty(address))
             {
-                errorProvider3.SetError(txtAddress, "Vui lòng nhập địa chỉ");
+                errorProvider3.SetError(txtAddress, "Please enter address");
                 return false;
             }
 
             if (string.IsNullOrEmpty(phone))
             {
-                errorProvider4.SetError(txtPhone, "Vui lòng nhập số điện thoại");
+                errorProvider4.SetError(txtPhone, "Please enter phone");
                 return false;
             }
             else if (!IsNumeric(phone))
             {
-                errorProvider4.SetError(txtPhone, "Số điện thoại không được chứa chữ");
+                errorProvider4.SetError(txtPhone, "Phone can't contain characters or exceeds 11 numbers");
                 return false;
             }
             return true;
@@ -89,7 +89,7 @@ namespace DoAn01.Home.Manage.Dentist
             if (verify(txtID.Text, name, address, phone))
             {
                 if (dentist.UpdateDentist(dentist.id, name, address, phone, dob, gender))
-                    MessageBox.Show("Update thanh cong");
+                    MessageBox.Show("Edit Success");
             }
         }
 
@@ -98,7 +98,7 @@ namespace DoAn01.Home.Manage.Dentist
             DialogResult result;
             if (dentist.DeleteDentist(dentist.id))
             {
-                MessageBox.Show("Delete thanh cong");
+                MessageBox.Show("Remove Success");
             }
         }
         MY_DB mydb = new MY_DB();

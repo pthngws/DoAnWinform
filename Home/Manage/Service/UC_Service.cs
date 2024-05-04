@@ -21,13 +21,13 @@ namespace DoAn01.Home.Manage.Service
         Service service = new Service();
         private void fillGrid(SqlCommand cmd)
         {
-            this.serviceTableAdapter.Fill(this.dentalSmileDataSet4.Service);
+          
             dataGridView1.ReadOnly = true;
             DataGridViewImageColumn picCol = new DataGridViewImageColumn();
             dataGridView1.RowTemplate.Height = 80;
             dataGridView1.DataSource = service.getServices(cmd);
             dataGridView1.AllowUserToAddRows = false;
-            this.serviceTableAdapter.Fill(this.dentalSmileDataSet4.Service);
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

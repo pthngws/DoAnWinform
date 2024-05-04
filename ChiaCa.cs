@@ -19,18 +19,18 @@ namespace DoAn01
             switch (value)
             {
                 case 1:
-                    return "Sáng"; // Giá trị 1 chuyển thành 7-12
+                    return "Morning"; // Giá trị 1 chuyển thành 7-12
                 case 2:
-                    return "Chiều"; // Giá trị 2 chuyển thành 12-17
+                    return "Afternoon"; // Giá trị 2 chuyển thành 12-17
                 case 3:
-                    return "Tối"; // Giá trị 3 chuyển thành 17-22
+                    return "Evening"; // Giá trị 3 chuyển thành 17-22
                 case 4:
-                    return "Khuya";
+                    return "Night";
             case 5:
-                    return "Rất Khuya";
+                    return "Very Night";
 
                     case 6:
-                    return "Rất rất khuya";
+                    return "Very Very Night";
                 default:
                     return "X"; // Trả về null cho các giá trị khác
             }
@@ -42,30 +42,30 @@ namespace DoAn01
             DataTable dt = new DataTable();
 
             // Thêm cột ID nhân viên vào DataTable
-            dt.Columns.Add("ID nhân viên", typeof(string));
+            dt.Columns.Add("Employee ID", typeof(string));
 
             // Thêm cột Tên nhân viên vào DataTable sau cột ID nhân viên
-            dt.Columns.Add("Tên nhân viên", typeof(string)).SetOrdinal(1);
+            dt.Columns.Add("Name", typeof(string)).SetOrdinal(1);
 
             // Thêm các cột vào DataTable và đặt tên cho chúng
-            dt.Columns.Add("Thứ 2", typeof(string));
-            dt.Columns.Add("Thứ 3", typeof(string));
-            dt.Columns.Add("Thứ 4", typeof(string));
-            dt.Columns.Add("Thứ 5", typeof(string));
-            dt.Columns.Add("Thứ 6", typeof(string));
-            dt.Columns.Add("Thứ 7", typeof(string));
-            dt.Columns.Add("Chủ nhật", typeof(string));
+            dt.Columns.Add("Monday", typeof(string));
+            dt.Columns.Add("Tuesday", typeof(string));
+            dt.Columns.Add("Wednesday", typeof(string));
+            dt.Columns.Add("Thursday", typeof(string));
+            dt.Columns.Add("Friday", typeof(string));
+            dt.Columns.Add("Saturday", typeof(string));
+            dt.Columns.Add("Sunday", typeof(string));
 
             // Thêm cột số ca vào DataTable
-            dt.Columns.Add("Tổng số ca trong tuần", typeof(int));
+            dt.Columns.Add("Total number of shifts in the week", typeof(int));
             Staff staff = new Staff();
             DataTable list = staff.GetStaffData();
             // Thêm dữ liệu từ mảng vào DataTable
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 DataRow row = dt.NewRow();
-                row["ID nhân viên"] = list.Rows[i]["ID"]; // Thiết lập giá trị cho cột ID
-                row["Tên nhân viên"] = list.Rows[i]["Name"]; // Thiết lập giá trị cho cột Tên
+                row["Employee ID"] = list.Rows[i]["ID"]; // Thiết lập giá trị cho cột ID
+                row["Name"] = list.Rows[i]["Name"]; // Thiết lập giá trị cho cột Tên
 
                 int count = 0; // Biến đếm số lượng giá trị khác "FREE" trong hàng
                 for (int j = 0; j < array.GetLength(1); j++)
@@ -79,7 +79,7 @@ namespace DoAn01
                     }
                 }
                 // Đặt giá trị cho cột số ca
-                row["Tổng số ca trong tuần"] = count;
+                row["Total number of shifts in the week"] = count;
                 dt.Rows.Add(row);
             }
 
@@ -208,7 +208,7 @@ namespace DoAn01
                 // Filter the DataTable to include only rows where the "ID nhân viên" column is equal to "ID"
                 DataTable filteredDt = dt.AsEnumerable()
                 
-                    .Where(row => row.Field<string>("ID nhân viên") == Global.GlobalID.ToUpper())
+                    .Where(row => row.Field<string>("Employee ID") == Global.GlobalID.ToUpper())
                     .CopyToDataTable();
 
                 // Bind the filtered DataTable to the DataGridView
@@ -251,7 +251,7 @@ namespace DoAn01
             }
             else
             {
-                MessageBox.Show("Số lượng nhân viên không đủ để phân ca.");
+                MessageBox.Show("The number of employees is not enough to divide shifts.");
             }
         }
 

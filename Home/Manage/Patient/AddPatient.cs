@@ -1,7 +1,9 @@
-﻿using System;
+﻿using DoAn01.Home.Schedule;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Net;
@@ -27,35 +29,35 @@ namespace DoAn01.Home
             errorProvider4.Clear();
             if (string.IsNullOrEmpty(id))
             {
-                errorProvider1.SetError(txtID, "Vui lòng nhập ID");
+                errorProvider1.SetError(txtID, "Please enter ID");
                 return false;
             }
 
             if (string.IsNullOrEmpty(name))
             {
-                errorProvider2.SetError(txtName, "Vui lòng nhập tên");
+                errorProvider2.SetError(txtName, "Please enter name");
                 return false;
             }
             else if(ContainsNumbers(name))
             {
-                errorProvider2.SetError(txtName, "Tên không được chứa số");
+                errorProvider2.SetError(txtName, "Name can't contain numbers");
                 return false;
             }
 
             if (string.IsNullOrEmpty(address))
             {
-                errorProvider3.SetError(txtAddress, "Vui lòng nhập địa chỉ");
+                errorProvider3.SetError(txtAddress, "Please enter address");
                 return false;
             }
 
             if (string.IsNullOrEmpty(phone))
             {
-                errorProvider4.SetError(txtPhone, "Vui lòng nhập số điện thoại");
+                errorProvider4.SetError(txtPhone, "Please enter phone");
                 return false;
             }
             else if(!IsNumeric(phone))
             {
-                errorProvider4.SetError(txtPhone, "Số điện thoại không được chứa chữ");
+                errorProvider4.SetError(txtPhone, "Phone can't contain characters");
                 return false;
             }    
             return true;
@@ -89,7 +91,7 @@ namespace DoAn01.Home
                 Patient patient = new Patient();
                 if (patient.insertPatient(id, name, address, phone, dob, gender))
                 {
-                    MessageBox.Show("Add Thanh cong");
+                    MessageBox.Show("Add Success");
                 }
             }
         }
@@ -157,6 +159,43 @@ namespace DoAn01.Home
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        MY_DB mydb = new MY_DB();
+        Patient patient = new Patient();
+        private void AddPatient_Load(object sender, EventArgs e)
+        {
+            txtID.Text = patient.id;
+            if (string.IsNullOrEmpty(txtID.Text))
+            {
+                // Thực hiện truy vấn SQL để lấy ID lớn nhất từ cột "id" trong bảng "schedule"
+                string query = "SELECT MAX(CAST(SUBSTRING(id, 3, LEN(id)) AS INT)) FROM patient";
+
+                SqlCommand command = new SqlCommand(query, mydb.getConnection);
+
+                mydb.openConnection();
+
+                object result = command.ExecuteScalar();
+                int nextID = 1;
+
+                if (result != DBNull.Value)
+                {
+                    // Nếu có kết quả, tăng giá trị lên một
+                    nextID = Convert.ToInt32(result) + 1;
+                }
+
+                mydb.closeConnection();
+
+                // Tạo ID mới với định dạng "S" + số, ví dụ: S01, S02, vv
+                string newID = "BN" + nextID.ToString("00");
+
+                txtID.Text = newID;
+            }
+            else
+            {
+                // Nếu txtID.Text không rỗng, hiển thị giá trị của txtID.Text
+                txtID.Text = patient.id;
+            }
         }
     }
 }

@@ -45,12 +45,12 @@ namespace DoAn01
             bool flag = true;
             if (txtUsername.Text == "")
             {
-                errorProvider1.SetError(txtUsername, "Vui lòng nhập tên đăng nhập");
+                errorProvider1.SetError(txtUsername, "Please enter your username");
                 flag = false;
             }
             if (txtPassword.Text == "")
             {
-                errorProvider2.SetError(txtPassword, "Vui lòng nhập mật khẩu");
+                errorProvider2.SetError(txtPassword, "Please enter your password");
                 flag = false;
             }
             if (flag)

@@ -96,11 +96,20 @@ namespace DoAn01.Home.Schedule
                 tinhtrang = "false";
             }
             else tinhtrang = "true";
-            if(schedule.insertSchedule(txtID.Text,dentistid,patientid, Convert.ToDateTime(date), tinhtrang,ca))
+            errorProvider6.Clear();
+            if(txtPatientID.Text =="")
             {
-                MessageBox.Show("ADD thanh cong");
-                
-            }    
+                errorProvider6.SetError(txtPatientID, "Please enter PatientID");
+            }
+            else 
+            {
+                if (schedule.insertSchedule(txtID.Text, dentistid, patientid, Convert.ToDateTime(date), tinhtrang, ca))
+                {
+                    MessageBox.Show("ADD Success");
+
+                }
+            }
+               
         }
         MY_DB mydb = new MY_DB();
         private void btnPhieuDieuTri_Click(object sender, EventArgs e)
@@ -128,7 +137,7 @@ namespace DoAn01.Home.Schedule
             else
             {
                 // Nếu không tồn tại, hiển thị thông báo
-                MessageBox.Show("Chưa có thông tin cho ID này trong bảng Schedule.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("There is no information for this ID in the Schedule table.", "Notify", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -139,7 +148,7 @@ namespace DoAn01.Home.Schedule
         {
             if(schedule.deleteSchedule(txtID.Text))
             {
-                MessageBox.Show("Xoa thanh cong");
+                MessageBox.Show("Remove Success");
             }
         }
     }

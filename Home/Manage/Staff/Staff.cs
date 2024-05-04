@@ -248,7 +248,7 @@ namespace DoAn01
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi truy vấn thông tin: " + ex.Message);
+                MessageBox.Show("Error while querying information: " + ex.Message);
                 return null;
             }
         }

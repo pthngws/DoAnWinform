@@ -24,35 +24,35 @@ namespace DoAn01.Home.Manage.Dentist
             errorProvider4.Clear();
             if (string.IsNullOrEmpty(id))
             {
-                errorProvider1.SetError(txtID, "Vui lòng nhập ID");
+                errorProvider1.SetError(txtID, "Please enter ID");
                 return false;
             }
 
             if (string.IsNullOrEmpty(name))
             {
-                errorProvider2.SetError(txtName, "Vui lòng nhập tên");
+                errorProvider2.SetError(txtName, "Please enter name");
                 return false;
             }
             else if (ContainsNumbers(name))
             {
-                errorProvider2.SetError(txtName, "Tên không được chứa số");
+                errorProvider2.SetError(txtName, "Name can't contain numbers");
                 return false;
             }
 
             if (string.IsNullOrEmpty(address))
             {
-                errorProvider3.SetError(txtAddress, "Vui lòng nhập địa chỉ");
+                errorProvider3.SetError(txtAddress, "Please enter address");
                 return false;
             }
 
             if (string.IsNullOrEmpty(phone))
             {
-                errorProvider4.SetError(txtPhone, "Vui lòng nhập số điện thoại");
+                errorProvider4.SetError(txtPhone, "Please enter phone");
                 return false;
             }
             else if (!IsNumeric(phone))
             {
-                errorProvider4.SetError(txtPhone, "Số điện thoại không được chứa chữ");
+                errorProvider4.SetError(txtPhone, "Phone can't contain characters");
                 return false;
             }
             return true;
@@ -86,9 +86,10 @@ namespace DoAn01.Home.Manage.Dentist
                 Dentist dentist = new Dentist();
                 if (dentist.insertDentist(id, name, address, phone, dob, gender))
                 {
-                    MessageBox.Show("Add Thanh cong");
+                    MessageBox.Show("Add Success");
                 }
             }
+            
         }
     }
 }

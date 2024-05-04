@@ -40,7 +40,7 @@ namespace DoAn01
         {
             if (txtEmail.Text == "")
             {
-                errorProvider1.SetError(txtEmail, "Vui lòng nhập Email");
+                errorProvider1.SetError(txtEmail, "Please enter your Email");
             }
             else
             {
@@ -73,7 +73,7 @@ namespace DoAn01
                     SmtpServer.Credentials = new NetworkCredential(SendMailFrom, "wuoq bkqm avnu ixvf");
                     SmtpServer.Send(email);
 
-                    MessageBox.Show("OTP đã được gửi.");
+                    MessageBox.Show("OTP has been sent.");
                 }
                 catch (Exception ex)
                 {

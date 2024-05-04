@@ -84,9 +84,9 @@
             this.label6.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(238, 96);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(187, 21);
+            this.label6.Size = new System.Drawing.Size(166, 19);
             this.label6.TabIndex = 13;
-            this.label6.Text = "Phone: +84 123456789";
+            this.label6.Text = "Hotline: +84 123456789";
             // 
             // label5
             // 
@@ -94,7 +94,7 @@
             this.label5.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(238, 117);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(226, 42);
+            this.label5.Size = new System.Drawing.Size(181, 38);
             this.label5.TabIndex = 12;
             this.label5.Text = "Address: 1 Vo Van Ngan, \r\nThu Duc, HCMC";
             // 
@@ -104,9 +104,9 @@
             this.label4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(238, 75);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(170, 21);
+            this.label4.Size = new System.Drawing.Size(137, 19);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Founder: Mr. Thang";
+            this.label4.Text = "Founder: Mr. Teath";
             // 
             // label2
             // 
@@ -114,9 +114,9 @@
             this.label2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(235, 55);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(266, 19);
+            this.label2.Size = new System.Drawing.Size(245, 16);
             this.label2.TabIndex = 10;
-            this.label2.Text = "\"Khám hôm nay không để ngày mai\"";
+            this.label2.Text = "\"A better life start with a beautiful smile\"";
             // 
             // guna2RatingStar1
             // 
@@ -133,7 +133,7 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(235, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(215, 39);
+            this.label1.Size = new System.Drawing.Size(174, 32);
             this.label1.TabIndex = 9;
             this.label1.Text = "Dental Smile";
             // 
@@ -159,7 +159,7 @@
             // 
             // UC_Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);

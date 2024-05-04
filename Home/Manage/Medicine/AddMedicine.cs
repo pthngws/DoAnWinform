@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -23,30 +24,30 @@ namespace DoAn01.Home.Manage.Medicine
             errorProvider3.Clear();
             if (string.IsNullOrEmpty(id))
             {
-                errorProvider1.SetError(txtID, "Vui lòng nhập ID");
+                errorProvider1.SetError(txtID, "Please enter ID");
                 return false;
             }
 
             if (string.IsNullOrEmpty(name))
             {
-                errorProvider2.SetError(txtName, "Vui lòng nhập tên");
+                errorProvider2.SetError(txtName, "Please enter name");
                 return false;
             }
             else if (ContainsNumbers(name))
             {
-                errorProvider2.SetError(txtName, "Tên không được chứa số");
+                errorProvider2.SetError(txtName, "Name can't contain numbers");
                 return false;
             }
 
 
             if (string.IsNullOrEmpty(Price))
             {
-                errorProvider3.SetError(txtPrice, "Vui lòng nhập giá");
+                errorProvider3.SetError(txtPrice, "Please enter price");
                 return false;
             }
             else if (!IsNumeric(Price))
             {
-                errorProvider3.SetError(txtPrice, "Giá không được chứa chữ");
+                errorProvider3.SetError(txtPrice, "Price can't contain characters");
                 return false;
             }
             return true;
@@ -74,7 +75,7 @@ namespace DoAn01.Home.Manage.Medicine
                 double price = Convert.ToDouble(txtPrice.Text);
                 if (medicine.addMedicine(id, name, price))
                 {
-                    MessageBox.Show("Add Thanh Cong");
+                    MessageBox.Show("Add Success");
                 }
             }
         }
@@ -107,6 +108,44 @@ namespace DoAn01.Home.Manage.Medicine
         private void txtID_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        MY_DB mydb = new MY_DB();
+        Medicine medicine = new Medicine();
+
+        private void AddMedicine_Load(object sender, EventArgs e)
+        {
+            txtID.Text = medicine.id;
+            if (string.IsNullOrEmpty(txtID.Text))
+            {
+                // Thực hiện truy vấn SQL để lấy ID lớn nhất từ cột "id" trong bảng "schedule"
+                string query = "SELECT MAX(CAST(SUBSTRING(id, 2, LEN(id)) AS INT)) FROM medicine";
+
+                SqlCommand command = new SqlCommand(query, mydb.getConnection);
+
+                mydb.openConnection();
+
+                object result = command.ExecuteScalar();
+                int nextID = 1;
+
+                if (result != DBNull.Value)
+                {
+                    // Nếu có kết quả, tăng giá trị lên một
+                    nextID = Convert.ToInt32(result) + 1;
+                }
+
+                mydb.closeConnection();
+
+                // Tạo ID mới với định dạng "S" + số, ví dụ: S01, S02, vv
+                string newID = "M" + nextID.ToString("00");
+
+                txtID.Text = newID;
+            }
+            else
+            {
+                // Nếu txtID.Text không rỗng, hiển thị giá trị của txtID.Text
+                txtID.Text = medicine.id;
+            }
         }
     }
 }

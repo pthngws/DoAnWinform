@@ -21,13 +21,13 @@ namespace DoAn01.Home.Manage.Medicine
         Medicine medicine = new Medicine();
         private void fillGrid(SqlCommand cmd)
         {
-            this.medicineTableAdapter.Fill(this.dentalSmileDataSet2.Medicine);
+          
             dataGridView1.ReadOnly = true;
             DataGridViewImageColumn picCol = new DataGridViewImageColumn();
             dataGridView1.RowTemplate.Height = 80;
             dataGridView1.DataSource = medicine.getMedicines(cmd);
             dataGridView1.AllowUserToAddRows = false;
-            this.medicineTableAdapter.Fill(this.dentalSmileDataSet2.Medicine);
+   
         }
 
         private void UC_Medicine_Load(object sender, EventArgs e)

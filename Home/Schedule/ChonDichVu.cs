@@ -28,9 +28,8 @@ namespace DoAn01
         private void ChonDichVu_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dentalSmileDataSet7.Service' table. You can move, or remove it, as needed.
-            this.serviceTableAdapter1.Fill(this.dentalSmileDataSet7.Service);
+
             // TODO: This line of code loads data into the 'dentalSmileDataSet6.Service' table. You can move, or remove it, as needed.
-            this.serviceTableAdapter.Fill(this.dentalSmileDataSet6.Service);
             SqlCommand cmd = new SqlCommand("select id,name,price from service");
             // Thiết lập DataSource cho guna2DataGridView1
             guna2DataGridView1.DataSource = service.getServices(cmd);

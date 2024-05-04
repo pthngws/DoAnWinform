@@ -35,30 +35,30 @@ namespace DoAn01.Home.Manage.Medicine
             errorProvider3.Clear();
             if (string.IsNullOrEmpty(id))
             {
-                errorProvider1.SetError(txtID, "Vui lòng nhập ID");
+                errorProvider1.SetError(txtID, "Please enter name");
                 return false;
             }
 
             if (string.IsNullOrEmpty(name))
             {
-                errorProvider2.SetError(txtName, "Vui lòng nhập tên");
+                errorProvider2.SetError(txtName, "Please enter name");
                 return false;
             }
             else if (ContainsNumbers(name))
             {
-                errorProvider2.SetError(txtName, "Tên không được chứa số");
+                errorProvider2.SetError(txtName, "Name can't contain numbers");
                 return false;
             }
 
 
             if (string.IsNullOrEmpty(Price))
             {
-                errorProvider3.SetError(txtPrice, "Vui lòng nhập giá");
+                errorProvider3.SetError(txtPrice, "Please enter price");
                 return false;
             }
             else if (!IsNumeric(Price))
             {
-                errorProvider3.SetError(txtPrice, "Giá không được chứa chữ");
+                errorProvider3.SetError(txtPrice, "Price can't contain characters");
                 return false;
             }
             return true;
@@ -84,7 +84,7 @@ namespace DoAn01.Home.Manage.Medicine
                 double price = Convert.ToDouble(txtPrice.Text);
                 if (medicine.updateMedicine(id, name, price))
                 {
-                    MessageBox.Show("Add thanh cong");
+                    MessageBox.Show("Edit Success");
                 }
             }
         }
@@ -93,7 +93,7 @@ namespace DoAn01.Home.Manage.Medicine
         {
             if(medicine.DeleteMedicine(medicine.id))
             {
-                MessageBox.Show("Delete thanh cong");
+                MessageBox.Show("Remove Success");
             }
         }
     }
