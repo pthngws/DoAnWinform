@@ -351,14 +351,14 @@ namespace DoAn01
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            ChonDichVu chonDichVu = new ChonDichVu(idSchedule);
+            ChonDichVu chonDichVu = new ChonDichVu(idSchedule) { StartPosition = FormStartPosition.CenterScreen };
             chonDichVu.ShowDialog();
             UpdateDataTable();
         }
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
-            ChonThuoc chonThuoc = new ChonThuoc(idSchedule);
+            ChonThuoc chonThuoc = new ChonThuoc(idSchedule) { StartPosition = FormStartPosition.CenterScreen };
             chonThuoc.ShowDialog();
             UpdateDataTable();
         }
@@ -400,7 +400,7 @@ namespace DoAn01
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            Bill bill = new Bill(idSchedule);
+            Bill bill = new Bill(idSchedule) { StartPosition = FormStartPosition.CenterScreen };
             bill.ShowDialog();
         }
     }

@@ -138,7 +138,7 @@ namespace DoAn01.Home.Schedule
             if (count > 0)
             {
                 // Nếu tồn tại, mở form PhieuDieuTri
-                PhieuDieuTri phieuDieuTri = new PhieuDieuTri(txtPatientID.Text, dentistid, txtID.Text);
+                PhieuDieuTri phieuDieuTri = new PhieuDieuTri(txtPatientID.Text, dentistid, txtID.Text) { StartPosition = FormStartPosition.CenterScreen };
                 phieuDieuTri.Show();
             }
             else

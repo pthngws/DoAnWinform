@@ -20,7 +20,7 @@ namespace DoAn01.Home
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddPatient addPatient = new AddPatient();
+            AddPatient addPatient = new AddPatient() { StartPosition = FormStartPosition.CenterScreen };
             addPatient.Show();
         }
 

@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Microsoft.ReportingServices.Diagnostics.Internal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +14,7 @@ namespace DoAn01.Home.Manage
 {
     public partial class UC_Shift : UserControl
     {
+        MY_DB mydb = new MY_DB();
         static string ConvertValue(int value)
         {
             switch (value)
@@ -40,7 +43,7 @@ namespace DoAn01.Home.Manage
             DataTable dt = new DataTable();
 
             // Thêm cột ID nhân viên vào DataTable
-            dt.Columns.Add("Employee ID", typeof(string));
+            dt.Columns.Add("Staff ID", typeof(string));
 
             // Thêm cột Tên nhân viên vào DataTable sau cột ID nhân viên
             dt.Columns.Add("Name", typeof(string)).SetOrdinal(1);
@@ -55,14 +58,14 @@ namespace DoAn01.Home.Manage
             dt.Columns.Add("Sunday", typeof(string));
 
             // Thêm cột số ca vào DataTable
-            dt.Columns.Add("Total number of shifts in the week", typeof(int));
+            dt.Columns.Add("Total shifts", typeof(int));
             Staff staff = new Staff();
             DataTable list = staff.GetStaffData();
             // Thêm dữ liệu từ mảng vào DataTable
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 DataRow row = dt.NewRow();
-                row["Employee ID"] = list.Rows[i]["ID"]; // Thiết lập giá trị cho cột ID
+                row["Staff ID"] = list.Rows[i]["ID"]; // Thiết lập giá trị cho cột ID
                 row["Name"] = list.Rows[i]["Name"]; // Thiết lập giá trị cho cột Tên
 
                 int count = 0; // Biến đếm số lượng giá trị khác "FREE" trong hàng
@@ -77,7 +80,7 @@ namespace DoAn01.Home.Manage
                     }
                 }
                 // Đặt giá trị cho cột số ca
-                row["Total number of shifts in the week"] = count;
+                row["Total shifts"] = count;
                 dt.Rows.Add(row);
             }
 
@@ -206,7 +209,7 @@ namespace DoAn01.Home.Manage
                 // Filter the DataTable to include only rows where the "ID nhân viên" column is equal to "ID"
                 DataTable filteredDt = dt.AsEnumerable()
 
-                    .Where(row => row.Field<string>("Employee ID") == Global.GlobalID.ToUpper())
+                    .Where(row => row.Field<string>("Staff ID") == Global.GlobalID.ToUpper())
                     .CopyToDataTable();
 
                 // Bind the filtered DataTable to the DataGridView
@@ -222,29 +225,81 @@ namespace DoAn01.Home.Manage
         {
             InitializeComponent();
 
+            // Khởi tạo đối tượng SqlConnection
+            SqlConnection connection = mydb.getConnection;
+            try
+            {
+                string query = "SELECT number_cases, number_staff FROM shift WHERE id = '1'";
+
+                // Khởi tạo đối tượng SqlCommand
+                SqlCommand cmd = new SqlCommand(query, connection);
+
+                // Mở kết nối
+                connection.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+
+                // Đọc dữ liệu từ SqlDataReader
+                if (reader.Read())
+                {
+                    int numberCases = reader.GetInt32(0);
+                    int numberEmployees = reader.GetInt32(1);
+
+                    // Hiển thị dữ liệu trong các control của giao diện người dùng
+                    soca.Value = numberCases;
+                    sonhanvien1ca.Value = numberEmployees;
+                }
+                else
+                {
+
+                }
+                // Đóng SqlDataReader
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                // Đảm bảo rằng kết nối được đóng sau khi sử dụng
+                if (connection.State != ConnectionState.Closed)
+                {
+                    connection.Close();
+                }
+            }
+
             if (Global.GlobalRole == "staff")
             {
-
-                // Hide additional components if necessary
+                // Ẩn các thành phần bổ sung nếu cần
                 label1.Visible = false;
                 label2.Visible = false;
                 sonhanvien1ca.Visible = false;
                 soca.Visible = false;
                 btnView.Visible = false;
-
             }
+
             btnView_Click(null, null);
         }
 
+
         private void btnView_Click(object sender, EventArgs e)
         {
+
             int sonv1ca = (int)sonhanvien1ca.Value;
             int socalam = (int)soca.Value;
+           
+            mydb.closeConnection();
             DataTable dt = staff.GetStaffData();
 
             int n = dt.Rows.Count;
             if (sonv1ca * socalam < n)
             {
+                SqlCommand cmd = new SqlCommand("UPDATE shift SET number_cases = @SoCa, number_staff = @SoNhanVien WHERE id = '1'", mydb.getConnection);
+                mydb.openConnection();
+                cmd.Parameters.AddWithValue("@SoCa", (int)soca.Value);
+                cmd.Parameters.AddWithValue("@SoNhanVien", (int)sonhanvien1ca.Value);
+                int rowsAffected = cmd.ExecuteNonQuery();
+
                 taolichchonhanvien(n, guna2DataGridView1, sonv1ca, socalam);
             }
             else
@@ -257,5 +312,6 @@ namespace DoAn01.Home.Manage
         {
 
         }
+
     }
 }

@@ -61,6 +61,7 @@ namespace DoAn01
                         Staff staff = new Staff(txtUsername.Text, txtPassword.Text);
                         if (staff.LoginStaff()!=null)
                         {
+
                             Main main = new Main();
                             main.StartPosition = FormStartPosition.CenterParent;
                             main.ShowDialog();
@@ -157,5 +158,9 @@ namespace DoAn01
             resetPassword.Show();
         }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

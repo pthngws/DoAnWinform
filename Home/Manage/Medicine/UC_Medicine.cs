@@ -58,7 +58,7 @@ namespace DoAn01.Home.Manage.Medicine
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddMedicine addmedicine = new AddMedicine();
+            AddMedicine addmedicine = new AddMedicine() { StartPosition = FormStartPosition.CenterScreen };
             addmedicine.Show();
         }
 

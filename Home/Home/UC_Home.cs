@@ -7,9 +7,9 @@ namespace DoAn01
     public partial class UC_Home : UserControl
     {
         private string[] imagePaths = {
-            @"C:\Users\thang\source\repos\DoAnWinform\Home_Load\z5409174444330_5b6c43afbf0a4d96d396e9d7ce6ae853.jpg",
-            @"C:\Users\thang\source\repos\DoAnWinform\Home_Load\z5409146973037_b1b2f71e1df6ffc071913d491a34d215.jpg",
-            @"C:\Users\thang\source\repos\DoAnWinform\Home_Load\istockphoto-1222376322-612x612.jpg"
+            @"C:\Users\thang\source\repos\DoAnWinform\Home_Load\1.jpg",
+            @"C:\Users\thang\source\repos\DoAnWinform\Home_Load\2.jpg",
+            @"C:\Users\thang\source\repos\DoAnWinform\Home_Load\3.jpg"
         };
 
         private int currentImageIndex = 0;

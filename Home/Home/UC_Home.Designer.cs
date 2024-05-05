@@ -173,9 +173,11 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.AliceBlue;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(9, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(581, 550);
+            this.pictureBox1.Size = new System.Drawing.Size(581, 549);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 60;
             this.pictureBox1.TabStop = false;
@@ -186,7 +188,7 @@
             this.radioButton3.CheckedState.BorderThickness = 0;
             this.radioButton3.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(26)))), ((int)(((byte)(150)))));
             this.radioButton3.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.radioButton3.Location = new System.Drawing.Point(334, 555);
+            this.radioButton3.Location = new System.Drawing.Point(329, 554);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(10, 14);
             this.radioButton3.TabIndex = 59;
@@ -202,7 +204,7 @@
             this.radioButton2.CheckedState.BorderThickness = 0;
             this.radioButton2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(26)))), ((int)(((byte)(150)))));
             this.radioButton2.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.radioButton2.Location = new System.Drawing.Point(318, 555);
+            this.radioButton2.Location = new System.Drawing.Point(313, 554);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(10, 14);
             this.radioButton2.TabIndex = 58;
@@ -219,7 +221,7 @@
             this.radioButton1.CheckedState.BorderThickness = 0;
             this.radioButton1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(26)))), ((int)(((byte)(150)))));
             this.radioButton1.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.radioButton1.Location = new System.Drawing.Point(302, 555);
+            this.radioButton1.Location = new System.Drawing.Point(297, 554);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(10, 14);
             this.radioButton1.TabIndex = 57;

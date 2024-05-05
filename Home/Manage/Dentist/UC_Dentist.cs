@@ -20,7 +20,7 @@ namespace DoAn01.Home.Manage.Dentist
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddDentist adddentist = new AddDentist();
+            AddDentist adddentist = new AddDentist() { StartPosition = FormStartPosition.CenterScreen };
             adddentist.Show();
         }
         Dentist dentist = new Dentist();
@@ -50,7 +50,7 @@ namespace DoAn01.Home.Manage.Dentist
         {
             
             Dentist dentist = new Dentist();
-            InfoDentist infoDentist = new InfoDentist(dentist.GetDentistById(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
+            InfoDentist infoDentist = new InfoDentist(dentist.GetDentistById(dataGridView1.CurrentRow.Cells[0].Value.ToString())) { StartPosition = FormStartPosition.CenterScreen };
             infoDentist.Show();
         }
 

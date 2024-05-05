@@ -32,7 +32,7 @@ namespace DoAn01.Home.Manage.Service
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddService addService = new AddService();
+            AddService addService = new AddService() { StartPosition = FormStartPosition.CenterScreen };
             addService.Show();
         }
 

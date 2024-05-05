@@ -98,8 +98,22 @@ namespace DoAn01
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            // Hiển thị hộp thoại xác nhận
+            DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Confirm Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Nếu người dùng chọn "Yes", đóng form
+            if (result == DialogResult.Yes)
+            {
+                // Duyệt qua danh sách các form con và đóng từng form một
+         
+
+                // Đóng form cha
+                this.Close();
+
+            }
         }
+
+
 
         private void btnManage_Click(object sender, EventArgs e)
         {
@@ -118,13 +132,13 @@ namespace DoAn01
             if (Global.GlobalRole == "dentist")
             {
                 Dentist dentist = new Dentist();
-                InfoDentist infoDentist = new InfoDentist(dentist.GetDentistById(Global.GlobalID));
+                InfoDentist infoDentist = new InfoDentist(dentist.GetDentistById(Global.GlobalID)) { StartPosition = FormStartPosition.CenterScreen };
                     infoDentist.Show();
             }
             else if(Global.GlobalRole =="staff")
             {
                 Staff staff = new Staff();
-                InfoStaff infoStaff = new InfoStaff(staff.GetStaffById(Global.GlobalID));
+                InfoStaff infoStaff = new InfoStaff(staff.GetStaffById(Global.GlobalID)) { StartPosition = FormStartPosition.CenterScreen };
                 infoStaff.Show();
             }    
         }

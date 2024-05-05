@@ -40,8 +40,15 @@ namespace DoAn01
             DataRowView drv = (DataRowView)listBox1.SelectedItem;
             string id = drv.Row[0].ToString();
             string dentistid = drv.Row[1].ToString();
-            PhieuDieuTri phieu = new PhieuDieuTri(patientid,dentistid,id);
+            PhieuDieuTri phieu = new PhieuDieuTri(patientid,dentistid,id) { StartPosition = FormStartPosition.CenterScreen };
+            phieu.Enabled = false;
             phieu.Show();
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

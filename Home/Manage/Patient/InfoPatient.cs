@@ -130,7 +130,7 @@ namespace DoAn01.Home
 
         private void linkLabelHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            LichSuDieuTri lichSuDieuTri = new LichSuDieuTri(patient.id);
+            LichSuDieuTri lichSuDieuTri = new LichSuDieuTri(patient.id) { StartPosition = FormStartPosition.CenterScreen };
             lichSuDieuTri.Show();
         }
     }

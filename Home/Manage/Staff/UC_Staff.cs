@@ -44,7 +44,7 @@ namespace DoAn01
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Staff dentist = new Staff();
-            InfoStaff infoDentist = new InfoStaff(staff.GetStaffById(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
+            InfoStaff infoDentist = new InfoStaff(staff.GetStaffById(dataGridView1.CurrentRow.Cells[0].Value.ToString())) { StartPosition = FormStartPosition.CenterScreen };
             infoDentist.Show();
         }
 
