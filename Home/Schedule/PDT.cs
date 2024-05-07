@@ -12,19 +12,18 @@ namespace DoAn01
     internal class PDT
     {
         MY_DB mydb = new MY_DB();
-        public bool InsertData(string adv, string lotrinh,string scheduleid,double rating,double price,string ngaytaikham)
+        public bool InsertData(string adv,string scheduleid,double rating,double price,string ngaytaikham)
         {
 
                     
                     // Tạo câu lệnh SQL chèn dữ liệu vào bảng PhieuDieuTri
-                    string query = "INSERT INTO PhieuDieuTri (Advice, LoTrinh,scheduleid,rating,price,ngaytaikham) VALUES (@Advise, @LoTrinh,@id,@rating,@price,@ngaytaikham)";
+                    string query = "INSERT INTO PhieuDieuTri (Advice,scheduleid,rating,price,ngaytaikham) VALUES (@Advise,@id,@rating,@price,@ngaytaikham)";
 
                     using (SqlCommand command = new SqlCommand(query, mydb.getConnection))
                     {
                     mydb.openConnection();
                         // Thêm tham số cho câu lệnh SQL để tránh tình trạng SQL injection
                         command.Parameters.AddWithValue("@Advise", adv);
-                        command.Parameters.AddWithValue("@LoTrinh", lotrinh);
                     command.Parameters.AddWithValue("@id", scheduleid);
                 command.Parameters.AddWithValue("@rating", rating);
                 command.Parameters.AddWithValue("@price", price);
@@ -40,17 +39,16 @@ namespace DoAn01
    
 
         }
-        public bool UpdateData(string adv, string lotrinh, string scheduleid,double rating,double price)
+        public bool UpdateData(string adv, string scheduleid,double rating,double price)
         {
             // Tạo câu lệnh SQL cập nhật dữ liệu trong bảng PhieuDieuTri
-            string query = "UPDATE PhieuDieuTri SET Advice = @Advise, LoTrinh = @LoTrinh, rating = @rating,price = @price WHERE scheduleid = @id";
+            string query = "UPDATE PhieuDieuTri SET Advice = @Advise, rating = @rating,price = @price WHERE scheduleid = @id";
 
             using (SqlCommand command = new SqlCommand(query, mydb.getConnection))
             {
                 mydb.openConnection();
                 // Thêm tham số cho câu lệnh SQL để tránh tình trạng SQL injection
                 command.Parameters.AddWithValue("@Advise", adv);
-                command.Parameters.AddWithValue("@LoTrinh", lotrinh);
                 command.Parameters.AddWithValue("@id", scheduleid);
                 command.Parameters.AddWithValue("@rating", rating);
                 command.Parameters.AddWithValue("@price", price);

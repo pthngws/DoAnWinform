@@ -119,19 +119,26 @@ namespace DoAn01.Home
 
         }
 
-        private void btnRemove_Click(object sender, EventArgs e)
+/*        private void btnRemove_Click(object sender, EventArgs e)
         {
-            DialogResult result;
             if (patient.DeletePatient(patient.id))
             {
                 MessageBox.Show("Remove Success");
             }
         }
-
+*/
         private void linkLabelHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             LichSuDieuTri lichSuDieuTri = new LichSuDieuTri(patient.id) { StartPosition = FormStartPosition.CenterScreen };
             lichSuDieuTri.Show();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LoTrinh loTrinh = new LoTrinh(patient.id)
+            { StartPosition = FormStartPosition.CenterScreen };
+            loTrinh.Enabled = false;
+            loTrinh.Show();
         }
     }
 }

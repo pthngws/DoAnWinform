@@ -49,12 +49,6 @@ namespace DoAn01 // Quản Lý Bệnh Nhân
         }
         public bool insertPatient(string id, string name, string address, string phone, DateTime dob, string gender)
         {
-            if (IsPatientIdExists(id))
-            {
-               
-                MessageBox.Show("ID already exists");
-                return false;
-            }
 
             SqlCommand command = new SqlCommand("INSERT INTO patient (id,name, address, phone, dob, gender) " +
                                                 "VALUES (@id,@name, @address, @phone, @dob, @gender)", mydb.getConnection);
@@ -77,6 +71,7 @@ namespace DoAn01 // Quản Lý Bệnh Nhân
                 mydb.closeConnection();
                 return false;
             }
+            return false;
         }
 
 
@@ -138,9 +133,9 @@ namespace DoAn01 // Quản Lý Bệnh Nhân
             }
         }
 
-        public bool DeletePatient(string id)
+/*        public bool DeletePatient(string id)
         {
-            SqlCommand command = new SqlCommand("Delete from patient where id = @id",mydb.getConnection);
+            SqlCommand command = new SqlCommand("Delete from patient where id = @id", mydb.getConnection);
             command.Parameters.AddWithValue("@id", id);
             mydb.openConnection();
 
@@ -155,7 +150,8 @@ namespace DoAn01 // Quản Lý Bệnh Nhân
                 mydb.closeConnection();
                 return false;
             }
-        }
+            return false;
+        }*/
         public DataTable getPatients(SqlCommand command)
         {
             command.Connection = mydb.getConnection;
@@ -165,15 +161,8 @@ namespace DoAn01 // Quản Lý Bệnh Nhân
             return TABLE;
         }
 
-        private bool IsPatientIdExists(string id)
-        {
-            SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM patient WHERE id = @id", mydb.getConnection);
-            command.Parameters.AddWithValue("@id", id);
-            mydb.openConnection();
-            int count = (int)command.ExecuteScalar();
-            mydb.closeConnection();
-            return count > 0;
-        }
+      
+
 
         /*        public DataTable GetTreatmentHistory(int patientID)
                 {

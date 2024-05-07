@@ -41,7 +41,6 @@
             this.txtName = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtID = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnRemove = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddFace = new Guna.UI2.WinForms.Guna2Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,6 +50,7 @@
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider4 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider5 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
@@ -68,10 +68,10 @@
             this.btnEdit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(26)))), ((int)(((byte)(150)))));
             this.btnEdit.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.White;
-            this.btnEdit.Location = new System.Drawing.Point(109, 433);
+            this.btnEdit.Location = new System.Drawing.Point(325, 429);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(168, 46);
+            this.btnEdit.Size = new System.Drawing.Size(108, 46);
             this.btnEdit.TabIndex = 23;
             this.btnEdit.Text = "Edit";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -252,25 +252,6 @@
             this.txtID.Size = new System.Drawing.Size(331, 44);
             this.txtID.TabIndex = 12;
             // 
-            // btnRemove
-            // 
-            this.btnRemove.BackColor = System.Drawing.Color.AliceBlue;
-            this.btnRemove.BorderRadius = 10;
-            this.btnRemove.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnRemove.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnRemove.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnRemove.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnRemove.FillColor = System.Drawing.Color.DarkRed;
-            this.btnRemove.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.ForeColor = System.Drawing.Color.White;
-            this.btnRemove.Location = new System.Drawing.Point(284, 433);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(155, 46);
-            this.btnRemove.TabIndex = 24;
-            this.btnRemove.Text = "Remove";
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
-            // 
             // btnAddFace
             // 
             this.btnAddFace.BorderRadius = 10;
@@ -281,10 +262,10 @@
             this.btnAddFace.FillColor = System.Drawing.Color.Green;
             this.btnAddFace.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddFace.ForeColor = System.Drawing.Color.White;
-            this.btnAddFace.Location = new System.Drawing.Point(241, 351);
+            this.btnAddFace.Location = new System.Drawing.Point(107, 429);
             this.btnAddFace.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddFace.Name = "btnAddFace";
-            this.btnAddFace.Size = new System.Drawing.Size(198, 46);
+            this.btnAddFace.Size = new System.Drawing.Size(213, 46);
             this.btnAddFace.TabIndex = 25;
             this.btnAddFace.Text = "Add FaceID";
             this.btnAddFace.Click += new System.EventHandler(this.btnAddFace_Click);
@@ -313,7 +294,7 @@
             // 
             this.linkLabelHistory.AutoSize = true;
             this.linkLabelHistory.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelHistory.Location = new System.Drawing.Point(105, 359);
+            this.linkLabelHistory.Location = new System.Drawing.Point(363, 242);
             this.linkLabelHistory.Name = "linkLabelHistory";
             this.linkLabelHistory.Size = new System.Drawing.Size(75, 23);
             this.linkLabelHistory.TabIndex = 28;
@@ -341,17 +322,29 @@
             // 
             this.errorProvider5.ContainerControl = this;
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(105, 242);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(208, 23);
+            this.linkLabel1.TabIndex = 29;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Treatment Roadmap";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // InfoPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(445, 486);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.linkLabelHistory);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnAddFace);
-            this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.guna2DateTimePicker1);
             this.Controls.Add(this.RadioButtonFemale);
@@ -392,7 +385,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtName;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox txtID;
-        private Guna.UI2.WinForms.Guna2Button btnRemove;
         private Guna.UI2.WinForms.Guna2Button btnAddFace;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -402,5 +394,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider3;
         private System.Windows.Forms.ErrorProvider errorProvider4;
         private System.Windows.Forms.ErrorProvider errorProvider5;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

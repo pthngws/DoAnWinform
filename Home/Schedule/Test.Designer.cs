@@ -63,7 +63,7 @@
             // 
             // guna2Elipse1
             // 
-            this.guna2Elipse1.BorderRadius = 30;
+            this.guna2Elipse1.BorderRadius = 10;
             // 
             // guna2RatingStar1
             // 

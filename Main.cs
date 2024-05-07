@@ -32,7 +32,7 @@ namespace DoAn01
             if(Global.GlobalRole == "dentist")
             {
                 Dentist dentist = new Dentist();
-
+                btnSetting.Visible = false;
                 btnShift.Visible = false;
             }
         }

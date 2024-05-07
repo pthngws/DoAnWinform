@@ -34,6 +34,11 @@ namespace DoAn01
             this.patientID = patientID;
             this.dentistID = dentistID;
             this.idSchedule = idSchedule;
+            if(Global.GlobalRole =="dentist")
+            {
+                guna2Button1.Visible = false;
+                btnPrint.Visible = false;
+            }    
 
             // Thực hiện truy vấn để lấy thông tin của bệnh nhân dựa trên patientID
             string query = "SELECT name, address, gender, phone FROM patient WHERE id = @PatientID";
@@ -93,7 +98,7 @@ namespace DoAn01
 
             // Thiết lập DataSource cho DataGridView
             guna2DataGridView1.DataSource = dataTable;
-            SqlCommand cmd2 = new SqlCommand("select advice,lotrinh, ngaytaikham from PhieuDieuTri where scheduleid=@idSchedule", mydb.getConnection);
+            SqlCommand cmd2 = new SqlCommand("select advice, ngaytaikham from PhieuDieuTri where scheduleid=@idSchedule", mydb.getConnection);
             cmd2.Parameters.AddWithValue("idSchedule", idSchedule);
             SqlDataAdapter  adapter1 = new SqlDataAdapter(cmd2);
             DataTable dataTable1 = new DataTable();
@@ -102,12 +107,10 @@ namespace DoAn01
 {
                 // Lấy dữ liệu từ hàng đầu tiên của DataTable
                 string advice = dataTable1.Rows[0]["advice"].ToString();
-                string lotrinh = dataTable1.Rows[0]["lotrinh"].ToString();
                 string ngayTaiKham = dataTable1.Rows[0]["ngaytaikham"].ToString();
 
                 // Gán dữ liệu vào các TextBox
                 txtAdvise.Text = advice;
-                txtLLoTrinh.Text = lotrinh;
                 guna2DateTimePicker1.Text = ngayTaiKham;
             }
 
@@ -231,7 +234,6 @@ namespace DoAn01
             string adv = txtAdvise.Text;
             DateTime ngay = DateTime.Now; // Ví dụ: Ngày hiện tại
             string ngaytaikham = ngay.ToString("yyyy-MM-dd");
-            string lotrinh = txtLLoTrinh.Text;
             rating = ratingStar.Value;
             // Kiểm tra xem scheduleid đã tồn tại trong cơ sở dữ liệu hay chưa
             bool isExisting = IsScheduleIdExisting(idSchedule);
@@ -248,7 +250,7 @@ namespace DoAn01
             else
             {
                 // Nếu scheduleid chưa tồn tại, thực hiện chèn mới
-                if (pDT.InsertData(adv, lotrinh, idSchedule,rating, price,ngaytaikham))
+                if (pDT.InsertData(adv, idSchedule,rating, price,ngaytaikham))
                 {
                     mydb.openConnection();
                     SqlCommand command = new SqlCommand("update LichSuDichVu set status = @tt where idSchedule = @ID", mydb.getConnection);
@@ -299,15 +301,13 @@ namespace DoAn01
             // Ẩn TextBox và hiển thị Label
             txtAdvise.Visible = false;
             label12.Visible = true;
-            label13.Text = txtLLoTrinh.Text;
+
 
             label15.Text = guna2DateTimePicker1.Value.ToString("dd/MM/yyyy");
 
             guna2DateTimePicker1.Visible = false;
             label15.Visible = true;
             // Ẩn TextBox và hiển thị Label
-            txtLLoTrinh.Visible = false;
-            label13.Visible = true;
 
             Print(this.panel1);
         }
@@ -402,6 +402,12 @@ namespace DoAn01
         {
             Bill bill = new Bill(idSchedule) { StartPosition = FormStartPosition.CenterScreen };
             bill.ShowDialog();
+        }
+
+        private void btnLotrinh_Click(object sender, EventArgs e)
+        {
+            LoTrinh loTrinh = new LoTrinh(patientID) { StartPosition = FormStartPosition.CenterScreen }; ;
+            loTrinh.ShowDialog();
         }
     }
 }

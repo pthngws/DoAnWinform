@@ -114,6 +114,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetBill.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DentalSmileDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DentalSmileDataSet11.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Home\Shift\UC_Shift.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -343,6 +348,12 @@
     <Compile Include="FaceID\LoginFaceID.Designer.cs">
       <DependentUpon>LoginFaceID.cs</DependentUpon>
     </Compile>
+    <Compile Include="Home\Schedule\LoTrinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\Schedule\LoTrinh.Designer.cs">
+      <DependentUpon>LoTrinh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -477,6 +488,9 @@
     <EmbeddedResource Include="FaceID\LoginFaceID.resx">
       <DependentUpon>LoginFaceID.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Home\Schedule\LoTrinh.resx">
+      <DependentUpon>LoTrinh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -553,6 +567,17 @@
     </None>
     <None Include="DentalSmileDataSet10.xss">
       <DependentUpon>DentalSmileDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="DentalSmileDataSet11.xsc">
+      <DependentUpon>DentalSmileDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="DentalSmileDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DentalSmileDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DentalSmileDataSet11.xss">
+      <DependentUpon>DentalSmileDataSet11.xsd</DependentUpon>
     </None>
     <None Include="DentalSmileDataSet2.xsc">
       <DependentUpon>DentalSmileDataSet2.xsd</DependentUpon>

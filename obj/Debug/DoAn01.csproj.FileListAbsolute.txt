@@ -314,3 +314,4 @@ C:\Users\thang\source\repos\DoAnWinform\bin\Debug\ru\Microsoft.ReportViewer.WinF
 C:\Users\thang\source\repos\DoAnWinform\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\thang\source\repos\DoAnWinform\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\thang\source\repos\DoAnWinform\obj\Debug\DoAn01.Home.Manage.UC_Shift.resources
+C:\Users\thang\source\repos\DoAnWinform\obj\Debug\DoAn01.LoTrinh.resources
