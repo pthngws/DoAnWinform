@@ -249,8 +249,12 @@ namespace DoAn01
             }
             else
             {
+                if(price == 0)
+                {
+                    MessageBox.Show("Please choose service or medicine!");
+                }    
                 // Nếu scheduleid chưa tồn tại, thực hiện chèn mới
-                if (pDT.InsertData(adv, idSchedule,rating, price,ngaytaikham))
+                else if (pDT.InsertData(adv, idSchedule,rating, price,ngaytaikham))
                 {
                     mydb.openConnection();
                     SqlCommand command = new SqlCommand("update LichSuDichVu set status = @tt where idSchedule = @ID", mydb.getConnection);

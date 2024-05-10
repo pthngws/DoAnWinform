@@ -16,6 +16,7 @@ namespace DoAn01
         public Login()
         {
             InitializeComponent();
+            txtPassword.UseSystemPasswordChar = true;
         }
         public event EventHandler LoginButtonClicked;
         public event EventHandler LoginButtonFaceIDClicked;
@@ -99,33 +100,30 @@ namespace DoAn01
             }
         }
         bool passwordChar = true;
-        private void guna2CheckBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            passwordChar = !passwordChar;
-            if (passwordChar)
-            {
-                txtPassword.UseSystemPasswordChar = true;
-            }
-            else
-            {
-                txtPassword.UseSystemPasswordChar = false;
-            }
-        }
-
 
 
 
         private void Login_Load(object sender, EventArgs e)
         {
-            txtPassword.UseSystemPasswordChar = true;
+            
         }
 
 
 
+        private void guna2CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            // Thay đổi trạng thái hiển thị mật khẩu khi checkbox được thay đổi
+            txtPassword.UseSystemPasswordChar = !guna2CheckBox1.Checked;
+        }
+
         private void txtPassword_MouseClick(object sender, MouseEventArgs e)
         {
-
-            guna2CheckBox1.Checked = false;
+            // Nếu mật khẩu đang được ẩn, hiển thị nó khi người dùng nhấp vào ô nhập mật khẩu
+            if (txtPassword.UseSystemPasswordChar)
+            {
+                txtPassword.UseSystemPasswordChar = false;
+                guna2CheckBox1.Checked = false;
+            }
         }
         LoginFaceID loginFaceID;
         private void btnFaceID_Click(object sender, EventArgs e)

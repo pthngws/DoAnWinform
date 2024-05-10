@@ -66,9 +66,17 @@ namespace DoAn01.Home.Manage.Service
             return input.Any(char.IsDigit);
         }
 
-        bool IsNumeric(string input)
+        private bool IsNumeric(string input)
         {
-            return int.TryParse(input, out _);
+            foreach (char c in input)
+            {
+                // Kiểm tra nếu ký tự không phải là số
+                if (!char.IsDigit(c))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {

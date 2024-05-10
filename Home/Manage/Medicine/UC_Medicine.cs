@@ -42,7 +42,8 @@ namespace DoAn01.Home.Manage.Medicine
             medicine.name = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             medicine.price =Convert.ToDouble(dataGridView1.CurrentRow.Cells[2].Value.ToString());
             InfoMedicine infomedicine = new InfoMedicine(medicine) { StartPosition = FormStartPosition.CenterScreen };
-            infomedicine.Show();
+            infomedicine.ShowDialog();
+            UC_Medicine_Load(sender, e);
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -59,7 +60,8 @@ namespace DoAn01.Home.Manage.Medicine
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddMedicine addmedicine = new AddMedicine() { StartPosition = FormStartPosition.CenterScreen };
-            addmedicine.Show();
+            addmedicine.ShowDialog();
+            UC_Medicine_Load(sender, e);
         }
 
         private void medicineBindingSource_CurrentChanged(object sender, EventArgs e)

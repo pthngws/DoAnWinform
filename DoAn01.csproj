@@ -883,6 +883,9 @@
     <None Include="Resources\icons8-write-50.png" />
     <None Include="Resources\icons8-hotline-20.png" />
     <None Include="Resources\icons8-address-20.png" />
+    <None Include="Resources\TaeAugust21.jpg" />
+    <None Include="Resources\TaeAugust211.jpg" />
+    <None Include="Home_Load\login.jpg" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

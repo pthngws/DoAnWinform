@@ -45,7 +45,8 @@ namespace DoAn01
         {
             Staff dentist = new Staff();
             InfoStaff infoDentist = new InfoStaff(staff.GetStaffById(dataGridView1.CurrentRow.Cells[0].Value.ToString())) { StartPosition = FormStartPosition.CenterScreen };
-            infoDentist.Show();
+            infoDentist.ShowDialog();
+            UC_Staff_Load(sender, e);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

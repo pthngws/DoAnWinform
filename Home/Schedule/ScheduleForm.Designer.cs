@@ -77,9 +77,9 @@
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label6.Location = new System.Drawing.Point(333, 316);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 23);
+            this.label6.Size = new System.Drawing.Size(106, 23);
             this.label6.TabIndex = 27;
-            this.label6.Text = "Busy";
+            this.label6.Text = "Examined";
             // 
             // label5
             // 
@@ -87,9 +87,9 @@
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label5.Location = new System.Drawing.Point(150, 316);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 23);
+            this.label5.Size = new System.Drawing.Size(134, 23);
             this.label5.TabIndex = 26;
-            this.label5.Text = "Free";
+            this.label5.Text = "Unexamined";
             // 
             // btnAdd
             // 

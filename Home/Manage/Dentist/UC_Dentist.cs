@@ -51,7 +51,8 @@ namespace DoAn01.Home.Manage.Dentist
             
             Dentist dentist = new Dentist();
             InfoDentist infoDentist = new InfoDentist(dentist.GetDentistById(dataGridView1.CurrentRow.Cells[0].Value.ToString())) { StartPosition = FormStartPosition.CenterScreen };
-            infoDentist.Show();
+            infoDentist.ShowDialog();
+            UC_Dentist_Load(sender, e);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

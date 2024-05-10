@@ -100,7 +100,8 @@ namespace DoAn01.Home.Schedule
             Schedule schedule = new Schedule();
             schedule = schedule.getSchedule(id, ca, date);
             ScheduleForm schedulef = new ScheduleForm(schedule, ca, id, date) { StartPosition = FormStartPosition.CenterScreen };
-            schedulef.Show();
+            schedulef.ShowDialog();
+
         }
     }
 }

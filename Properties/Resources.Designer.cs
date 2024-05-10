@@ -743,6 +743,16 @@ namespace DoAn01.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap login {
+            get {
+                object obj = ResourceManager.GetObject("login", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pass {
             get {
                 object obj = ResourceManager.GetObject("pass", resourceCulture);
@@ -766,6 +776,36 @@ namespace DoAn01.Properties {
         internal static System.Drawing.Bitmap Screenshot_2024_03_16_135455 {
             get {
                 object obj = ResourceManager.GetObject("Screenshot 2024-03-16 135455", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2024_03_16_1354551 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot 2024-03-16 1354551", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TaeAugust21 {
+            get {
+                object obj = ResourceManager.GetObject("TaeAugust21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TaeAugust211 {
+            get {
+                object obj = ResourceManager.GetObject("TaeAugust211", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

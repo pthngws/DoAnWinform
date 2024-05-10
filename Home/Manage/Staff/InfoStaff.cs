@@ -76,9 +76,17 @@ namespace DoAn01
             return input.Any(char.IsDigit);
         }
 
-        bool IsNumeric(string input)
+        private bool IsNumeric(string input)
         {
-            return int.TryParse(input, out _);
+            foreach (char c in input)
+            {
+                // Kiểm tra nếu ký tự không phải là số
+                if (!char.IsDigit(c))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
@@ -128,9 +136,15 @@ namespace DoAn01
             txtPhone.Text = staff.phone;
             txtAddress.Text = staff.address;
             if (staff.Gender == "Male")
+            {
                 RadioButtonMale.Checked = true;
+                RadioButtonFemale.Checked = false;
+            }
             else
+            {
                 RadioButtonMale.Checked = false;
+                RadioButtonFemale.Checked = true;
+            }
             if (staff.Dob != DateTime.MinValue)
             {
                 guna2DateTimePicker1.Value = staff.Dob;

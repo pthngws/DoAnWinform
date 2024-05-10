@@ -33,7 +33,8 @@ namespace DoAn01.Home.Manage.Service
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddService addService = new AddService() { StartPosition = FormStartPosition.CenterScreen };
-            addService.Show();
+            addService.ShowDialog();
+            UC_Service_Load_1(sender, e);
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -42,7 +43,8 @@ namespace DoAn01.Home.Manage.Service
             service.name = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             service.price = Convert.ToDouble(dataGridView1.CurrentRow.Cells[2].Value.ToString());
             InfoService infoservice = new InfoService(service) { StartPosition = FormStartPosition.CenterScreen };
-            infoservice.Show();
+            infoservice.ShowDialog();
+            UC_Service_Load_1(sender, e);
 
         }
         private void txtSearch_KeyUp(object sender, KeyEventArgs e)
@@ -57,7 +59,8 @@ namespace DoAn01.Home.Manage.Service
             service.name = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             service.price = Convert.ToDouble(dataGridView1.CurrentRow.Cells[2].Value.ToString());
             InfoService infoservice = new InfoService(service) { StartPosition = FormStartPosition.CenterScreen };
-            infoservice.Show();
+            infoservice.ShowDialog();
+            UC_Service_Load_1(sender, e);
         }
 
         private void UC_Service_Load_1(object sender, EventArgs e)

@@ -43,9 +43,15 @@ namespace DoAn01.Home
             txtPhone.Text = patient.phone;
             txtAddress.Text = patient.address;
             if(patient.Gender =="Male")
+            {
                 RadioButtonMale.Checked = true;
+                RadioButtonFemale.Checked = false;
+            }
             else
+            {
                 RadioButtonMale.Checked = false;
+                RadioButtonFemale.Checked = true;
+            }
             guna2DateTimePicker1.Value = patient.Dob;
         }
         bool verify(string id, string name, string address, string phone)
@@ -97,9 +103,17 @@ namespace DoAn01.Home
             return input.Any(char.IsDigit);
         }
 
-        bool IsNumeric(string input)
+        private bool IsNumeric(string input)
         {
-            return int.TryParse(input, out _);
+            foreach (char c in input)
+            {
+                // Kiểm tra nếu ký tự không phải là số
+                if (!char.IsDigit(c))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {

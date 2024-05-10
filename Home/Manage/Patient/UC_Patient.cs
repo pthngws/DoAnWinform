@@ -21,7 +21,8 @@ namespace DoAn01.Home
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddPatient addPatient = new AddPatient() { StartPosition = FormStartPosition.CenterScreen };
-            addPatient.Show();
+            addPatient.ShowDialog();
+            UC_Patient_Load(sender, e);
         }
 
         private void btnFaceID_Click(object sender, EventArgs e)
@@ -44,7 +45,8 @@ namespace DoAn01.Home
             patient.Gender = dataGridView1.CurrentRow.Cells[4].Value.ToString();
             patient.phone = dataGridView1.CurrentRow.Cells[5].Value.ToString();
             InfoPatient infoPatient = new InfoPatient(patient) { StartPosition = FormStartPosition.CenterScreen};
-            infoPatient.Show();
+            infoPatient.ShowDialog();
+            UC_Patient_Load(sender, e);
         }
         Patient patient = new Patient();
         private void UC_Patient_Load(object sender, EventArgs e)
